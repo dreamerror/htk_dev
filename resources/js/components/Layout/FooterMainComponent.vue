@@ -59,8 +59,6 @@ export default {
     name: "FooterMainComponent"
 }
 
-// TODO: FontAwesome icons
-
 </script>
 
 <style scoped lang="scss">
@@ -70,7 +68,6 @@ export default {
         background: #316851;
         display: flex;
         flex-direction: column;
-        margin-top: 100%;
         padding: 1vh 1vw;
     }
 

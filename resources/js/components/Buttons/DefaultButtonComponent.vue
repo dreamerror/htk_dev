@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
     .button-wrapper {
         display: flex;
