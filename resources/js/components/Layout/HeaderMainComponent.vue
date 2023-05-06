@@ -8,7 +8,7 @@
                 </a>
                 <div class="berkut right">
                     <a href="tel:+74233130950">+7 (42331) 309-50</a>
-                    <span>Перевозки "Беркут"</span>
+                    <span>Перевозки «Беркут»</span>
                 </div>
             </div>
 
@@ -17,7 +17,7 @@
                     <img src="/storage/htk.svg" alt="HTK">
                 </a>
                 <div class="htk right">
-                    <a href="tel:+74232022521,+7&nbsp;902&nbsp;5225000">
+                    <a href="tel:+74232022521,+79025225000">
                         +7 423 202-25-21,
                         +7&nbsp;902&nbsp;522-50-00
                     </a>
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+// TODO: придумать как пересылать сообщения из формы "Заказать звонок"
 export default {
     name: "HeaderMainComponent",
     props: {

@@ -35,3 +35,4 @@ header('Pragma: no-cache');
 </body>
 
 <script defer="defer" src="{{asset('js/app.js')}}" type="text/javascript"></script>
+<script src="https://kit.fontawesome.com/d3ae2cb64f.js" crossorigin="anonymous"></script>

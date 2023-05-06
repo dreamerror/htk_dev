@@ -8,7 +8,9 @@
                 <span class="title">
                     Наш офис:
                 </span>
-                    <span class="address">692715 Приморский край,
+                    <span class="address">
+                        <i class="fa fa-map-marker"></i>
+                        692715 Приморский край,
                     Хасанский район, <br> пгт. Краскино, ул. Ленина, 19
                 </span>
 
@@ -16,6 +18,7 @@
                     Таможенный представитель:
                 </span>
                 <span class="address">
+                    <i class="fa fa-map-marker"></i>
                     г. Владивосток, ул.Светланская, 83, офис 301/1
                 </span>
 
@@ -25,9 +28,9 @@
                 <span class="title">
                     Склад временного хранения:
                 </span>
-                <span class="address">
-                    Bulatov757@yandex.ru
-                </span>
+                <a href="mailto:Bulatov757@yandex.ru" class="address">
+                    <i class="fa fa-envelope" aria-hidden="true"></i> Bulatov757@yandex.ru
+                </a>
 
             </div>
 
@@ -35,9 +38,9 @@
                 <span class="title">
                     Перевозки «Беркут»:
                 </span>
-                <span class="address">
-                    Bulatov757@yandex.ru
-                </span>
+                <a href="mailto:Bulatov757@yandex.ru" class="address">
+                    <i class="fa fa-envelope" aria-hidden="true"></i> Bulatov757@yandex.ru
+                </a>
 
             </div>
 
@@ -48,12 +51,16 @@
         </div>
 
     </div>
+
 </template>
 
 <script>
 export default {
     name: "FooterMainComponent"
 }
+
+// TODO: FontAwesome icons
+
 </script>
 
 <style scoped lang="scss">
@@ -87,10 +94,16 @@ export default {
         }
 
         .address {
+            text-decoration: none;
             color: #ffffff;
             font-weight: 400;
             font-size: 16px;
             line-height: 24px;
+            transition: all .3s linear;
+        }
+
+        a.address:hover {
+            color: #d1a251
         }
     }
 
