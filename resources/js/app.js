@@ -14,6 +14,7 @@ Vue.component('admin-menu', require('./components/Menus/AdminMenuComponent.vue')
 // Cards
 
 Vue.component('main-card', require('./components/Cards/MainPageItemElement.vue').default);
+Vue.component('main-card-list', require('./components/Lists/MainCardsListComponent.vue').default);
 
 // Buttons
 

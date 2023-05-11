@@ -8,6 +8,16 @@
 @import '~bootstrap/scss/bootstrap';
 
 
+@font-face {
+    font-family: 'azbuka04';
+    src: url('../fonts/azbuka04.ttf');
+}
+
+@font-face {
+    font-family: 'Harmonia';
+    src: url('../fonts/HarmoniaSansProCyr-Regular.otf');
+}
+
 body {
-    font-family: 'Roboto',sans-serif;
+    font-family: 'azbuka04';
 }

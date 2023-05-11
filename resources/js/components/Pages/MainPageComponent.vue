@@ -1,14 +1,9 @@
 <template>
     <div class="main-wrapper">
-        <main-card
-        v-for="card in this.cards"
-        :key="card.title"
-        :title="card.title"
-        :src="card.src"
-        :description="card.description"
-        :route="card.route">
+        <main-card-list
+        :cards="cards">
 
-        </main-card>
+        </main-card-list>
     </div>
 </template>
 
@@ -35,8 +30,7 @@ export default {
         justify-content: space-around;
         gap: 5vh;
         flex-wrap: wrap;
-        width: 80%;
-        box-shadow: 0 5px 10px 2px black;
+        width: 100%;
         padding: 2vh 2vw;
         margin: 2vh auto;
     }

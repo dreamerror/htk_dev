@@ -1,15 +1,17 @@
 <template>
-    <div class="card-wrapper"
-    @click="redirect">
-        <div class="card-img-wrapper">
+    <div class="card-wrapper">
+        <div class="card-img-wrapper"
+             @click="redirect">
             <img :src="src" alt="">
         </div>
-        <h3>
-            {{title}}
-        </h3>
-        <span>
-            {{description}}
-        </span>
+        <div class="card-text">
+            <h3 class="card-title">
+                {{title}}
+            </h3>
+            <span>
+                {{description}}
+            </span>
+        </div>
     </div>
 </template>
 
@@ -20,7 +22,7 @@ export default {
         src: String,
         title: String,
         description: String,
-        route: String
+        route: String,
     },
     methods: {
         redirect() {
@@ -31,26 +33,50 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
     .card-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 1vh 1vw;
+        justify-content: center;
+        padding: 0.2vh 0.2vw;
         gap: 1vh;
-        border-radius: 10px;
-        width: 33%;
-        box-shadow: 2px 2px 2px 2px black;
-        cursor: pointer;
+    }
+
+    @media (min-width: 900px) {
+        .card-wrapper {
+            width: 50%;
+        }
+
+        .card-wrapper:nth-child(2n) {
+            flex-direction: column-reverse;
+        }
+
+        .card-img-wrapper {
+            order: var(--image-order)
+        }
+
+        .card-text {
+            order: var(--text-order)
+        }
+    }
+
+    @media (max-width: 899px) {
+        .card-wrapper {
+            width: 100%;
+        }
+
+        .card-img-wrapper {
+            margin: 0 auto;
+        }
     }
 
     .card-img-wrapper {
-        width: 100%;
-        min-height: 150px;
         position: relative;
         display: inline-block;
         overflow: hidden;
-        margin: 0;
+        width: 100%;
+        aspect-ratio: 2;
+        cursor: pointer;
 
         img {
             display: block;
@@ -61,6 +87,15 @@ export default {
             min-width: 100%;
             transform: translate(-50%, -50%);
         }
+    }
+
+    .card-title {
+        border-bottom: 1px solid black;
+        text-align: center;
+    }
+
+    .card-text {
+        margin-bottom: auto;
     }
 
 </style>
