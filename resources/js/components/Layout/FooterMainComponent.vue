@@ -69,6 +69,8 @@ export default {
         display: flex;
         flex-direction: column;
         padding: 1vh 1vw;
+        flex-wrap: wrap;
+        flex-grow: 1;
     }
 
     .main-footer-content {
@@ -77,6 +79,7 @@ export default {
         justify-content: space-between;
         align-items: flex-start;
         padding-bottom: 1vh;
+        flex-wrap: wrap;
     }
 
     .footer-contacts {

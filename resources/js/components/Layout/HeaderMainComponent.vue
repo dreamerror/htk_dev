@@ -2,7 +2,7 @@
     <div class="main-header-wrapper">
 
         <div class="main-header-content">
-            <div class="main-header-berkut main-header-item">
+            <div class="main-header-berkut main-header-item desktop">
                 <a href="/">
                     <img src="/storage/berkut.jpg" alt="Berkut">
                 </a>
@@ -27,20 +27,28 @@
 
             <default-button
             :color="'#d1a251'"
-            :text="'Заказать звонок'">
+            :text="'Заказать звонок'"
+            propClass="desktop-only">
 
             </default-button>
 
         </div>
 
-        <div class="main-header-nav">
+        <div class="main-header-nav mobile nav-item"
+        @click="navBarHandler">
+            Меню
+        </div>
+
+        <div class="main-header-nav desktop main-header-menu"
+             v-if="showNav">
             <div v-for="item in this.navbarElements"
-            class="nav-item"
-            :key="item.route"
-            @click="redirect(item.route)">
+                 class="nav-item"
+                 :key="item.route"
+                 @click="redirect(item.route)">
                 {{item.title}}
             </div>
         </div>
+
 
     </div>
 </template>
@@ -61,12 +69,25 @@ export default {
                 {title: "Информация", route: "/info"},
                 {title: "Цены", route: "/prices"},
                 {title: "Контакты", route: "/contacts"},
-            ]
+            ],
+            showNav: window.screen.width > 899,
         }
+    },
+    created() {
+        window.addEventListener('resize', this.windowResizeHandler)
+    },
+    destroyed() {
+        window.removeEventListener('resize', this.windowResizeHandler)
     },
     methods: {
         redirect(route) {
             window.location.href = `${this.url}${route}`
+        },
+        navBarHandler() {
+            this.showNav = !this.showNav;
+        },
+        windowResizeHandler() {
+            this.showNav = window.screen.width > 899;
         }
     }
 }
@@ -163,6 +184,30 @@ export default {
 
     .nav-item:hover {
         background: #d1a251;
+    }
+
+    @media (min-width: 900px) {
+        .mobile {
+            display: none;
+        }
+    }
+
+    @media (max-width: 899px) {
+        .desktop {
+            display: none;
+        }
+
+        .main-header-menu {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            width: 100%;
+            align-items: center;
+            gap: 1vh;
+            z-index: 100;
+            transition: all .3s linear;
+            padding: 1vh 0;
+        }
     }
 
 </style>

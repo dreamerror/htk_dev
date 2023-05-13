@@ -1,5 +1,13 @@
 <template>
     <div class="main-wrapper">
+        <div class="main-description">
+            <h2>
+                Хасанская транспортная компания
+            </h2>
+            <h3>
+                Полноценный комплекс услуг в области внешнеэкономической деятельности
+            </h3>
+        </div>
         <main-card-list
         :cards="cards">
 
@@ -31,8 +39,19 @@ export default {
         gap: 5vh;
         flex-wrap: wrap;
         width: 100%;
-        padding: 2vh 2vw;
         margin: 2vh auto;
+    }
+
+    .main-description {
+        background-image: url('/storage/bg-berkut.jpg');
+        background-size: 100% 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 6vh 0;
+        color: #ffffff;
     }
 
 </style>

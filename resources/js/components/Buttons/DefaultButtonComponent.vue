@@ -1,5 +1,5 @@
 <template>
-    <div class="button-wrapper" :style="cssProps">
+    <div class="button-wrapper" :class="propClass" :style="cssProps">
         {{text}}
     </div>
 </template>
@@ -9,7 +9,8 @@ export default {
     name: "DefaultButtonComponent",
     props: {
       color: String,
-      text: String
+      text: String,
+      propClass: String,
     },
     computed: {
         cssProps() {
@@ -38,6 +39,12 @@ export default {
     .button-wrapper:hover {
         background: var(--bg-color);
         color: #ffffff;
+    }
+
+    @media (max-width: 899px) {
+        .desktop-only {
+            display: none;
+        }
     }
 
 </style>
