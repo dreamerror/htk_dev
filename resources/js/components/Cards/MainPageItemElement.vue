@@ -35,11 +35,10 @@ export default {
 <style scoped lang="scss">
     .card-wrapper {
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
         padding: 0.1vh 0.1vw;
-        width: 50%;
+        width: 100%;
     }
 
     .card-img-wrapper {
@@ -68,15 +67,17 @@ export default {
 
     .card-text {
         margin-bottom: auto;
+        width: 100%;
     }
 
     @media (min-width: 900px) {
         .card-wrapper {
-            width: 50%;
+            flex-direction: row;
+            width: 100%;
         }
 
         .card-wrapper:nth-child(2n) {
-            flex-direction: column-reverse;
+            flex-direction: row-reverse;
         }
 
         .card-img-wrapper {
@@ -90,6 +91,7 @@ export default {
 
     @media (max-width: 899px) {
         .card-wrapper {
+            flex-direction: column;
             width: 100%;
         }
 
