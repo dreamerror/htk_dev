@@ -38,8 +38,8 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 0.2vh 0.2vw;
-        gap: 1vh;
+        padding: 0.1vh 0.1vw;
+        width: 50%;
     }
 
     .card-img-wrapper {
@@ -47,7 +47,7 @@ export default {
         display: inline-block;
         overflow: hidden;
         width: 100%;
-        aspect-ratio: 2;
+        aspect-ratio: 1.5;
         cursor: pointer;
 
         img {

@@ -65,7 +65,7 @@ export default {
             navbarElements: [
                 {title: "Склад временного хранения", route: "/temp-storage"},
                 {title: "Таможенный представитель", route: "/customs"},
-                {title: "Экспресс-грузы", route: "/express"},
+                {title: "Партнёры", route: "/partners"},
                 {title: "Информация", route: "/info"},
                 {title: "Цены", route: "/prices"},
                 {title: "Контакты", route: "/contacts"},

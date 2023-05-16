@@ -13,4 +13,8 @@ class PublicController extends Controller
             'cards' => $data
         ]);
     }
+
+    public function tempStorage() {
+        return view('pages.svh');
+    }
 }

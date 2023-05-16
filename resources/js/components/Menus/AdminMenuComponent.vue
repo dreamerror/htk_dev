@@ -6,6 +6,9 @@
         <div class="admin-nav-button">
             Домой
         </div>
+        <div class="admin-nav-button">
+            Карточки
+        </div>
     </div>
 </template>
 
@@ -44,5 +47,10 @@ export default {
         vertical-align: middle;
         color: white;
         font-weight: bold;
+        transition: background-color .3s linear;
+    }
+
+    .admin-nav-button:hover {
+        background: black;
     }
 </style>
