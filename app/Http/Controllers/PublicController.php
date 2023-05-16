@@ -17,4 +17,8 @@ class PublicController extends Controller
     public function tempStorage() {
         return view('pages.svh');
     }
+
+    public function customs() {
+        return view('pages.tp');
+    }
 }
