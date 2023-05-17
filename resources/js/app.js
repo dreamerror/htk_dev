@@ -30,6 +30,7 @@ Vue.component('download-button', require('./components/Buttons/DownloadButtonCom
 Vue.component('main-page', require('./components/Pages/MainPageComponent.vue').default);
 Vue.component('temp-storage-page', require('./components/Pages/SVHPageComponent.vue').default);
 Vue.component('customs-page', require('./components/Pages/TPPageComponent.vue').default);
+Vue.component('cargo-trans-page', require('./components/Pages/CargoTransPageComponent.vue').default);
 
 
 const app = new Vue({

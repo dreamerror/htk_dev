@@ -11,4 +11,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);
 });
 
+Route::group(['prefix' => 'transportation'], function () {
+    Route::get('/cargo', [App\Http\Controllers\PublicController::class, 'cargo']);
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

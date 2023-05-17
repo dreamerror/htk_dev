@@ -56,7 +56,7 @@
                     <div class="header-dropdown-item"
                     v-for="children in item.child"
                     :key="children.route"
-                    @click="redirect(children.route)">
+                    @click.stop="redirect(`${item.route}${children.route}`)">
                         {{ children.title }}
                     </div>
                 </div>
@@ -81,10 +81,10 @@ export default {
                 {title: "Склад временного хранения", route: "/temp-storage"},
                 {title: "Таможенный представитель", route: "/customs"},
                 {title: "Партнёры", route: "/partners"},
-                {title: "Перевозки", route: "/transport", child: [
-                        {title: "Грузовые", route: "/partners"},
-                        {title: "Пассажирские", route: "/partners"},
-                        {title: "Транзитные грузы", route: "/partners"},
+                {title: "Перевозки", route: "/transportation", child: [
+                        {title: "Грузовые", route: "/cargo"},
+                        {title: "Пассажирские", route: "/passengers"},
+                        {title: "Транзитные грузы", route: "/transit"},
                     ]},
                 {title: "Информация", route: "/info"},
                 {title: "Цены", route: "/prices"},
@@ -102,6 +102,7 @@ export default {
     methods: {
         redirect(route) {
             window.location.href = `${this.url}${route}`
+
         },
         navBarHandler() {
             this.showNav = !this.showNav;

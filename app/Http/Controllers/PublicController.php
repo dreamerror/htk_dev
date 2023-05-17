@@ -21,4 +21,8 @@ class PublicController extends Controller
     public function customs() {
         return view('pages.tp');
     }
+
+    public function cargo() {
+        return view('pages.transportation.cargo');
+    }
 }
