@@ -46,6 +46,21 @@
                  :key="item.route"
                  @click="redirect(item.route)">
                 {{item.title}}
+
+                <i class="fa fa-chevron-down nav-arrow"
+                   aria-hidden="true"
+                   v-if="item.child"></i>
+
+                <div class="main-header-dropdown"
+                    v-if="item.child">
+                    <div class="header-dropdown-item"
+                    v-for="children in item.child"
+                    :key="children.route"
+                    @click="redirect(children.route)">
+                        {{ children.title }}
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -66,6 +81,11 @@ export default {
                 {title: "Склад временного хранения", route: "/temp-storage"},
                 {title: "Таможенный представитель", route: "/customs"},
                 {title: "Партнёры", route: "/partners"},
+                {title: "Перевозки", route: "/transport", child: [
+                        {title: "Грузовые", route: "/partners"},
+                        {title: "Пассажирские", route: "/partners"},
+                        {title: "Транзитные грузы", route: "/partners"},
+                    ]},
                 {title: "Информация", route: "/info"},
                 {title: "Цены", route: "/prices"},
                 {title: "Контакты", route: "/contacts"},
@@ -172,18 +192,60 @@ export default {
     }
 
     .nav-item {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 0.5vw;
         color: #ffffff;
         height: 100%;
         transition: all .3s linear;
         cursor: pointer;
-        padding: 0 1vw;
+        padding: 0 2vw;
+
+        .nav-arrow {
+            transition: all .3s linear;
+        }
+
+        .main-header-dropdown {
+            position: absolute;
+            display: none;
+            z-index: 100;
+            top: 100%;
+            left: 0;
+            right: 0;
+            border-bottom: 3px solid #d1a251;
+            background: #fff;
+            width: inherit;
+            padding: 0 0.5vw;
+
+            .header-dropdown-item {
+                border-bottom: 1px solid rgba(112,112,112,0.15);
+                color: #111;
+                font-size: 14px;
+                font-weight: 400;
+                transition: all .3s linear;
+            }
+        }
     }
 
     .nav-item:hover {
         background: #d1a251;
+
+        .nav-arrow {
+            transform: rotate(180deg);
+        }
+
+        .main-header-dropdown {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5vh;
+
+            .header-dropdown-item:hover {
+                color: #d1a251;
+            }
+        }
     }
 
     @media (min-width: 900px) {
