@@ -37,4 +37,11 @@ class PublicController extends Controller
     public function contacts() {
         return view('pages.contacts');
     }
+
+    public function prices() {
+        $data = DB::select("select text, file_route file from prices_files order by id");
+        return view('pages.prices', [
+           'items' => $data
+        ]);
+    }
 }

@@ -7,6 +7,7 @@ Route::get('/', [App\Http\Controllers\PublicController::class, 'index']);
 Route::get('/temp-storage', [App\Http\Controllers\PublicController::class, 'tempStorage']);
 Route::get('/customs', [App\Http\Controllers\PublicController::class, 'customs']);
 Route::get('/contacts', [App\Http\Controllers\PublicController::class, 'contacts']);
+Route::get('/prices', [App\Http\Controllers\PublicController::class, 'prices']);
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);

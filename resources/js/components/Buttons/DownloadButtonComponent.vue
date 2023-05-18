@@ -1,6 +1,7 @@
 <template>
     <div class="button-wrapper"
     @click="downloadFile">
+        <i class="fa fa-download" aria-hidden="true"></i>
         {{ text }}
     </div>
 </template>
@@ -41,9 +42,10 @@ export default {
 
     .button-wrapper {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: flex-start;
         align-items: center;
+        gap: 1vw;
         padding: 15px;
         border: 1px solid #d1a251;
         color: #ffffff;
