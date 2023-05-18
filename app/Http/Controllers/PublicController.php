@@ -25,4 +25,16 @@ class PublicController extends Controller
     public function cargo() {
         return view('pages.transportation.cargo');
     }
+
+    public function passengers() {
+        return view('pages.transportation.pass');
+    }
+
+    public function transit() {
+        return view('pages.transportation.transit');
+    }
+
+    public function contacts() {
+        return view('pages.contacts');
+    }
 }
