@@ -8,6 +8,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 // Layout components
 
 Vue.component('header-main', require('./components/Layout/HeaderMainComponent.vue').default);
+Vue.component('header-only-main', require('./components/Layout/HeaderOnlyMainComponent.vue').default);
 Vue.component('footer-main', require('./components/Layout/FooterMainComponent.vue').default);
 Vue.component('admin-menu', require('./components/Menus/AdminMenuComponent.vue').default);
 

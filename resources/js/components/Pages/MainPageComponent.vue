@@ -1,13 +1,41 @@
 <template>
     <div class="main-wrapper">
-        <div class="main-description">
-            <h2>
-                Хасанская транспортная компания
-            </h2>
-            <h3>
-                Полноценный комплекс услуг в области внешнеэкономической деятельности
-            </h3>
+        <div class="main-bg">
+            <header-only-main>
+
+            </header-only-main>
+            <div class="main-description">
+                <div class="main-description-logo">
+                    <img src="/storage/htk-logo-color-main.svg" alt="">
+                    <h3>
+                        Полноценный комплекс услуг в области внешнеэкономической деятельности
+                    </h3>
+                </div>
+
+                <div class="main-description-text">
+                    <p>
+                        Наши специалисты обеспечат эффективную доставку автомобильным транспортом
+                        Ваших товаров до двери, взяв на себя все формальности с перевозкой, хранением
+                        на складе временного хранения (СВХ) и таможенным оформлением, оформим транзитные грузы
+                    </p>
+                    <p>
+                        Обращаясь к нам, Вы получаете гарантию нашими финансовыми обязательствами перед таможенными
+                        органами по таможенным платежам и возмещению ущерба при утрате по
+                        страхованию гражданской ответственности
+                    </p>
+                    <p>
+                        Не являясь крупной корпорацией, отягощенной бюрократическим аппаратом, мы
+                        индивидуально подходим к каждому клиенту и оказываем услуги в более
+                        минимальные сроки
+                    </p>
+                    <p>
+                        ООО "Хасанская транспортная компания" оказывает спектр услуг в области внешнеэкономической
+                        деятельности, стремясь создать полноценный комплекс услуг "под ключ"
+                    </p>
+                </div>
+            </div>
         </div>
+
         <main-card-list
         :cards="cards">
 
@@ -24,7 +52,31 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+    .main-bg {
+        width: 100%;
+        padding: 2vh 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .main-bg:after {
+        content : "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url('/storage/main-bg.jpg');
+        background-size: 100% 100%;
+        width: 100%;
+        height: 100%;
+        opacity : 0.3;
+        z-index: -1;
+    }
 
     .main-wrapper {
         display: flex;
@@ -32,19 +84,50 @@ export default {
         gap: 5vh;
         flex-wrap: wrap;
         width: 100%;
-        margin: 2vh auto;
     }
 
     .main-description {
-        background-image: url('/storage/bg-berkut.jpg');
-        background-size: 100% 100%;
         width: 100%;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: row;
         justify-content: center;
-        padding: 6vh 0;
-        color: #ffffff;
+        padding: 15vh 6vw;
+        color: #111111;
+
+        .main-description-logo {
+
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            gap: 2vh;
+
+            img {
+                height: 80%;
+                aspect-ratio: 3;
+                border-bottom: 1px solid black;
+            }
+
+            h3 {
+                border-bottom: 1px solid black;
+            }
+        }
+
+        .main-description-text {
+            width: 50%;
+        }
+    }
+
+    @media (max-width: 899px) {
+        .main-description {
+            .main-description-logo {
+                width: 100%;
+            }
+
+            .main-description-text {
+                width: 100%;
+            }
+        }
     }
 
 </style>
