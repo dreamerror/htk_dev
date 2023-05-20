@@ -148,6 +148,14 @@ export default {
         }
     }
 
+    .nav-item:first-child {
+        border-radius: 10px 0 0 10px;
+    }
+
+    .nav-item:last-child {
+        border-radius: 0 10px 10px 0;
+    }
+
     .nav-item:hover {
         background: #d1a251;
 
