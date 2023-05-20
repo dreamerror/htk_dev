@@ -101,7 +101,7 @@ export default {
         flex-direction: row;
         justify-content: space-between;
         gap: 3vw;
-        padding: 20vh 15vw 30vh 15vw;
+        padding: 10vh 15vw 35vh 15vw;
         color: #111111;
 
         .button-wrapper {
@@ -128,12 +128,14 @@ export default {
                 width: 100%;
                 font-weight: bold;
                 padding-left: 2.5vw;
+                padding-bottom: 1vh;
             }
         }
 
         .main-description-text {
             width: 40%;
-            font-size: 14px;
+            padding-top: 3vh;
+            font-size: 15px;
             font-weight: 700;
         }
     }

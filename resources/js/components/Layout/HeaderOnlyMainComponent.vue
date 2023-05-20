@@ -90,6 +90,7 @@ export default {
         justify-content: center;
         align-items: center;
         width: 75%;
+        margin-top: 5vh;
     }
 
     .berkut-logo {
