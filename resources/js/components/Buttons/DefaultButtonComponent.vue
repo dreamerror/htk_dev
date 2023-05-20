@@ -34,11 +34,21 @@ export default {
         background: #ffffff;
         transition: all 0.3s linear;
         cursor: pointer;
+        border-radius: 15px;
     }
 
     .button-wrapper:hover {
         background: var(--bg-color);
         color: #ffffff;
+    }
+
+    .bg-color {
+        color: #ffffff;
+        background: var(--bg-color);
+    }
+
+    .bg-color:hover {
+        color: #ffffff
     }
 
     @media (max-width: 899px) {

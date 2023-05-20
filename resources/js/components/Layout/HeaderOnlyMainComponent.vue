@@ -6,6 +6,8 @@
             Меню
         </div>
 
+        <img src="/storage/berkut-logo-black-2.png" alt="" class="desktop berkut-logo">
+
         <div class="main-header-nav desktop main-header-menu"
              v-if="showNav">
             <div v-for="item in this.navbarElements"
@@ -84,9 +86,16 @@ export default {
 <style scoped lang="scss">
     .main-header-wrapper {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
-        width: 60%;
+        align-items: center;
+        width: 75%;
+    }
+
+    .berkut-logo {
+        width: 7%;
+        aspect-ratio: 1;
+
     }
 
     .main-header-nav {
@@ -95,9 +104,8 @@ export default {
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        border-radius: 10% / 10px;
-        height: 50px;
-        padding: 0 3vw;
+        border-radius: 10px;
+        height: 30px;
         box-shadow: 0 2px 3px rgb(0 0 0 / 18%);
     }
 
@@ -112,6 +120,7 @@ export default {
         transition: all .3s linear;
         cursor: pointer;
         padding: 0 2vw;
+        text-transform: uppercase;
 
         .nav-arrow {
             transition: all .3s linear;
@@ -167,6 +176,10 @@ export default {
     @media (max-width: 899px) {
         .desktop {
             display: none;
+        }
+
+        .main-header-wrapper {
+            flex-direction: column;
         }
 
         .main-header-menu {

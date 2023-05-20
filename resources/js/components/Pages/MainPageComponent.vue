@@ -7,9 +7,15 @@
             <div class="main-description">
                 <div class="main-description-logo">
                     <img src="/storage/htk-logo-color-main.svg" alt="">
-                    <h3>
-                        Полноценный комплекс услуг в области внешнеэкономической деятельности
-                    </h3>
+                    <h2>
+                        Полноценный комплекс услуг <br/> в области внешнеэкономической деятельности
+                    </h2>
+                    <default-button
+                    color="#316851"
+                    text="Подробнее"
+                    propClass="bg-color">
+
+                    </default-button>
                 </div>
 
                 <div class="main-description-text">
@@ -72,10 +78,12 @@ export default {
         left: 0;
         background-image: url('/storage/main-bg.jpg');
         background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
         width: 100%;
         height: 100%;
         opacity : 0.3;
-        z-index: -1;
+        z-index: -100;
     }
 
     .main-wrapper {
@@ -91,9 +99,14 @@ export default {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: center;
-        padding: 15vh 6vw;
+        justify-content: space-between;
+        gap: 3vw;
+        padding: 20vh 15vw 30vh 15vw;
         color: #111111;
+
+        .button-wrapper {
+            width: 20%;
+        }
 
         .main-description-logo {
 
@@ -103,18 +116,25 @@ export default {
             gap: 2vh;
 
             img {
-                height: 80%;
-                aspect-ratio: 3;
+                height: 100%;
+                aspect-ratio: 2;
+                position: relative;
+                padding: 1vh 0 1vh 3vw;
                 border-bottom: 1px solid black;
             }
 
-            h3 {
+            h2 {
                 border-bottom: 1px solid black;
+                width: 100%;
+                font-weight: bold;
+                padding-left: 2.5vw;
             }
         }
 
         .main-description-text {
-            width: 50%;
+            width: 40%;
+            font-size: 14px;
+            font-weight: 700;
         }
     }
 
