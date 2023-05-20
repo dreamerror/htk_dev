@@ -9,11 +9,13 @@
                     <div class="main-image-wrapper">
                         <img src="/storage/htk-logo-color-main.svg" class alt="">
                     </div>
+                    <div class="description-border" />
                     <div class="main-description-wrapper">
                         <h4>
                             Полноценный комплекс услуг <br/> в области внешнеэкономической деятельности
                         </h4>
                     </div>
+                    <div class="description-border" />
 
                     <div class="button-wrapper">
                         ПОДРОБНЕЕ
@@ -111,7 +113,13 @@ export default {
             flex-direction: column;
             justify-content: flex-start;
             width: 50%;
-            gap: 5vh;
+            gap: 4vh;
+
+            .description-border {
+                width: 50%;
+                margin-left: 3.5vw;
+                border-bottom: 2px solid black;
+            }
 
             .button-wrapper {
                 width: 30%;
