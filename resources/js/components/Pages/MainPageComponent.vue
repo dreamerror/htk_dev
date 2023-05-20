@@ -139,15 +139,6 @@ export default {
                 padding: 0 0 0 3vw;
             }
 
-            .main-image-wrapper::after {
-                content: '';
-                position: absolute;
-                top: 100%;
-                right: 40%;
-                width: 50%;
-                border-bottom: 1px solid #111111;
-            }
-
             .main-description-wrapper {
                 width: 100%;
                 padding-left: 3.5vw;
@@ -156,15 +147,6 @@ export default {
 
             .main-description-wrapper h4 {
                 font-weight: bold;
-            }
-
-            .main-description-wrapper::after {
-                content: '';
-                position: absolute;
-                top: 55%;
-                right: 61.3%;
-                width: 18%;
-                border-bottom: 1px solid #111111;
             }
         }
 
