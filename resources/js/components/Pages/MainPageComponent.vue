@@ -6,16 +6,18 @@
             </header-only-main>
             <div class="main-description">
                 <div class="main-description-logo">
-                    <img src="/storage/htk-logo-color-main.svg" alt="">
-                    <h2>
-                        Полноценный комплекс услуг <br/> в области внешнеэкономической деятельности
-                    </h2>
-                    <default-button
-                    color="#316851"
-                    text="Подробнее"
-                    propClass="bg-color">
+                    <div class="main-image-wrapper">
+                        <img src="/storage/htk-logo-color-main.svg" class alt="">
+                    </div>
+                    <div class="main-description-wrapper">
+                        <h4>
+                            Полноценный комплекс услуг <br/> в области внешнеэкономической деятельности
+                        </h4>
+                    </div>
 
-                    </default-button>
+                    <div class="button-wrapper">
+                        ПОДРОБНЕЕ
+                    </div>
                 </div>
 
                 <div class="main-description-text">
@@ -101,40 +103,75 @@ export default {
         flex-direction: row;
         justify-content: space-between;
         gap: 3vw;
-        padding: 10vh 15vw 35vh 15vw;
+        padding: 10vh 15vw 35vh 17vw;
         color: #111111;
 
-        .button-wrapper {
-            width: 20%;
-        }
-
         .main-description-logo {
-
             display: flex;
             flex-direction: column;
+            justify-content: flex-start;
             width: 50%;
-            gap: 2vh;
+            gap: 5vh;
 
-            img {
-                height: 100%;
-                aspect-ratio: 2;
-                position: relative;
-                padding: 1vh 0 1vh 3vw;
-                border-bottom: 1px solid black;
+            .button-wrapper {
+                width: 30%;
+                display: flex;
+                justify-content: center;
+                font-size: 18px;
+                align-items: center;
+                padding: 1px 15px;
+                border: 1px solid #316851;
+                color: #ffffff;
+                background: #316851;
+                cursor: pointer;
+                border-radius: 5px;
+                margin-left: 3.5vw;
             }
 
-            h2 {
-                border-bottom: 1px solid black;
+            .main-image-wrapper img {
+                height: 100%;
+                aspect-ratio: 2;
+
+            }
+
+            .main-image-wrapper {
+                position: relative;
+                padding: 0 0 0 3vw;
+            }
+
+            .main-image-wrapper::after {
+                content: '';
+                position: absolute;
+                top: 100%;
+                right: 40%;
+                width: 50%;
+                border-bottom: 1px solid #111111;
+            }
+
+            .main-description-wrapper {
                 width: 100%;
-                font-weight: bold;
-                padding-left: 2.5vw;
+                padding-left: 3.5vw;
                 padding-bottom: 1vh;
+            }
+
+            .main-description-wrapper h4 {
+                font-weight: bold;
+            }
+
+            .main-description-wrapper::after {
+                content: '';
+                position: absolute;
+                top: 55%;
+                right: 61.3%;
+                width: 18%;
+                border-bottom: 1px solid #111111;
             }
         }
 
         .main-description-text {
             width: 40%;
             padding-top: 3vh;
+            padding-right: 4vw;
             font-size: 15px;
             font-weight: 700;
         }

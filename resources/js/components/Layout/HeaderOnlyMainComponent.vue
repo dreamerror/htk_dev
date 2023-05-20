@@ -87,10 +87,12 @@ export default {
     .main-header-wrapper {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 75%;
-        margin-top: 5vh;
+        justify-content: flex-start;
+        align-items: flex-end;
+        width: 100%;
+        margin-top: 10vh;
+        padding: 0 7vw 0 7vw;
+        gap: 7vw;
     }
 
     .berkut-logo {
@@ -102,9 +104,9 @@ export default {
     .main-header-nav {
         background: #316851;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
-        width: 100%;
+        width: 70%;
         border-radius: 10px;
         height: 30px;
         box-shadow: 0 2px 3px rgb(0 0 0 / 18%);
@@ -115,12 +117,12 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 0.5vw;
+        font-size: 11px;
+        width: 100%;
         color: #ffffff;
         height: 100%;
         transition: all .3s linear;
         cursor: pointer;
-        padding: 0 2vw;
         text-transform: uppercase;
 
         .nav-arrow {
@@ -150,11 +152,23 @@ export default {
     }
 
     .nav-item:first-child {
+        width: 100%;
+        margin-right: auto;
         border-radius: 10px 0 0 10px;
     }
 
+    .nav-item:nth-child(2) {
+        width: 150%;
+    }
+
     .nav-item:last-child {
+        margin-left: auto;
         border-radius: 0 10px 10px 0;
+        background: #d1a251;
+    }
+
+    .nav-item:nth-last-child(2) {
+        background: #d1a251;
     }
 
     .nav-item:hover {
