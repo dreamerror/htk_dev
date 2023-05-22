@@ -1,8 +1,8 @@
 <template>
     <div class="main-footer-wrapper">
         <div class="main-footer-content">
-            <img src="/storage/berkut-footer.png" alt="Berkut">
-            <img src="/storage/htk-footer.svg" alt="HTK">
+            <img src="/storage/berkut-footer.svg" class="footer-berkut" alt="Berkut">
+            <img src="/storage/htk-footer.svg" class="footer-htk" alt="HTK">
 
             <div class="footer-contacts">
                 <span class="title">
@@ -14,19 +14,11 @@
                     Хасанский район, <br> пгт. Краскино, ул. Ленина, 19
                 </span>
 
-                <span class="title">
-                    Таможенный представитель:
-                </span>
-                <span class="address">
-                    <i class="fa fa-map-marker"></i>
-                    г. Владивосток, ул.Светланская, 83, офис 301/1
-                </span>
-
             </div>
 
             <div class="footer-contacts">
                 <span class="title">
-                    Склад временного хранения:
+                    СВХ:
                 </span>
                 <a href="mailto:Bulatov757@yandex.ru" class="address">
                     <i class="fa fa-envelope" aria-hidden="true"></i> Bulatov757@yandex.ru
@@ -42,6 +34,16 @@
                     <i class="fa fa-envelope" aria-hidden="true"></i> Bulatov757@yandex.ru
                 </a>
 
+            </div>
+
+            <div class="footer-contacts">
+                <span class="title">
+                    Таможенный представитель:
+                </span>
+                <span class="address">
+                    <i class="fa fa-map-marker"></i>
+                    г. Владивосток, ул.Светланская, 83, офис 301/1
+                </span>
             </div>
 
         </div>
@@ -80,6 +82,14 @@ export default {
         align-items: flex-start;
         padding-bottom: 1vh;
         flex-wrap: wrap;
+
+        .footer-berkut {
+            width: 5%;
+        }
+
+        .footer-htk {
+            width: 12%;
+        }
     }
 
     .footer-contacts {
