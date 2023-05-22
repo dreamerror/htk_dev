@@ -6,7 +6,7 @@
             Меню
         </div>
 
-        <img src="/storage/berkut-logo-black-2.png" alt="" class="desktop berkut-logo">
+        <img src="/storage/berkut-logo.svg" alt="" class="desktop berkut-logo">
 
         <div class="main-header-nav desktop main-header-menu"
              v-if="showNav">
@@ -90,14 +90,14 @@ export default {
         justify-content: flex-start;
         align-items: flex-end;
         width: 100%;
-        margin-top: 4vh;
+        //margin-bottom: 2vh;
         padding: 0 7vw 0 7vw;
         gap: 7vw;
     }
 
     .berkut-logo {
         width: 7%;
-        aspect-ratio: 1;
+        aspect-ratio: 1.5;
 
     }
 

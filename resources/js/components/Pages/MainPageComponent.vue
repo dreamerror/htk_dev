@@ -35,13 +35,11 @@
                     <div class="main-image-wrapper">
                         <img src="/storage/htk-logo-color-main.svg" class alt="">
                     </div>
-                    <div class="description-border" />
                     <div class="main-description-wrapper">
                         <h4>
                             Полноценный комплекс услуг <br/> в области внешнеэкономической деятельности
                         </h4>
                     </div>
-                    <div class="description-border" />
 
                     <div class="button-wrapper">
                         ПОДРОБНЕЕ
@@ -122,7 +120,7 @@ export default {
         flex-direction: row;
         justify-content: space-between;
         width: 60%;
-        padding-top: 2vh;
+        padding-top: 4vh;
         padding-left: 1vw;
 
         .contact-elem {
@@ -131,11 +129,14 @@ export default {
 
             span {
                 text-transform: uppercase;
+                margin-bottom: 0.25rem;
+                font-size: 1rem;
             }
 
             a {
                 text-decoration: none;
                 color: #111111;
+                font-size: 1rem;
             }
         }
 
@@ -144,10 +145,12 @@ export default {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 40%;
+            width: 35%;
+            height: 80%;
             padding: 1px 15px;
             border: 2px solid #ffffff;
             color: #ffffff;
+            font-weight: bold;
             cursor: pointer;
             border-radius: 50px;
         }
