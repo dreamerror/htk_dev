@@ -90,7 +90,7 @@ export default {
         justify-content: flex-start;
         align-items: flex-end;
         width: 100%;
-        margin-top: 10vh;
+        margin-top: 4vh;
         padding: 0 7vw 0 7vw;
         gap: 7vw;
     }

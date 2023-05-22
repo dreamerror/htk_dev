@@ -31,7 +31,6 @@ export default {
         padding: 15px;
         border: 1px solid var(--bg-color);
         color: var(--bg-color);
-        background: #ffffff;
         transition: all 0.3s linear;
         cursor: pointer;
         border-radius: 15px;

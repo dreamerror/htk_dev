@@ -1,6 +1,31 @@
 <template>
     <div class="main-wrapper">
         <div class="main-bg">
+            <div class="main-contacts">
+                <div class="contact-elem">
+                    <span>Перевозки "Беркут"</span>
+                    <a href="tel:+74232111111">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        +7 423 211-11-11
+                    </a>
+                </div>
+
+                <div class="contact-elem">
+                    <span>Склад временного хранения</span>
+                    <a href="tel:+74232111111">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        +7 423 211-11-11
+                    </a>
+                    <a href="tel:+74232111111">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        +7 423 211-11-11
+                    </a>
+                </div>
+
+                <div class="contacts-button">
+                    Заказать обратный звонок
+                </div>
+            </div>
             <header-only-main
             :url="url">
 
@@ -90,6 +115,42 @@ export default {
         height: 100%;
         opacity : 0.3;
         z-index: -100;
+    }
+
+    .main-contacts {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 60%;
+        padding-top: 2vh;
+        padding-left: 1vw;
+
+        .contact-elem {
+            display: flex;
+            flex-direction: column;
+
+            span {
+                text-transform: uppercase;
+            }
+
+            a {
+                text-decoration: none;
+                color: #111111;
+            }
+        }
+
+        .contacts-button {
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+            padding: 1px 15px;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            cursor: pointer;
+            border-radius: 50px;
+        }
     }
 
     .main-wrapper {
