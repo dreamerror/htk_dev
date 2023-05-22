@@ -4,7 +4,7 @@
             :bg_image="'/storage/banner.png'"
             :url="url">
 
-            <template v-slot:description>
+            <template v-slot:description data-editable data-name="page-header">
                 <h3>
                     ООО "Хасанская транспортная компания" включает в себя всё необходимое для оказания услуг по хранению
                     товаров и транспортных средств различных видов, находящихся под таможенным контролем до выпуска
@@ -25,10 +25,10 @@
         <div class="page-content">
             <div class="doc-text">
                 <div class="page-documents">
-                    <img src="/storage/svh_svid.png" alt="">
+                    <img src="/storage/svh_svid.png" alt="" data-no-resize>
                 </div>
 
-                <div class="page-text">
+                <div class="page-text" data-editable data-name="page-text">
                     <p class="title">
                         Свидетельство  о включении в реестр владельцев
                         складов временного хранения
@@ -63,7 +63,7 @@
                 </div>
             </div>
 
-            <div class="page-additional-info">
+            <div class="page-additional-info" data-editable data-name="page-additional">
                 <p>Техническое оснащение:</p>
                 <p>Пост весового контроля транспортных средств с пределом взвешивания до 60 тонн и длинной приемной платформы до 24 метров</p>
                 <p>Вилочные автопогрузчики</p>
@@ -94,11 +94,27 @@
 </template>
 
 <script>
+import {initEditor} from "../../inc/ContentTools/editor";
+
 export default {
     name: "SVHPageComponent",
     props: {
         url: String,
+        api: String,
     },
+    mounted() {
+        initEditor(this.api, this.setData)
+    },
+    methods: {
+        setData(payload) {
+            console.log(payload)
+            return {
+                page: 'svh',
+                text: payload['page-text'],
+                additional: payload['page-additional']
+            }
+        }
+    }
 }
 </script>
 

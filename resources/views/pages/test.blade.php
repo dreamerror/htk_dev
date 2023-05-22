@@ -2,7 +2,8 @@
 
 @section('content')
     <test-page
-    :url="'{{ url('/') }}'">
+    :url="'{{ url('/') }}'"
+    :api="'{{ url('/api/edit-content') }}'">
 
     </test-page>
 @endsection

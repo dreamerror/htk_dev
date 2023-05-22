@@ -15,7 +15,12 @@ class PublicController extends Controller
     }
 
     public function tempStorage() {
-        return view('pages.svh');
+        $data = DB::table('page_content')->where('page', '=', 'svh')
+            ->select(['page_text', 'page_additional'])->first();
+        $data = json_decode(json_encode($data), true);
+        return view('pages.svh', [
+            'data' => $data
+        ]);
     }
 
     public function customs() {
