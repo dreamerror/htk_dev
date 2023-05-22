@@ -9,6 +9,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 Vue.component('header-main', require('./components/Layout/HeaderMainComponent.vue').default);
 Vue.component('header-only-main', require('./components/Layout/HeaderOnlyMainComponent.vue').default);
+Vue.component('header-pages', require('./components/Layout/HeaderPagesComponent.vue').default);
 Vue.component('footer-main', require('./components/Layout/FooterMainComponent.vue').default);
 Vue.component('admin-menu', require('./components/Menus/AdminMenuComponent.vue').default);
 
@@ -38,6 +39,7 @@ Vue.component('pass-trans-page', require('./components/Pages/PassTransPageCompon
 Vue.component('transit-trans-page', require('./components/Pages/TransitTransPageComponent.vue').default);
 Vue.component('contacts-page', require('./components/Pages/ContactsPageComponent.vue').default);
 Vue.component('prices-page', require('./components/Pages/PricesPageComponent.vue').default);
+Vue.component('test-page', require('./components/Pages/TestPageComponent.vue').default);
 
 
 const app = new Vue({

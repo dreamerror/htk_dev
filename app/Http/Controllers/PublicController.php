@@ -38,6 +38,10 @@ class PublicController extends Controller
         return view('pages.contacts');
     }
 
+    public function test() {
+        return view('pages.test');
+    }
+
     public function prices() {
         $data = DB::select("select text, file_route file from prices_files order by id");
         return view('pages.prices', [

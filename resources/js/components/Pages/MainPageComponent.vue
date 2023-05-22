@@ -35,7 +35,7 @@
                     <div class="main-image-wrapper">
                         <img src="/storage/htk-logo-color-main.svg" class alt="">
                     </div>
-                    <div class="main-description-wrapper">
+                    <div class="header-description-wrapper">
                         <h4>
                             Полноценный комплекс услуг <br/> в области внешнеэкономической деятельности
                         </h4>
@@ -213,13 +213,13 @@ export default {
                 padding: 0 0 0 3vw;
             }
 
-            .main-description-wrapper {
+            .header-description-wrapper {
                 width: 100%;
                 padding-left: 3.5vw;
                 padding-bottom: 1vh;
             }
 
-            .main-description-wrapper h4 {
+            .header-description-wrapper h4 {
                 font-weight: bold;
                 font-size: 1.2em;
                 text-transform: uppercase;

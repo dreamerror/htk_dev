@@ -1,0 +1,185 @@
+<template>
+    <div class="header-bg">
+        <div class="header-contacts">
+            <div class="contact-elem">
+                <span>Перевозки "Беркут"</span>
+                <a href="tel:+74232111111">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    +7 423 211-11-11
+                </a>
+            </div>
+
+            <div class="contact-elem">
+                <span>Склад временного хранения</span>
+                <a href="tel:+74232111111">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    +7 423 211-11-11
+                </a>
+                <a href="tel:+74232111111">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                    +7 423 211-11-11
+                </a>
+            </div>
+
+            <div class="contacts-button">
+                Заказать обратный звонок
+            </div>
+        </div>
+        <header-only-main
+            :url="url">
+
+        </header-only-main>
+        <div class="header-description">
+            <div class="header-description-logo">
+                <div class="header-image-wrapper">
+                    <img src="/storage/htk-logo-color-main.svg" class alt="">
+                </div>
+            </div>
+
+            <div class="header-description-text">
+                <slot name="description">
+
+                </slot>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    name: "HeaderPagesMainComponent",
+    props: {
+        bg_image: String,
+        url: String,
+    },
+    computed: {
+        cssProps() {
+            return {
+                '--bg-image': this.bg_image
+            }
+        }
+    }
+}
+</script>
+
+<style scoped lang="scss">
+
+    .header-bg {
+        width: 100%;
+        padding: 2vh 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .header-bg:after {
+        content : "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        opacity : 0.3;
+        z-index: -100;
+    }
+
+    .header-contacts {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 60%;
+        padding-top: 4vh;
+        padding-left: 1vw;
+
+        .contact-elem {
+            display: flex;
+            flex-direction: column;
+
+            span {
+                text-transform: uppercase;
+                margin-bottom: 0.25rem;
+                font-size: 1rem;
+            }
+
+            a {
+                text-decoration: none;
+                color: #111111;
+                font-size: 1rem;
+            }
+        }
+
+        .contacts-button {
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35%;
+            height: 80%;
+            padding: 1px 15px;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+    }
+
+    .header-description {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 1vh;
+        padding: 10vh 10vw 35vh 10vw;
+        color: #111111;
+
+        .header-description-logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 50%;
+            gap: 4vh;
+
+            .header-image-wrapper img {
+                width: 100%;
+                aspect-ratio: 2;
+
+            }
+
+            .header-image-wrapper {
+                position: relative;
+                padding: 0;
+            }
+
+            .header-description-wrapper {
+                width: 100%;
+                padding-left: 3.5vw;
+                padding-bottom: 1vh;
+            }
+
+            .header-description-wrapper h4 {
+                font-weight: bold;
+                font-size: 1.2em;
+                text-transform: uppercase;
+            }
+        }
+
+        .header-description-text {
+            width: 90%;
+            text-align: center;
+            padding-top: 3vh;
+            padding-right: 4vw;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+
+</style>

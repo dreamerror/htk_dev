@@ -1,5 +1,10 @@
 <template>
     <div class="page-wrapper">
+        <header-pages
+        :bg_image="'/storage/banner.png'"
+        :url="url">
+
+        </header-pages>
 
         <div class="page-title">
             <h1>
@@ -125,6 +130,9 @@
 <script>
 export default {
     name: "SVHPageComponent",
+    props: {
+        url: String,
+    },
     data() {
         return {
             files: [
