@@ -1,10 +1,5 @@
 <template>
     <div class="page-wrapper">
-        <header-pages
-        :bg_image="'/storage/banner.png'"
-        :url="url">
-
-        </header-pages>
 
         <div class="page-title">
             <h1>

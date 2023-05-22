@@ -120,7 +120,6 @@ export default {
             justify-content: center;
             align-items: center;
             width: 35%;
-            height: 80%;
             padding: 1px 15px;
             border: 2px solid #ffffff;
             color: #ffffff;
@@ -172,7 +171,7 @@ export default {
         }
 
         .header-description-text {
-            width: 90%;
+            width: 80%;
             text-align: center;
             padding-top: 3vh;
             padding-right: 4vw;

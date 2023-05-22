@@ -146,7 +146,6 @@ export default {
             justify-content: center;
             align-items: center;
             width: 35%;
-            height: 80%;
             padding: 1px 15px;
             border: 2px solid #ffffff;
             color: #ffffff;
