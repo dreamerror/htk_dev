@@ -107,7 +107,7 @@ export default {
         justify-content: space-evenly;
         align-items: center;
         width: 70%;
-        border-radius: 10px;
+        border-radius: 15px;
         height: 30px;
         box-shadow: 0 2px 3px rgb(0 0 0 / 18%);
     }

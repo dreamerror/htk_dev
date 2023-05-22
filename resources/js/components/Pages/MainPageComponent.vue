@@ -124,12 +124,12 @@ export default {
             }
 
             .button-wrapper {
-                width: 30%;
+                width: 25%;
                 display: flex;
                 justify-content: center;
                 font-size: 18px;
                 align-items: center;
-                padding: 1px 15px;
+                padding: 1px 1px;
                 border: 1px solid #316851;
                 color: #ffffff;
                 background: #316851;
@@ -157,11 +157,13 @@ export default {
 
             .main-description-wrapper h4 {
                 font-weight: bold;
+                font-size: 1.2em;
+                text-transform: uppercase;
             }
         }
 
         .main-description-text {
-            width: 40%;
+            width: 38.5%;
             padding-top: 5vh;
             padding-right: 4vw;
             font-size: 15px;
