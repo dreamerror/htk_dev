@@ -1,7 +1,8 @@
 <template>
     <div class="main-wrapper">
         <div class="main-bg">
-            <header-only-main>
+            <header-only-main
+            :url="url">
 
             </header-only-main>
             <div class="main-description">
@@ -58,6 +59,7 @@ export default {
     name: "MainPageComponent",
     props: {
       cards: Array,
+      url: String,
     },
 }
 </script>
@@ -137,7 +139,7 @@ export default {
             }
 
             .main-image-wrapper img {
-                height: 100%;
+                width: 115%;
                 aspect-ratio: 2;
 
             }
@@ -160,7 +162,7 @@ export default {
 
         .main-description-text {
             width: 40%;
-            padding-top: 3vh;
+            padding-top: 5vh;
             padding-right: 4vw;
             font-size: 15px;
             font-weight: 700;
