@@ -1,7 +1,10 @@
-@extends('pages.layouts.app')
+@extends('pages.layouts.main')
 
 @section('content')
-    <customs-page>
+    <customs-page
+    :url="'{{ url('/') }}'"
+    :api="'{{ url('/api/edit-content') }}'"
+    :data="{{ json_encode($data) }}">
 
     </customs-page>
 @endsection

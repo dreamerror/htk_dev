@@ -24,7 +24,12 @@ class PublicController extends Controller
     }
 
     public function customs() {
-        return view('pages.tp');
+        $data = DB::table('page_content')->where('page', '=', 'tp')
+            ->select(['page_text', 'page_additional'])->first();
+        $data = json_decode(json_encode($data), true);
+        return view('pages.tp', [
+            'data' => $data
+        ]);
     }
 
     public function cargo() {
