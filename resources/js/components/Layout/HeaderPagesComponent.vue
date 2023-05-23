@@ -1,5 +1,6 @@
 <template>
     <div class="header-bg">
+        <img class="bg-image" :src="bg_image" alt="">
         <div class="header-contacts">
             <div class="contact-elem">
                 <span>Перевозки "Беркут"</span>
@@ -72,21 +73,20 @@ export default {
         justify-content: center;
         align-items: center;
         position: relative;
-    }
 
-    .header-bg:after {
-        content : "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 100%;
-        opacity : 0.3;
-        z-index: -100;
+        .bg-image {
+            display: block;
+            position: absolute;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity : 0.3;
+            z-index: -100;
+            mask-image: linear-gradient(#000 70%, transparent);
+            mask-position: bottom;
+        }
     }
 
     .header-contacts {

@@ -1,6 +1,7 @@
 <template>
     <div class="main-wrapper">
         <div class="main-bg">
+            <img class="bg-image" src="/storage/bg/main-bg.jpg" alt="">
             <div class="main-contacts">
                 <div class="contact-elem">
                     <span>Перевозки "Беркут"</span>
@@ -97,23 +98,21 @@ export default {
         justify-content: center;
         align-items: center;
         position: relative;
+
+        .bg-image {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity : 0.3;
+            z-index: -100;
+            mask-image: linear-gradient(#000 70%, transparent);
+            mask-position: bottom;
+        }
     }
 
-    .main-bg:after {
-        content : "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-image: url('/storage/bg/main-bg.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 100%;
-        opacity : 0.3;
-        z-index: -100;
-    }
 
     .main-contacts {
         display: grid;

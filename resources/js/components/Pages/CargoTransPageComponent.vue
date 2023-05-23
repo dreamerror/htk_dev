@@ -1,7 +1,7 @@
 <template>
     <div class="page-wrapper">
         <header-pages
-            :bg_image="'/storage/banner.png'"
+            :bg_image="'/storage/bg/cargo_trans.png'"
             :url="url">
 
             <template v-slot:description data-editable data-name="page-header">
