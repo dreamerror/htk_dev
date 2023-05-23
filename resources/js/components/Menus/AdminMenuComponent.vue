@@ -3,7 +3,8 @@
         <div class="admin-nav-title">
             Навигация
         </div>
-        <div class="admin-nav-button">
+        <div class="admin-nav-button"
+        @click="redirect('')">
             Домой
         </div>
         <div class="admin-nav-button">

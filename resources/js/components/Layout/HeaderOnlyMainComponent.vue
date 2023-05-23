@@ -6,7 +6,8 @@
             Меню
         </div>
 
-        <img src="/storage/berkut-logo.svg" alt="" class="desktop berkut-logo">
+        <img src="/storage/berkut-logo.svg" alt="" class="desktop berkut-logo"
+        @click="redirect('')">
 
         <div class="main-header-nav desktop main-header-menu"
              v-if="showNav">
@@ -98,7 +99,7 @@ export default {
     .berkut-logo {
         width: 7%;
         aspect-ratio: 1.5;
-
+        cursor: pointer;
     }
 
     .main-header-nav {

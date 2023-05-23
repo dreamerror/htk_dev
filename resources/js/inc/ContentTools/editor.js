@@ -4,6 +4,9 @@ export function createEditor(apiURL, setData) {
     ContentTools.StylePalette.add([
         new ContentTools.Style('Author', 'author', ['p']),
         new ContentTools.Style('Граница', 'ce-table-border', ['table', 'td', 'th']),
+        new ContentTools.Style('Телефон', 'ce-phone', ['p']),
+        new ContentTools.Style('E-mail', 'ce-email', ['p']),
+        new ContentTools.Style('Адрес', 'ce-address', ['p']),
     ]);
 
     ContentTools.IMAGE_UPLOADER = saveImage;
