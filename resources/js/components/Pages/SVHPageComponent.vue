@@ -23,7 +23,6 @@
         </header-pages>
 
         <div class="page-content">
-            <div class="doc-text">
                 <div class="page-documents">
                     <img src="/storage/svh_svid.png" alt="" data-no-resize>
                 </div>
@@ -31,7 +30,6 @@
                 <div class="page-text" data-editable data-name="page-text" v-html="pageText">
                     {{pageText}}
                 </div>
-            </div>
 
             <div class="page-additional-info" data-editable data-name="page-additional" v-html="pageAdditional">
                 {{pageAdditional}}
@@ -114,9 +112,11 @@ export default {
     }
 
     .page-content {
-        display: flex;
-        flex-direction: column;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 2vh;
+        width: 50%;
     }
 
     .doc-text {
@@ -127,40 +127,21 @@ export default {
     }
 
     .page-documents {
-        max-width: 340px;
+        grid-column: 1;
+        grid-row: 1;
         display: flex;
         flex-direction: column;
         gap: 1vh;
 
         img {
             width: 100%;
-            height: auto;
+            //height: auto;
             box-shadow: 4px 6px 10px rgb(0 0 0 / 20%);
             border: 6px solid #fff;
-        }
-
-        p {
-            position: relative;
-            color: #0a0a0d;
-            font-size: 12px;
-            font-weight: 500;
-            line-height: 18px;
-        }
-
-        p::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 98px;
-            height: 2px;
-            background: #316851;
         }
     }
 
     .page-text {
-        width: 30%;
-
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -174,7 +155,8 @@ export default {
     }
 
     .page-additional-info {
-        padding: 0 22.5vw;
+        grid-row: 2;
+        grid-column: 1 / span 2;
     }
 
 </style>

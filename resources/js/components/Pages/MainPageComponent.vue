@@ -116,9 +116,8 @@ export default {
     }
 
     .main-contacts {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
         width: 60%;
         padding-top: 4vh;
         padding-left: 1vw;
@@ -145,9 +144,9 @@ export default {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 35%;
+            height: 70%;
             padding: 1px 15px;
-            border: 2px solid #ffffff;
+            border: 3px solid #ffffff;
             color: #ffffff;
             font-weight: bold;
             cursor: pointer;
@@ -165,57 +164,40 @@ export default {
 
     .main-description {
         width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 4fr 3fr;
         gap: 3vw;
         padding: 10vh 15vw 35vh 17vw;
         color: #111111;
 
         .main-description-logo {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            width: 50%;
-            gap: 4vh;
-
-            .description-border {
-                width: 50%;
-                margin-left: 3.5vw;
-                border-bottom: 2px solid black;
-            }
+            display: grid;
+            grid-template-rows: 2fr 1fr 0.2fr;
+            padding: 0 0 0 3vw;
 
             .button-wrapper {
-                width: 25%;
+                width: auto;
+                height: auto;
                 display: flex;
                 justify-content: center;
                 font-size: 18px;
                 align-items: center;
-                padding: 1px 1px;
+                padding: 1px 5px;
                 border: 1px solid #316851;
                 color: #ffffff;
                 background: #316851;
                 cursor: pointer;
                 border-radius: 5px;
-                margin-left: 3.5vw;
-            }
-
-            .main-image-wrapper img {
-                width: 115%;
-                aspect-ratio: 2;
-
+                margin-right: auto;
             }
 
             .main-image-wrapper {
                 position: relative;
-                padding: 0 0 0 3vw;
             }
 
             .header-description-wrapper {
                 width: 100%;
-                padding-left: 3.5vw;
-                padding-bottom: 1vh;
+                //padding-left: 3.5vw;
             }
 
             .header-description-wrapper h4 {
@@ -226,7 +208,6 @@ export default {
         }
 
         .main-description-text {
-            width: 38.5%;
             padding-top: 5vh;
             padding-right: 4vw;
             font-size: 15px;
@@ -236,13 +217,7 @@ export default {
 
     @media (max-width: 899px) {
         .main-description {
-            .main-description-logo {
-                width: 100%;
-            }
-
-            .main-description-text {
-                width: 100%;
-            }
+            grid-template-columns: 1fr;
         }
     }
 

@@ -1,6 +1,5 @@
 <template>
     <div class="main-footer-wrapper">
-        <div class="main-footer-content">
             <img src="/storage/berkut-footer.svg" class="footer-berkut" alt="Berkut">
             <img src="/storage/htk-footer.svg" class="footer-htk" alt="HTK">
 
@@ -46,12 +45,6 @@
                 </span>
             </div>
 
-        </div>
-
-        <div class="main-footer-copyright">
-            © 2019 OOO «Хасанская транспортная компания»
-        </div>
-
     </div>
 
 </template>
@@ -68,29 +61,33 @@ export default {
     .main-footer-wrapper {
         width: 100%;
         background: #316851;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1fr repeat(4, 2fr);
         padding: 1vh 1vw;
-        flex-wrap: wrap;
-        flex-grow: 1;
-    }
 
-    .main-footer-content {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding-bottom: 1vh;
-        flex-wrap: wrap;
-
-        .footer-berkut {
-            width: 5%;
-        }
-
-        .footer-htk {
-            width: 12%;
+        img {
+            width: 50%;
+            aspect-ratio: 1;
         }
     }
+
+    //.main-footer-content {
+    //    display: flex;
+    //    flex-direction: row;
+    //    justify-content: space-between;
+    //    align-items: flex-start;
+    //    padding-bottom: 1vh;
+    //    flex-wrap: wrap;
+    //
+    //    .footer-berkut {
+    //        width: 5%;
+    //    }
+    //
+    //    .footer-htk {
+    //        width: 12%;
+    //        fill: #ffffff;
+    //    }
+    //}
 
     .footer-contacts {
         display: flex;

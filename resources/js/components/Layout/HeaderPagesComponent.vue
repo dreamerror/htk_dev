@@ -90,9 +90,8 @@ export default {
     }
 
     .header-contacts {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr;
         width: 60%;
         padding-top: 4vh;
         padding-left: 1vw;
@@ -119,7 +118,7 @@ export default {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 35%;
+            height: 70%;
             padding: 1px 15px;
             border: 2px solid #ffffff;
             color: #ffffff;
