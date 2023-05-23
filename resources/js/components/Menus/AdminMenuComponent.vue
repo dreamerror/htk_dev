@@ -9,12 +9,28 @@
         <div class="admin-nav-button">
             Карточки
         </div>
+        <div class="admin-nav-button"
+        @click="redirect('/backgrounds')">
+            Задний фон страницы
+        </div>
+        <div class="admin-nav-button"
+             @click="redirect('/documents')">
+            Отображаемые документы
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "AdminMenuComponent"
+    name: "AdminMenuComponent",
+    props: {
+        url: String,
+    },
+    methods: {
+        redirect(route) {
+            window.location.href = this.url + route;
+        }
+    }
 }
 </script>
 

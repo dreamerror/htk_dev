@@ -13,4 +13,8 @@ class AdminController extends Controller
     public function backgrounds() {
         return view('pages.admin.backgrounds');
     }
+
+    public function documents() {
+        return view('pages.admin.documents');
+    }
 }

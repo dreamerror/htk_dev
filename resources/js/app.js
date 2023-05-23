@@ -5,11 +5,16 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-// Admin
+// Admin pages
 
 Vue.component('admin-page', require('./components/Admin/AdminPageComponent.vue').default);
 Vue.component('admin-bg-page', require('./components/Admin/AdminBackgroundsComponent.vue').default);
+Vue.component('admin-doc-page', require('./components/Admin/AdminDocumentsComponent.vue').default);
+
+// Admin utils
+
 Vue.component('admin-bg-item', require('./components/Admin/Items/AdminBackgroundsListElement.vue').default);
+Vue.component('admin-doc-item', require('./components/Admin/Items/AdminDocumentsListElement.vue').default);
 
 // Layout components
 

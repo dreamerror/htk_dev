@@ -16,6 +16,18 @@ class AdminApiController extends Controller
         $page = $request->page;
         $name = $pagesFileNames[$page];
         '/storage' . $request->all()[$page]->storeAs('/bg', $name, 'public');
+        return redirect('/admin/backgrounds');
+    }
 
+    public function editDocument(Request $request) {
+        $docFileNames = [
+            'svh_svid' => 'svh_svid.png',
+            'tp_prikaz' => 'tp_prikaz.png',
+            'cargo_svid' => 'cargo_svid.jpg'
+        ];
+        $doc = $request->doc;
+        $name = $docFileNames[$doc];
+        '/storage' . $request->all()[$doc]->storeAs('', $name, 'public');
+        return redirect('/admin/documents');
     }
 }

@@ -12,4 +12,5 @@ Route::post('/edit-content', [App\Http\Controllers\Api\PageContentController::cl
 
 Route::group(['prefix' => 'admin'], function () {
     Route::post('/background', [App\Http\Controllers\Api\AdminApiController::class, 'editBackground']);
+    Route::post('/document', [App\Http\Controllers\Api\AdminApiController::class, 'editDocument']);
 });

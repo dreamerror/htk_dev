@@ -22,7 +22,8 @@ header('Pragma: no-cache');
 
 <body>
     <div id="app">
-        <admin-menu>
+        <admin-menu
+        :url="'{{ url('/admin') }}'">
 
         </admin-menu>
         @yield('content')
