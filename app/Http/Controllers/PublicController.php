@@ -16,7 +16,7 @@ class PublicController extends Controller
 
     public function tempStorage() {
         $data = DB::table('page_content')->where('page', '=', 'svh')
-            ->select(['page_text', 'page_additional'])->first();
+            ->select(['page_text', 'page_additional', 'page_description'])->first();
         $data = json_decode(json_encode($data), true);
         return view('pages.svh', [
             'data' => $data
@@ -25,7 +25,7 @@ class PublicController extends Controller
 
     public function customs() {
         $data = DB::table('page_content')->where('page', '=', 'tp')
-            ->select(['page_text', 'page_additional'])->first();
+            ->select(['page_text', 'page_additional', 'page_description'])->first();
         $data = json_decode(json_encode($data), true);
         return view('pages.tp', [
             'data' => $data
@@ -34,7 +34,7 @@ class PublicController extends Controller
 
     public function cargo() {
         $data = DB::table('page_content')->where('page', '=', 'cargo_trans')
-            ->select(['page_text', 'page_additional'])->first();
+            ->select(['page_text', 'page_additional', 'page_description'])->first();
         $data = json_decode(json_encode($data), true);
         return view('pages.transportation.cargo', [
             'data' => $data

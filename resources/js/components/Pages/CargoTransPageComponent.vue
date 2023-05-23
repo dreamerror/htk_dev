@@ -2,24 +2,8 @@
     <div class="page-wrapper">
         <header-pages
             :bg_image="'/storage/bg/cargo_trans.png'"
-            :url="url">
-
-            <template v-slot:description data-editable data-name="page-header">
-                <h3>
-                    ООО "Беркут" работает на рынке транспортных услуг уже более 27 лет.
-                </h3>
-
-                <p>
-                    Компания дислоцируется на базе собственных гаражей один из которых расположен в
-                    непосредственной близости к государственной границе с Китаем
-                    (п. Краскино, Хасанский район, 24 километра от границы), второй в пригороде Владивостока.
-                </p>
-
-                <p>
-                    В число наших давних и надежных партнеров входят логистические компании провинции Цзилинь,
-                    организующих складскую обработку и таможенную очистку товаров  на территории Китая.
-                </p>
-            </template>
+            :url="url"
+            :content="pageDescription">
 
         </header-pages>
 
@@ -50,6 +34,11 @@ export default {
         api: String,
         data: Object,
     },
+    data() {
+        return {
+            test: "<h3>test</h3>"
+        }
+    },
     mounted() {
         initEditor(this.api, this.setData)
     },
@@ -59,6 +48,9 @@ export default {
         },
         pageAdditional() {
             return this.data["page_additional"]
+        },
+        pageDescription() {
+            return this.data["page_description"]
         }
     },
     methods: {
@@ -67,7 +59,8 @@ export default {
             return {
                 page: 'cargo_trans',
                 text: payload['page-text'],
-                additional: payload['page-additional']
+                additional: payload['page-additional'],
+                description: payload['page-header']
             }
         }
     }

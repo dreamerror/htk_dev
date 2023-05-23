@@ -2,27 +2,8 @@
     <div class="page-wrapper">
         <header-pages
             :bg_image="'/storage/bg/tp.jpg'"
-            :url="url">
-
-            <template v-slot:description data-editable data-name="page-header">
-                <h3>
-                    ООО "ХТК" включена в реестр таможенных представителей с 2014 года.
-                </h3>
-
-                <p>
-                    За прошедшие годы нами накоплен значительный опыт оформления различных товаров, перемещаемых как в импортном, так и в экспортном направлениях.
-                </p>
-                <p>
-                    Сформирован коллектив профессионалов, которые способны решать любые вопросы, возникающие при перемещении товаров через таможенную границу.
-                </p>
-                <p>
-                    Регион нашей деятельности распространяется на территорию всей Российской Федерации, компетенция позволяет работать с любыми категориями товаров.
-                </p>
-
-                <div class="page-buttons-wrapper">
-                    <div class="page-button" />
-                </div>
-            </template>
+            :url="url"
+            :content="pageDescription">
 
         </header-pages>
 
@@ -64,6 +45,9 @@ export default {
         },
         pageAdditional() {
             return this.data["page_additional"]
+        },
+        pageDescription() {
+            return this.data["page_description"]
         }
     },
     methods: {
@@ -72,7 +56,8 @@ export default {
             return {
                 page: 'tp',
                 text: payload['page-text'],
-                additional: payload['page-additional']
+                additional: payload['page-additional'],
+                description: payload['page-header']
             }
         }
     }

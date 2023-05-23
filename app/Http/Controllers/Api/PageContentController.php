@@ -29,5 +29,14 @@ class PageContentController extends Controller
             ]);
         }
 
+        if (isset($data['description'])) {
+            DB::table('page_content')->updateOrInsert([
+                'page' => $data['page']
+            ], [
+                'page' => $data['page'],
+                'page_description' => $data['description']
+            ]);
+        }
+
     }
 }

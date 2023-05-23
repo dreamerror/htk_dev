@@ -37,10 +37,8 @@
                 </div>
             </div>
 
-            <div class="header-description-text">
-                <slot name="description">
-
-                </slot>
+            <div class="header-description-text" data-editable data-name="page-header" v-html="content">
+                {{content}}
             </div>
         </div>
     </div>
@@ -52,6 +50,7 @@ export default {
     props: {
         bg_image: String,
         url: String,
+        content: String,
     },
     computed: {
         cssProps() {

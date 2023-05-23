@@ -2,23 +2,8 @@
     <div class="page-wrapper">
         <header-pages
             :bg_image="'/storage/bg/svh.png'"
-            :url="url">
-
-            <template v-slot:description data-editable data-name="page-header">
-                <h3>
-                    ООО "Хасанская транспортная компания" включает в себя всё необходимое для оказания услуг по хранению
-                    товаров и транспортных средств различных видов, находящихся под таможенным контролем до выпуска
-                    в соответствии с заявленной таможенной процедурой.
-                </h3>
-
-                <div class="page-buttons-wrapper">
-                    <div class="page-button"
-                         v-for="item in [0,1,2,3,4]"
-                         :key="item">
-
-                    </div>
-                </div>
-            </template>
+            :url="url"
+            :content="pageDescription">
 
         </header-pages>
 
@@ -59,6 +44,9 @@ export default {
         },
         pageAdditional() {
             return this.data['page_additional']
+        },
+        pageDescription() {
+            return this.data["page_description"]
         }
     },
     methods: {
@@ -67,7 +55,8 @@ export default {
             return {
                 page: 'svh',
                 text: payload['page-text'],
-                additional: payload['page-additional']
+                additional: payload['page-additional'],
+                description: payload['page-header']
             }
         }
     }
