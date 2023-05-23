@@ -105,7 +105,7 @@ export default {
         position: absolute;
         top: 0;
         left: 0;
-        background-image: url('/storage/main-bg.jpg');
+        background-image: url('/storage/bg/main-bg.jpg');
         background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;

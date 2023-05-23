@@ -5,6 +5,12 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+// Admin
+
+Vue.component('admin-page', require('./components/Admin/AdminPageComponent.vue').default);
+Vue.component('admin-bg-page', require('./components/Admin/AdminBackgroundsComponent.vue').default);
+Vue.component('admin-bg-item', require('./components/Admin/Items/AdminBackgroundsListElement.vue').default);
+
 // Layout components
 
 Vue.component('header-main', require('./components/Layout/HeaderMainComponent.vue').default);

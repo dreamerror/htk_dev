@@ -9,3 +9,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/edit-content', [App\Http\Controllers\Api\PageContentController::class, 'editContent']);
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::post('/background', [App\Http\Controllers\Api\AdminApiController::class, 'editBackground']);
+});
