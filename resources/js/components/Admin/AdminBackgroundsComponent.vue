@@ -23,6 +23,7 @@ export default {
                 {page: 'Главная', 'src': '/storage/bg/main-bg.jpg', pageName: 'main'},
                 {page: 'Склад временного хранения', 'src': '/storage/bg/svh.png', pageName: 'svh'},
                 {page: 'Таможенный представитель', 'src': '/storage/bg/tp.jpg', pageName: 'tp'},
+                {page: 'Грузовые перевозки', 'src': '/storage/bg/cargo_trans.png', pageName: 'cargo_trans'},
             ]
         }
     },

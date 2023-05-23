@@ -33,7 +33,12 @@ class PublicController extends Controller
     }
 
     public function cargo() {
-        return view('pages.transportation.cargo');
+        $data = DB::table('page_content')->where('page', '=', 'cargo_trans')
+            ->select(['page_text', 'page_additional'])->first();
+        $data = json_decode(json_encode($data), true);
+        return view('pages.transportation.cargo', [
+            'data' => $data
+        ]);
     }
 
     public function passengers() {
