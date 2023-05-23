@@ -18,6 +18,10 @@
              @click="redirect('/documents')">
             Отображаемые документы
         </div>
+        <div class="admin-nav-button"
+             @click="redirect('/contacts')">
+            Контакты
+        </div>
     </div>
 </template>
 

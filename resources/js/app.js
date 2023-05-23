@@ -10,11 +10,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('admin-page', require('./components/Admin/AdminPageComponent.vue').default);
 Vue.component('admin-bg-page', require('./components/Admin/AdminBackgroundsComponent.vue').default);
 Vue.component('admin-doc-page', require('./components/Admin/AdminDocumentsComponent.vue').default);
+Vue.component('admin-contacts-page', require('./components/Admin/AdminContactsComponent.vue').default);
 
 // Admin utils
 
 Vue.component('admin-bg-item', require('./components/Admin/Items/AdminBackgroundsListElement.vue').default);
 Vue.component('admin-doc-item', require('./components/Admin/Items/AdminDocumentsListElement.vue').default);
+Vue.component('admin-contact-item', require('./components/Admin/Items/AdminContactsListElement.vue').default);
 
 // Layout components
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -16,5 +17,12 @@ class AdminController extends Controller
 
     public function documents() {
         return view('pages.admin.documents');
+    }
+
+    public function contacts() {
+        $data = DB::table('footer_content')->select(['id', 'position', 'type', 'text'])->get();
+        return view('pages.admin.contacts', [
+            'data' => $data
+        ]);
     }
 }

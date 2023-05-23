@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminApiController extends Controller
 {
@@ -29,5 +30,39 @@ class AdminApiController extends Controller
         $name = $docFileNames[$doc];
         '/storage' . $request->all()[$doc]->storeAs('', $name, 'public');
         return redirect('/admin/documents');
+    }
+
+    public function editContacts(Request $request) {
+        $data = $request->input();
+        $position = $data['position'];
+        $deleted = explode(',', $data["deleted"]);
+        foreach (array_keys($data) as $key) {
+            if (str_starts_with($key, 'id')) {
+                if (!in_array($data[$key], $deleted)) {
+                    $num = explode('_', $key)[1];
+                    $id = intval($data[$key]);
+                    $text = $data["text_$num"];
+                    $type = $data["type_$num"];
+
+                    if ($id > 0) {
+                        DB::table('footer_content')->updateOrInsert([
+                            'id' => $id,
+                        ], [
+                            'text' => $text,
+                            'type' => $type,
+                            'position' => $position
+                        ]);
+                    } else {
+                        DB::table('footer_content')->insert([
+                            'text' => $text,
+                            'type' => $type,
+                            'position' => $position
+                        ]);
+                    }
+                }
+            }
+        }
+
+        return redirect('/admin/contacts');
     }
 }

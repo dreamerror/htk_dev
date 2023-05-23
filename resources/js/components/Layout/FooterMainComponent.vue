@@ -7,8 +7,7 @@
                 <span class="title">
                     Наш офис:
                 </span>
-                    <span class="address">
-                        <i class="fa fa-map-marker"></i>
+                    <span class="ce-address">
                         692715 Приморский край,
                     Хасанский район, <br> пгт. Краскино, ул. Ленина, 19
                 </span>
@@ -19,7 +18,7 @@
                 <span class="title">
                     СВХ:
                 </span>
-                <a href="mailto:Bulatov757@yandex.ru" class="address">
+                <a href="mailto:Bulatov757@yandex.ru" class="ce-email">
                     <i class="fa fa-envelope" aria-hidden="true"></i> Bulatov757@yandex.ru
                 </a>
 
@@ -29,7 +28,7 @@
                 <span class="title">
                     Перевозки «Беркут»:
                 </span>
-                <a href="mailto:Bulatov757@yandex.ru" class="address">
+                <a href="mailto:Bulatov757@yandex.ru" class="ce-email">
                     <i class="fa fa-envelope" aria-hidden="true"></i> Bulatov757@yandex.ru
                 </a>
 
@@ -39,8 +38,7 @@
                 <span class="title">
                     Таможенный представитель:
                 </span>
-                <span class="address">
-                    <i class="fa fa-map-marker"></i>
+                <span class="ce-address">
                     г. Владивосток, ул.Светланская, 83, офис 301/1
                 </span>
             </div>
@@ -51,7 +49,14 @@
 
 <script>
 export default {
-    name: "FooterMainComponent"
+    name: "FooterMainComponent",
+    mounted() {
+        const addressIcon = "<i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>"
+        const allAddresses = document.getElementsByClassName('ce-address')
+        for (let address of allAddresses) {
+            address.insertAdjacentHTML('afterbegin', addressIcon)
+        }
+    }
 }
 
 </script>
@@ -71,24 +76,6 @@ export default {
         }
     }
 
-    //.main-footer-content {
-    //    display: flex;
-    //    flex-direction: row;
-    //    justify-content: space-between;
-    //    align-items: flex-start;
-    //    padding-bottom: 1vh;
-    //    flex-wrap: wrap;
-    //
-    //    .footer-berkut {
-    //        width: 5%;
-    //    }
-    //
-    //    .footer-htk {
-    //        width: 12%;
-    //        fill: #ffffff;
-    //    }
-    //}
-
     .footer-contacts {
         display: flex;
         flex-direction: column;
@@ -100,7 +87,7 @@ export default {
             font-size: 16px;
         }
 
-        .address {
+        [class^='ce-'] {
             text-decoration: none;
             color: #ffffff;
             font-weight: 400;
@@ -109,7 +96,7 @@ export default {
             transition: all .3s linear;
         }
 
-        a.address:hover {
+        a[class^='ce-']:hover {
             color: #d1a251
         }
     }
