@@ -1,24 +1,20 @@
 <template>
-    <div class="contact-item-wrapper">
-        <div class="contact-block-wrapper"
-        @click="clickHandler">
+    <div class="file-item-wrapper">
+        <div class="file-block-wrapper"
+             @click="clickHandler">
             <h3>
-                {{pos_name}}
+                {{page_name}}
             </h3>
         </div>
-        <div class="doc-edit-wrapper"
-        v-if="this.displayEdit">
-            <form method="post" :action="api">
-                <div class="contacts-input-wrapper"
-                v-for="(item, index) in contentArray"
-                :key="index">
-                    <input type="text" :name="`text_${index}`" v-model="item.text">
+        <div class="file-edit-wrapper"
+             :class="{'not-show': !this.displayEdit}">
+            <form method="post" :action="api" enctype="multipart/form-data">
+                <div class="file-input-wrapper"
+                     v-for="(item, index) in contentArray"
+                     :key="index">
+                    <input type="text" :name="`text_${index}`" :value="item.text">
 
-                    <select :name="`type_${index}`" v-model="item.type">
-                        <option v-for="option in typeOptions" :value="option.value">
-                            {{option.text}}
-                        </option>
-                    </select>
+                    <input type="file" :name="`file_${page}_${index}`" :id="`file_${page}_${index}`">
 
                     <button @click.stop="deleteHandler($event, item.id)">
                         Удалить
@@ -28,7 +24,7 @@
 
                 </div>
 
-                <input type="hidden" name="position" :value="position">
+                <input type="hidden" name="page" :value="page">
                 <input type="hidden" name="deleted" :value="deletedItems" multiple>
 
                 <button @click.stop="addHandler($event)">Добавить элемент</button>
@@ -40,21 +36,16 @@
 
 <script>
 export default {
-    name: "AdminContactsListElement",
+    name: "AdminFilesListElement",
     props: {
-        position: String,
-        pos_name: String,
+        page: String,
+        page_name: String,
         content: Array,
         api: String,
     },
     data() {
         return {
             displayEdit: false,
-            typeOptions: [
-                {text: 'Адрес', value: 'address'},
-                {text: 'Телефон', value: 'phone'},
-                {text: 'E-mail', value: 'email'},
-            ],
             contentArray: this.content,
             deletedItems: [],
             elementsAdded: 0
@@ -67,7 +58,7 @@ export default {
         addHandler(e) {
             e.preventDefault();
             this.elementsAdded++;
-            const newItem = {value: '', position: this.position, type: 'address', id: 0 - this.elementsAdded};
+            const newItem = {value: '', file: '', id: 0 - this.elementsAdded};
             this.contentArray.push(newItem);
         },
         deleteHandler(e, id) {
@@ -84,13 +75,13 @@ export default {
 
 <style scoped lang="scss">
 
-    .contact-item-wrapper {
+    .file-item-wrapper {
         display: flex;
         flex-direction: column;
         gap: 1vh;
     }
 
-    .contact-block-wrapper {
+    .file-block-wrapper {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -114,13 +105,17 @@ export default {
         }
     }
 
-    .doc-edit-wrapper {
+    .file-edit-wrapper {
         transition: all 0.3s linear;
     }
 
-    .contacts-input-wrapper {
+    .file-input-wrapper {
         display: flex;
         gap: 2vw;
+    }
+
+    .not-show {
+        display: none;
     }
 
 </style>

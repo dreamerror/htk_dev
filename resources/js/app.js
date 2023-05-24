@@ -13,12 +13,14 @@ Vue.component('admin-doc-page', require('./components/Admin/AdminDocumentsCompon
 Vue.component('admin-contacts-page', require('./components/Admin/AdminContactsComponent.vue').default);
 Vue.component('admin-login-page', require('./components/Admin/LoginPageComponent.vue').default);
 Vue.component('admin-register-page', require('./components/Admin/RegisterPageComponent.vue').default);
+Vue.component('admin-files-page', require('./components/Admin/AdminFilesComponent.vue').default);
 
 // Admin utils
 
 Vue.component('admin-bg-item', require('./components/Admin/Items/AdminBackgroundsListElement.vue').default);
 Vue.component('admin-doc-item', require('./components/Admin/Items/AdminDocumentsListElement.vue').default);
 Vue.component('admin-contact-item', require('./components/Admin/Items/AdminContactsListElement.vue').default);
+Vue.component('admin-file-item', require('./components/Admin/Items/AdminFilesListElement.vue').default);
 
 // Layout components
 

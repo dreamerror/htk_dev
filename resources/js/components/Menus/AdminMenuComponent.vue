@@ -26,6 +26,10 @@
              @click="redirect('/contacts')">
             Контакты
         </div>
+        <div class="admin-nav-button"
+             @click="redirect('/files')">
+            Файлы
+        </div>
     </div>
 </template>
 

@@ -21,6 +21,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/backgrounds', [App\Http\Controllers\AdminController::class, 'backgrounds']);
     Route::get('/documents', [App\Http\Controllers\AdminController::class, 'documents']);
     Route::get('/contacts', [App\Http\Controllers\AdminController::class, 'contacts']);
+    Route::get('/files', [App\Http\Controllers\AdminController::class, 'files']);
 });
 
 Route::group(['prefix' => 'transportation'], function () {

@@ -50,7 +50,7 @@ export default {
         gap: 1vh;
     }
 
-    .contact-block-wrapper {
+    .file-block-wrapper {
         display: flex;
         flex-direction: row;
         align-items: center;

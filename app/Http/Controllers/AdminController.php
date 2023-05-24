@@ -31,4 +31,9 @@ class AdminController extends Controller
         $data = DB::table('footer_content')->select(['id', 'position', 'type', 'text'])->get();
         return $this->authenticatedView('pages.admin.contacts', ['data' => $data]);
     }
+
+    public function files() {
+        $data = DB::table('page_files')->select(['id', 'page', 'text', 'file'])->get();
+        return $this->authenticatedView('pages.admin.files', ['data' => $data]);
+    }
 }

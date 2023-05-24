@@ -35,7 +35,7 @@ class LoginController extends Controller
     public function showLoginForm(Request $request)
     {
         if ($request->session()->get('user')) {
-            return redirect('/');
+            return redirect('/admin');
         }
         return view('pages.admin.login');
     }
@@ -44,7 +44,7 @@ class LoginController extends Controller
         if ($request->session()->get('user')) {
             return view('pages.admin.register');
         }
-        return redirect('/');
+        return redirect('/admin');
     }
 
     public function register(Request $request) {
@@ -66,7 +66,7 @@ class LoginController extends Controller
             'password' => $password
         ])) {
             $request->session()->put('user', $username);
-            return redirect('/');
+            return redirect('/admin');
         }
 
         return redirect()->back();
