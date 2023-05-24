@@ -55,7 +55,6 @@ export default {
     },
     methods: {
         setData(payload) {
-            console.log(payload)
             return {
                 page: 'tp',
                 text: payload['page-text'],

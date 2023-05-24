@@ -24,7 +24,7 @@ class PublicController extends Controller
         $data = DB::table('page_content')->where('page', '=', 'svh')
             ->select(['page_text', 'page_additional', 'page_description'])->first();
         $files = DB::table('page_files')->where('page', '=', 'svh')
-            ->select('text', 'file')->get();
+            ->select('id', 'text', 'file')->get();
         return view('pages.svh', [
             'data' => $data,
             'auth' => $auth,

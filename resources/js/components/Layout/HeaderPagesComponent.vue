@@ -40,6 +40,18 @@
             <div class="header-description-text" data-editable data-name="page-header" v-html="content">
                 {{content}}
             </div>
+            <div data-ce-tag="static" class="page-buttons-wrapper">
+                <download-button
+                    v-for="file in files"
+                    :key="file.id"
+                    :file="file.file"
+                    :filename="filename(file.file)"
+                    :ext="ext(file.file)"
+                    :text="file.text"
+                >
+
+                </download-button>
+            </div>
         </div>
     </div>
 </template>
@@ -51,12 +63,22 @@ export default {
         bg_image: String,
         url: String,
         content: String,
+        files: {
+            type: Array,
+            default: [],
+        },
     },
-    computed: {
-        cssProps() {
-            return {
-                '--bg-image': this.bg_image
-            }
+    methods: {
+        filenameExt(file) {
+            return file.split('/').slice(-1)[0]
+        },
+        filename(file) {
+            file = this.filenameExt(file)
+            return file.split('.').slice(0, -1).join('.')
+        },
+        ext(file) {
+            file = this.filenameExt(file)
+            return file.split('.').slice(-1)[0]
         }
     }
 }
@@ -177,6 +199,15 @@ export default {
             font-weight: 700;
             text-transform: uppercase;
         }
+    }
+
+    .page-buttons-wrapper {
+        margin-top: 5vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2vw;
     }
 
 </style>

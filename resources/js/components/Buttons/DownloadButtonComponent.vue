@@ -1,7 +1,7 @@
 <template>
-    <div class="button-wrapper"
+    <div class="page-button"
     @click="downloadFile">
-        <i class="fa fa-download" aria-hidden="true"></i>
+<!--        <i class="fa fa-download" aria-hidden="true"></i>-->
         {{ text }}
     </div>
 </template>
@@ -40,21 +40,23 @@ export default {
 
 <style scoped lang="scss">
 
-    .button-wrapper {
+    .page-button {
+        text-transform: uppercase;
         display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
-        gap: 1vw;
-        padding: 15px;
-        border: 1px solid #d1a251;
+        width: 25%;
+        aspect-ratio: 4;
+        padding: 1px 1px;
+        border: 2px solid #d1a251;
         color: #ffffff;
         background: #d1a251;
-        transition: all 0.3s linear;
+        font-weight: bold;
         cursor: pointer;
+        border-radius: 50px;
     }
 
-    .button-wrapper:hover {
+    .page-button:hover {
         background: #111111;
         color: #d1a251;
     }

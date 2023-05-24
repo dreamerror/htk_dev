@@ -3,7 +3,8 @@
         <header-pages
             :bg_image="'/storage/bg/svh.png'"
             :url="url"
-            :content="pageDescription">
+            :content="pageDescription"
+            :files="files">
 
         </header-pages>
 
@@ -26,7 +27,6 @@
 
 <script>
 import {initEditor} from "../../inc/ContentTools/editor";
-import data from "bootstrap/js/src/dom/data";
 
 export default {
     name: "SVHPageComponent",
@@ -35,6 +35,7 @@ export default {
         api: String,
         data: Object,
         auth: Number,
+        files: Array,
     },
     mounted() {
         if (this.auth) {
@@ -72,31 +73,6 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 3vh;
-    }
-
-    .page-buttons-wrapper {
-        margin-top: 5vh;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2vw;
-    }
-
-    .page-button {
-        text-transform: uppercase;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 25%;
-        aspect-ratio: 4;
-        padding: 1px 15px;
-        border: 2px solid #d1a251;
-        color: #d1a251;
-        background: #d1a251;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 50px;
     }
 
     .header-bg:after {
