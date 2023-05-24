@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer('pages.layouts.main', function ($view) {
+            return $view->with('data',
+                DB::table('footer_content')->select(['position', 'type', 'text'])->orderBy('id')->get());
+        });
     }
 }

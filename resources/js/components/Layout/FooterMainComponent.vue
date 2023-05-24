@@ -7,9 +7,16 @@
                 <span class="title">
                     Наш офис:
                 </span>
-                    <span class="ce-address">
-                        692715 Приморский край,
-                    Хасанский район, <br> пгт. Краскино, ул. Ленина, 19
+                <span v-for="item in officeElements"
+                :key="item.text"
+                @click="this.callbacks[item.type]">
+
+                    <i class="fa fa-envelope" aria-hidden="true" v-if="item.type === 'email'"></i>
+                    <i class="fa fa-map-marker" aria-hidden="true" v-if="item.type === 'address'"></i>
+                    <i class="fa fa-phone" aria-hidden="true" v-if="item.type === 'phone'"></i>
+
+                    {{item.text}}
+
                 </span>
 
             </div>
@@ -18,9 +25,18 @@
                 <span class="title">
                     СВХ:
                 </span>
-                <a href="mailto:Bulatov757@yandex.ru" class="ce-email">
-                    <i class="fa fa-envelope" aria-hidden="true"></i> Bulatov757@yandex.ru
-                </a>
+                <span v-for="item in svhElements"
+                      :key="item.text"
+                      @click="this.callbacks[item.type]">
+
+                    <i class="fa fa-envelope" aria-hidden="true" v-if="item.type === 'email'"></i>
+                    <i class="fa fa-map-marker" aria-hidden="true" v-if="item.type === 'address'"></i>
+                    <i class="fa fa-phone" aria-hidden="true" v-if="item.type === 'phone'"></i>
+
+                    {{item.text}}
+
+                </span>
+
 
             </div>
 
@@ -28,9 +44,17 @@
                 <span class="title">
                     Перевозки «Беркут»:
                 </span>
-                <a href="mailto:Bulatov757@yandex.ru" class="ce-email">
-                    <i class="fa fa-envelope" aria-hidden="true"></i> Bulatov757@yandex.ru
-                </a>
+                <span v-for="item in berkutElements"
+                      :key="item.text"
+                      @click="this.callbacks[item.type]">
+
+                    <i class="fa fa-envelope" aria-hidden="true" v-if="item.type === 'email'"></i>
+                    <i class="fa fa-map-marker" aria-hidden="true" v-if="item.type === 'address'"></i>
+                    <i class="fa fa-phone" aria-hidden="true" v-if="item.type === 'phone'"></i>
+
+                    {{item.text}}
+
+                </span>
 
             </div>
 
@@ -38,8 +62,16 @@
                 <span class="title">
                     Таможенный представитель:
                 </span>
-                <span class="ce-address">
-                    г. Владивосток, ул.Светланская, 83, офис 301/1
+                <span v-for="item in tpElements"
+                      :key="item.text"
+                      @click="this.callbacks[item.type]">
+
+                    <i class="fa fa-envelope" aria-hidden="true" v-if="item.type === 'email'"></i>
+                    <i class="fa fa-map-marker" aria-hidden="true" v-if="item.type === 'address'"></i>
+                    <i class="fa fa-phone" aria-hidden="true" v-if="item.type === 'phone'"></i>
+
+                    {{item.text}}
+
                 </span>
             </div>
 
@@ -50,11 +82,41 @@
 <script>
 export default {
     name: "FooterMainComponent",
-    mounted() {
-        const addressIcon = "<i class=\"fa fa-map-marker\" aria-hidden=\"true\"></i>"
-        const allAddresses = document.getElementsByClassName('ce-address')
-        for (let address of allAddresses) {
-            address.insertAdjacentHTML('afterbegin', addressIcon)
+    props: {
+        items: Array,
+    },
+    data() {
+        return {
+            callbacks: {
+                phone: this.phoneClickHandler,
+                email: this.mailClickHandler,
+                address: this.addressClickHandler,
+            }
+        }
+    },
+    computed: {
+        officeElements() {
+            return this.items.filter(function(e) {return e.position === 'office'})
+        },
+        svhElements() {
+            return this.items.filter(function(e) {return e.position === 'svh'})
+        },
+        berkutElements() {
+            return this.items.filter(function(e) {return e.position === 'berkut'})
+        },
+        tpElements() {
+            return this.items.filter(function(e) {return e.position === 'tp'})
+        },
+    },
+    methods: {
+        phoneClickHandler(phone) {
+            window.location.assign(`tel:${phone}`)
+        },
+        mailClickHandler(email) {
+            window.location.assign(`mailto:${email}`)
+        },
+        addressClickHandler() {
+            return undefinded;
         }
     }
 }
@@ -87,16 +149,17 @@ export default {
             font-size: 16px;
         }
 
-        [class^='ce-'] {
+        span {
             text-decoration: none;
             color: #ffffff;
             font-weight: 400;
             font-size: 16px;
             line-height: 24px;
             transition: all .3s linear;
+            cursor: pointer;
         }
 
-        a[class^='ce-']:hover {
+        span:hover {
             color: #d1a251
         }
     }

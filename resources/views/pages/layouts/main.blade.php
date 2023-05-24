@@ -22,7 +22,8 @@ header('Pragma: no-cache');
 <body>
     <div id="app">
         @yield('content')
-        <footer-main>
+        <footer-main
+        :items="{{json_encode($data)}}">
 
         </footer-main>
     </div>
