@@ -93,11 +93,18 @@ class AdminApiController extends Controller
                             'page' => $page,
                             'file' => $path
                         ]);
-                    } else if ($id > 0) {
+                    } else if ($id < 0 && $path) {
                         DB::table('page_files')->insert([
                             'text' => $text,
                             'page' => $page,
                             'file' => $path
+                        ]);
+                    } else if ($id > 0) {
+                        DB::table('page_files')->updateOrInsert([
+                            'id' => $id,
+                        ], [
+                            'text' => $text,
+                            'page' => $page,
                         ]);
                     }
                 } else { // delete
