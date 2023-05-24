@@ -9,7 +9,7 @@
                 </span>
                 <span v-for="item in officeElements"
                 :key="item.text"
-                @click="this.callbacks[item.type]">
+                @click="callbacks[item.type](item.text)">
 
                     <i class="fa fa-envelope" aria-hidden="true" v-if="item.type === 'email'"></i>
                     <i class="fa fa-map-marker" aria-hidden="true" v-if="item.type === 'address'"></i>
@@ -27,7 +27,7 @@
                 </span>
                 <span v-for="item in svhElements"
                       :key="item.text"
-                      @click="this.callbacks[item.type]">
+                      @click="callbacks[item.type](item.text)">
 
                     <i class="fa fa-envelope" aria-hidden="true" v-if="item.type === 'email'"></i>
                     <i class="fa fa-map-marker" aria-hidden="true" v-if="item.type === 'address'"></i>
@@ -46,7 +46,7 @@
                 </span>
                 <span v-for="item in berkutElements"
                       :key="item.text"
-                      @click="this.callbacks[item.type]">
+                      @click="callbacks[item.type](item.text)">
 
                     <i class="fa fa-envelope" aria-hidden="true" v-if="item.type === 'email'"></i>
                     <i class="fa fa-map-marker" aria-hidden="true" v-if="item.type === 'address'"></i>
@@ -64,7 +64,7 @@
                 </span>
                 <span v-for="item in tpElements"
                       :key="item.text"
-                      @click="this.callbacks[item.type]">
+                      @click="callbacks[item.type](item.text)">
 
                     <i class="fa fa-envelope" aria-hidden="true" v-if="item.type === 'email'"></i>
                     <i class="fa fa-map-marker" aria-hidden="true" v-if="item.type === 'address'"></i>
