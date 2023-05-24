@@ -15,4 +15,5 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/document', [App\Http\Controllers\Api\AdminApiController::class, 'editDocument']);
     Route::post('/contacts', [App\Http\Controllers\Api\AdminApiController::class, 'editContacts']);
     Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+    Route::post('/register', [App\Http\Controllers\Auth\LoginController::class, 'register']);
 });

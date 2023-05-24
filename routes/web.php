@@ -11,9 +11,10 @@ Route::get('/prices', [App\Http\Controllers\PublicController::class, 'prices']);
 Route::get('/test', [App\Http\Controllers\PublicController::class, 'test']);
 
 Route::group(['middleware' => ['web'], 'prefix' => 'login'], function () {
-   Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
+   Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 });
 
+Route::get('/register', [App\Http\Controllers\Auth\LoginController::class, 'showRegisterForm']);
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);

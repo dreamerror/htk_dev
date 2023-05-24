@@ -7,6 +7,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
@@ -32,10 +34,25 @@ class LoginController extends Controller
 
     public function showLoginForm(Request $request)
     {
-        if (Auth::user()) {
+        if ($request->session()->get('user')) {
             return redirect('/');
         }
         return view('pages.admin.login');
+    }
+
+    public function showRegisterForm(Request $request) {
+        if ($request->session()->get('user')) {
+            return view('pages.admin.register');
+        }
+        return redirect('/');
+    }
+
+    public function register(Request $request) {
+        $data = $request->input();
+        $username = $data['username'];
+        $password = $data['password'];
+        DB::table('users')->insert(['username' => $username, 'password' => Hash::make($password)]);
+        return redirect()->back();
     }
 
     public function login(Request $request)

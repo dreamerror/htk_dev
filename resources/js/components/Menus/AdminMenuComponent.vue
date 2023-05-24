@@ -7,6 +7,10 @@
         @click="redirectHome">
             На главную
         </div>
+        <div class="admin-nav-button"
+             @click="redirect('/register')">
+            Новый пользователь
+        </div>
         <div class="admin-nav-button">
             Карточки
         </div>

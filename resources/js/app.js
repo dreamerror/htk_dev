@@ -12,6 +12,7 @@ Vue.component('admin-bg-page', require('./components/Admin/AdminBackgroundsCompo
 Vue.component('admin-doc-page', require('./components/Admin/AdminDocumentsComponent.vue').default);
 Vue.component('admin-contacts-page', require('./components/Admin/AdminContactsComponent.vue').default);
 Vue.component('admin-login-page', require('./components/Admin/LoginPageComponent.vue').default);
+Vue.component('admin-register-page', require('./components/Admin/RegisterPageComponent.vue').default);
 
 // Admin utils
 
