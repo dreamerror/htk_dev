@@ -33,14 +33,12 @@ export default {
         url: String,
         api: String,
         data: Object,
-    },
-    data() {
-        return {
-            test: "<h3>test</h3>"
-        }
+        auth: Number,
     },
     mounted() {
-        initEditor(this.api, this.setData)
+        if (this.auth) {
+            initEditor(this.api, this.setData)
+        }
     },
     computed: {
         pageText() {

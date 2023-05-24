@@ -10,6 +10,11 @@ Route::get('/contacts', [App\Http\Controllers\PublicController::class, 'contacts
 Route::get('/prices', [App\Http\Controllers\PublicController::class, 'prices']);
 Route::get('/test', [App\Http\Controllers\PublicController::class, 'test']);
 
+Route::group(['middleware' => ['web'], 'prefix' => 'login'], function () {
+   Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
+});
+
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);
     Route::get('/backgrounds', [App\Http\Controllers\AdminController::class, 'backgrounds']);

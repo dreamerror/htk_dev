@@ -38,9 +38,9 @@ class AdminApiController extends Controller
         $deleted = explode(',', $data["deleted"]);
         foreach (array_keys($data) as $key) {
             if (str_starts_with($key, 'id')) {
+                $id = intval($data[$key]);
                 if (!in_array($data[$key], $deleted)) {
                     $num = explode('_', $key)[1];
-                    $id = intval($data[$key]);
                     $text = $data["text_$num"];
                     $type = $data["type_$num"];
 
@@ -58,6 +58,10 @@ class AdminApiController extends Controller
                             'type' => $type,
                             'position' => $position
                         ]);
+                    }
+                } else { // delete
+                    if ($id > 0) {
+                        DB::table('footer_content')->where('id', '=', $id)->delete();
                     }
                 }
             }

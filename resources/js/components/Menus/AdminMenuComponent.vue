@@ -4,8 +4,8 @@
             Навигация
         </div>
         <div class="admin-nav-button"
-        @click="redirect('')">
-            Домой
+        @click="redirectHome">
+            На главную
         </div>
         <div class="admin-nav-button">
             Карточки
@@ -34,6 +34,10 @@ export default {
     methods: {
         redirect(route) {
             window.location.href = this.url + route;
+        },
+        redirectHome() {
+            const homeUrl = this.url.split('/admin');
+            window.location.href = homeUrl[0];
         }
     }
 }

@@ -35,9 +35,12 @@ export default {
         url: String,
         api: String,
         data: Object,
+        auth: Number,
     },
     mounted() {
-        initEditor(this.api, this.setData)
+        if (this.auth) {
+            initEditor(this.api, this.setData)
+        }
     },
     computed: {
         pageText() {
