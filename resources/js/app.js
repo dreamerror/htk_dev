@@ -56,6 +56,7 @@ Vue.component('pass-trans-page', require('./components/Pages/PassTransPageCompon
 Vue.component('transit-trans-page', require('./components/Pages/TransitTransPageComponent.vue').default);
 Vue.component('contacts-page', require('./components/Pages/ContactsPageComponent.vue').default);
 Vue.component('prices-page', require('./components/Pages/PricesPageComponent.vue').default);
+Vue.component('info-edit-page', require('./components/Pages/InfoEditPageComponent.vue').default);
 Vue.component('test-page', require('./components/Pages/TestPageComponent.vue').default);
 
 

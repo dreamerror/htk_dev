@@ -30,4 +30,8 @@ Route::group(['prefix' => 'transportation'], function () {
     Route::get('/transit', [App\Http\Controllers\PublicController::class, 'transit']);
 });
 
+Route::group(['prefix' => 'info'], function () {
+    Route::get('/add', [App\Http\Controllers\SecuredController::class, 'addInfo']);
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
