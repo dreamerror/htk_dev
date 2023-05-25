@@ -1,38 +1,66 @@
 <template>
     <div class="main-header-wrapper">
-
         <div class="main-header-nav mobile nav-item"
         @click="navBarHandler">
             Меню
         </div>
 
         <img src="/storage/berkut-logo.svg" alt="" class="desktop berkut-logo"
-        @click="redirect('')">
+             @click="redirect('')">
 
-        <div class="main-header-nav desktop main-header-menu"
-             v-if="showNav">
-            <div v-for="item in this.navbarElements"
-                 class="nav-item"
-                 :key="item.route"
-                 @click="redirect(item.route)">
-                {{item.title}}
-
-                <i class="fa fa-chevron-down nav-arrow"
-                   aria-hidden="true"
-                   v-if="item.child"></i>
-
-                <div class="main-header-dropdown"
-                    v-if="item.child">
-                    <div class="header-dropdown-item"
-                    v-for="children in item.child"
-                    :key="children.route"
-                    @click.stop="redirect(`${item.route}${children.route}`)">
-                        {{ children.title }}
-                    </div>
+        <div class="main-menu-wrapper">
+            <div class="main-contacts">
+                <div class="contact-elem">
+                    <span>Перевозки "Беркут"</span>
+                    <a href="tel:+74233130950">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        +7 (42331) 309-50
+                    </a>
                 </div>
 
+                <div class="contact-elem">
+                    <span>Склад временного хранения</span>
+                    <a href="tel:+74232022521">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        +7 423 202-25-21
+                    </a>
+                    <a href="tel:+79025225000">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        +7 902 522-50-00
+                    </a>
+                </div>
+
+                <div class="contacts-button">
+                    Заказать обратный звонок
+                </div>
+            </div>
+
+            <div class="main-header-nav desktop main-header-menu"
+                 v-if="showNav">
+                <div v-for="item in this.navbarElements"
+                     class="nav-item"
+                     :key="item.route"
+                     @click="redirect(item.route)">
+                    {{item.title}}
+
+                    <i class="fa fa-chevron-down nav-arrow"
+                       aria-hidden="true"
+                       v-if="item.child"></i>
+
+                    <div class="main-header-dropdown"
+                         v-if="item.child">
+                        <div class="header-dropdown-item"
+                             v-for="children in item.child"
+                             :key="children.route"
+                             @click.stop="redirect(`${item.route}${children.route}`)">
+                            {{ children.title }}
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
+
 
 
     </div>
@@ -92,7 +120,7 @@ export default {
         align-items: flex-end;
         width: 100%;
         //margin-bottom: 2vh;
-        //padding: 0 7vw 0 7vw;
+        padding: 0 7vw 0 7vw;
         //gap: 7vw;
     }
 
@@ -102,12 +130,67 @@ export default {
         cursor: pointer;
     }
 
+    .main-contacts {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 2fr;
+        width: 100%;
+        //padding-top: 4vh;
+        //padding-left: 4vw;
+
+        .contact-elem {
+            display: flex;
+            flex-direction: column;
+
+            span {
+                text-transform: uppercase;
+                margin-bottom: 0.25rem;
+                font-size: 1rem;
+                font-weight: 400;
+            }
+
+            a {
+                text-decoration: none;
+                color: #111111;
+                font-size: 1rem;
+                font-weight: 400;
+            }
+        }
+
+        .contacts-button {
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90px;
+            width: 100%;
+            //padding: 0 30px;
+            border: 3px solid #ffffff;
+            color: #ffffff;
+            font-weight: 400;
+            font-size: 1.5em;
+            cursor: pointer;
+            border-radius: 50px;
+            grid-row: 1 / 3;
+            grid-column: 3;
+            justify-self: center;
+        }
+    }
+
+    .main-menu-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 3vh;
+    }
+
     .main-header-nav {
         background: #316851;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         align-items: center;
-        width: 90%;
+        width: auto;
+        //gap: 10px;
         border-radius: 30px;
         height: 45px;
         box-shadow: 0 2px 3px rgb(0 0 0 / 18%);
@@ -116,10 +199,11 @@ export default {
     .nav-item {
         position: relative;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         font-size: 1.2em;
-        width: 100%;
+        width: auto;
+        padding: 0 30px;
         color: #ffffff;
         height: 100%;
         transition: all .3s linear;
@@ -153,17 +237,17 @@ export default {
     }
 
     .nav-item:first-child {
-        width: 100%;
-        margin-right: auto;
+        //width: 100%;
+        //margin-right: auto;
         border-radius: 30px 0 0 30px;
     }
 
     .nav-item:nth-child(2) {
-        width: 250%;
+        //width: 250%;
     }
 
     .nav-item:last-child {
-        margin-left: auto;
+        //margin-left: auto;
         border-radius: 0 30px 30px 0;
         background: #d1a251;
     }

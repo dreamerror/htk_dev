@@ -1,31 +1,6 @@
 <template>
     <div class="header-bg">
         <img class="bg-image" :src="bg_image" alt="">
-        <div class="header-contacts">
-            <div class="contact-elem">
-                <span>Перевозки "Беркут"</span>
-                <a href="tel:+74232111111">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    +7 423 211-11-11
-                </a>
-            </div>
-
-            <div class="contact-elem">
-                <span>Склад временного хранения</span>
-                <a href="tel:+74232111111">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    +7 423 211-11-11
-                </a>
-                <a href="tel:+74232111111">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    +7 423 211-11-11
-                </a>
-            </div>
-
-            <div class="contacts-button">
-                Заказать обратный звонок
-            </div>
-        </div>
         <header-only-main
             :url="url">
 
