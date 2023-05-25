@@ -24,7 +24,7 @@ export default {
 <style scoped>
     .cards-wrapper {
         display: flex;
-        padding: 0 13vw 2vh 13vw;
+        padding: 0 13vw 5vh 13vw;
         flex-direction: row;
         flex-grow: 1;
         flex-wrap: wrap;

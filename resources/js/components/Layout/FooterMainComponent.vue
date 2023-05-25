@@ -1,7 +1,9 @@
 <template>
     <div class="main-footer-wrapper">
+        <div class="footer-logos">
             <img src="/storage/berkut-footer.svg" class="footer-berkut" alt="Berkut">
             <img src="/storage/htk-footer.svg" class="footer-htk" alt="HTK">
+        </div>
 
             <div class="footer-contacts">
                 <span class="title">
@@ -129,11 +131,18 @@ export default {
         width: 100%;
         background: #316851;
         display: grid;
-        grid-template-columns: 1fr 1fr repeat(4, 2fr);
+        grid-template-columns: 1fr repeat(4, 1fr);
         padding: 1vh 1vw;
+        grid-gap: 2vw;
+    }
+
+    .footer-logos {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
         img {
-            width: 50%;
+            width: 25%;
             aspect-ratio: 1;
         }
     }
@@ -157,9 +166,10 @@ export default {
             line-height: 24px;
             transition: all .3s linear;
             cursor: pointer;
+            max-width: max-content;
         }
 
-        span:hover {
+        span:not(:first-child):hover {
             color: #d1a251
         }
     }

@@ -72,12 +72,12 @@ export default {
             //left: 25%;
             display: flex;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 400;
             align-items: center;
             font-family: 'Harmonia';
-            padding: 10px 2rem;
-            letter-spacing: 0.2rem;
+            padding: 5px 2rem;
+            letter-spacing: 0.3rem;
             border: 1px solid #d1a251;
             color: #ffffff;
             background: #d1a251;
@@ -99,7 +99,7 @@ export default {
         .card-title {
             text-align: center;
             text-transform: uppercase;
-            font-size: 3rem;
+            font-size: 3.1rem;
         }
 
         span {

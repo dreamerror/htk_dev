@@ -15,30 +15,30 @@
             <div class="page-files">
 
             </div>
+
+            <form method="post" :action="api_files" enctype="multipart/form-data" v-if="auth">
+                <div class="file-input-wrapper"
+                     v-for="(item, index) in filesArray"
+                     :key="index">
+                    <input type="text" :name="`text_${index}`" :value="item.text">
+
+                    <input type="file" :name="`file_${index}`" :id="`file_${index}`">
+
+                    <button @click.stop="deleteHandler($event, item.id)">
+                        Удалить
+                    </button>
+
+                    <input type="hidden" :name="`id_${index}`" :value="item.id">
+
+                </div>
+
+                <input type="hidden" name="page_id" :value="id">
+                <input type="hidden" name="deleted" :value="deletedItems" multiple>
+
+                <button @click.stop="addHandler($event)">Добавить элемент</button>
+                <input type="submit">
+            </form>
         </div>
-
-        <form method="post" :action="api_files" enctype="multipart/form-data" v-if="auth">
-            <div class="file-input-wrapper"
-                 v-for="(item, index) in filesArray"
-                 :key="index">
-                <input type="text" :name="`text_${index}`" :value="item.text">
-
-                <input type="file" :name="`file_${index}`" :id="`file_${index}`">
-
-                <button @click.stop="deleteHandler($event, item.id)">
-                    Удалить
-                </button>
-
-                <input type="hidden" :name="`id_${index}`" :value="item.id">
-
-            </div>
-
-            <input type="hidden" name="page_id" :value="id">
-            <input type="hidden" name="deleted" :value="deletedItems" multiple>
-
-            <button @click.stop="addHandler($event)">Добавить элемент</button>
-            <input type="submit">
-        </form>
     </div>
 </template>
 

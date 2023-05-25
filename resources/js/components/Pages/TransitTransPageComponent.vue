@@ -8,25 +8,28 @@
 
         </header-pages>
 
+        <div class="page-content">
+            <div class="page-text" data-editable data-name="page-text">
+                <p>
+                    По вопросам обращаться:
+                </p>
+                <p>
+                    Генеральный директор ООО "Беркут"
+                </p>
+                <p>
+                    Машкин Александр Владимирович
+                </p>
+                <p>
+                    тел.: +7 924 526-78-00
+                </p>
+            </div>
 
-        <div class="page-text" data-editable data-name="page-text">
-            <p>
-                По вопросам обращаться:
-            </p>
-            <p>
-                Генеральный директор ООО "Беркут"
-            </p>
-            <p>
-                Машкин Александр Владимирович
-            </p>
-            <p>
-                тел.: +7 924 526-78-00
-            </p>
+            <div class="page-additional" data-editable data-name="page-additional" v-html="pageAdditional">
+                {{pageAdditional}}
+            </div>
         </div>
 
-        <div class="page-additional" data-editable data-name="page-additional" v-html="pageAdditional">
-            {{pageAdditional}}
-        </div>
+
 
     </div>
 </template>

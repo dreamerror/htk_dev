@@ -103,11 +103,11 @@ export default {
     }
 
     .page-content {
-        margin: 0 auto;
+        padding: 0 13vw;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2vh;
-        width: 50%;
+        width: 100%;
     }
 
     .doc-text {

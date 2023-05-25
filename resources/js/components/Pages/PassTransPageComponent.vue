@@ -8,13 +8,14 @@
 
         </header-pages>
 
+        <div class="page-content">
+            <div class="page-text" data-editable data-name="page-text" v-html="pageText">
+                {{pageText}}
+            </div>
 
-        <div class="page-text" data-editable data-name="page-text" v-html="pageText">
-            {{pageText}}
-        </div>
-
-        <div class="page-additional" data-editable data-name="page-additional" v-html="pageAdditional">
-            {{pageAdditional}}
+            <div class="page-additional" data-editable data-name="page-additional" v-html="pageAdditional">
+                {{pageAdditional}}
+            </div>
         </div>
 
     </div>
