@@ -8,39 +8,41 @@
 
         </header-pages>
 
-        <contacts-item-element
-        title="ООО «Хасанская транспортная компания»"
-        :items="htkItem">
+        <div class="page-content">
+            <contacts-item-element
+                title="ООО «Хасанская транспортная компания»"
+                :items="htkItem">
 
-            <template v-slot:map>
-                <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3Aa613d88d0f8545c9c27e046ca73c780297c9226aea9d2b138bb27059b4d29960"
-                        frameborder="0" allowfullscreen="true" width="100%" height="300px" style="display: block;">
+                <template v-slot:map>
+                    <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3Aa613d88d0f8545c9c27e046ca73c780297c9226aea9d2b138bb27059b4d29960"
+                            frameborder="0" allowfullscreen="true" width="100%" height="300px" style="display: block;">
 
-                </iframe>
-            </template>
+                    </iframe>
+                </template>
 
-        </contacts-item-element>
+            </contacts-item-element>
 
-        <contacts-item-element
-        title="Склад временного хранения (СВХ)"
-        :items="svhItem">
+            <contacts-item-element
+                title="Склад временного хранения (СВХ)"
+                :items="svhItem">
 
-            <template v-slot:map>
-                <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3Ae2f63bcc667adf962cca588dd74b7bde9bff30687ef8f1a5ad92a36a82e482c0"
-                        frameborder="0" allowfullscreen="true" width="100%" height="300px" style="display: block;">
+                <template v-slot:map>
+                    <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3Ae2f63bcc667adf962cca588dd74b7bde9bff30687ef8f1a5ad92a36a82e482c0"
+                            frameborder="0" allowfullscreen="true" width="100%" height="300px" style="display: block;">
 
-                </iframe>
-            </template>
+                    </iframe>
+                </template>
 
-        </contacts-item-element>
+            </contacts-item-element>
 
-        <contacts-item-element
-        title="Таможенный представитель"
-        :items="tpItem" />
+            <contacts-item-element
+                title="Таможенный представитель"
+                :items="tpItem" />
 
-        <contacts-item-element
-        title="Дополнительная информация"
-        :items="additionalItem" />
+            <contacts-item-element
+                title="Дополнительная информация"
+                :items="additionalItem" />
+        </div>
 
     </div>
 </template>

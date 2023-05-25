@@ -1,8 +1,9 @@
 <template>
     <div class="page-button"
     @click="downloadFile">
-<!--        <i class="fa fa-download" aria-hidden="true"></i>-->
-        {{ text }}
+        <div class="button-text" ref="text-block">
+            {{ text }}
+        </div>
     </div>
 </template>
 
@@ -16,6 +17,21 @@ export default {
         filename: String,
         ext: String,
         text: String,
+    },
+    data() {
+        return {
+            size: 20,
+        }
+    },
+    computed: {
+        cssProps() {
+            return {
+                '--font-size': `${this.size}em`
+            }
+        }
+    },
+    mounted() {
+        this.adjustFontSize()
     },
     methods: {
         downloadFile() {
@@ -33,6 +49,37 @@ export default {
                 document.body.appendChild(docUrl);
                 docUrl.click();
             });
+        },
+        checkOverflow() {
+            const el = this.$refs["text-block"];
+            let curOverflow = el.style.overflow;
+            if (!curOverflow || curOverflow === "visible") {
+                el.style.overflow = "hidden";
+            }
+            let isOverflowing =
+                el.clientWidth < el.scrollWidth || el.clientHeight < el.scrollHeight;
+            el.style.overflow = curOverflow;
+            return isOverflowing;
+        },
+        adjustFontSize() {
+            let fitted = false
+            let lastSize
+            const increment = 0.05;
+            const el = this.$refs["text-block"];
+
+            el.style.fontSize = "0.1em";
+
+            while (!fitted) {
+                if (this.checkOverflow()) {
+                    el.style.fontSize = `${lastSize - increment}em`
+                    fitted = true
+                } else {
+                    lastSize = parseFloat(el.style.fontSize.slice(0, -2)) + increment
+                    console.log(lastSize)
+                    el.style.fontSize = `${lastSize}em`
+                }
+            }
+
         }
     }
 }
@@ -46,12 +93,14 @@ export default {
         justify-content: center;
         align-items: center;
         width: 25%;
-        aspect-ratio: 4;
-        padding: 1px 1px;
+        aspect-ratio: 5;
+        text-align: center;
+        //padding: 10px 10px;
+        font-size: 1rem;
         border: 2px solid #d1a251;
         color: #ffffff;
         background: #d1a251;
-        font-weight: bold;
+        //font-weight: bold;
         cursor: pointer;
         border-radius: 50px;
     }
@@ -59,6 +108,16 @@ export default {
     .page-button:hover {
         background: #111111;
         color: #d1a251;
+    }
+
+    .button-text {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //font-size: 1em;
+        //overflow: hidden;
     }
 
 </style>
