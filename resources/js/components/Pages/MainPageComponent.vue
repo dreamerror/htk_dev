@@ -155,7 +155,14 @@ export default {
 
     @media (max-width: 899px) {
         .main-description {
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
+
+            .main-description-logo {
+                display: flex;
+                flex-direction: column;
+                gap: 2vh;
+            }
         }
     }
 

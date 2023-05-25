@@ -7,9 +7,11 @@
         <div class="main-menu-container">
 
         <div class="main-menu-wrapper">
-            <img src="/storage/berkut-logo.svg" alt="" class="mobile berkut-logo"
-                 @click="redirect('')">
             <div class="main-contacts">
+                <div class="mobile berkut-logo">
+                    <img src="/storage/berkut-logo.svg" alt=""
+                         @click="redirect('')">
+                </div>
                 <div class="contact-elem">
                     <span>Перевозки "Беркут"</span>
                     <a href="tel:+74233130950">
@@ -18,7 +20,7 @@
                     </a>
                 </div>
 
-                <div class="contact-elem">
+                <div class="contact-elem contact-elem-last">
                     <span>Склад временного хранения</span>
                     <a href="tel:+74232022521">
                         <i class="fa fa-phone" aria-hidden="true"></i>
@@ -321,16 +323,28 @@ export default {
 
         .main-menu-wrapper {
             align-items: center;
+            gap: 3vh;
         }
 
         .berkut-logo {
-            width: 30vw;
+            width: 60%;
+            //justify-self: start;
+            //margin-right: auto;
         }
 
         .main-contacts {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+
             .contacts-button {
-                display: none;
+                grid-column: 1 / span 2;
+                margin-top: 2vh;
             }
+        }
+
+        .contact-elem-last {
+            grid-column: 1 / span 2;
+            //justify-self: center;
         }
 
         .nav-item {
