@@ -50,7 +50,7 @@ export default {
         display: inline-block;
         overflow: hidden;
         width: 100%;
-        aspect-ratio: 1.5;
+        aspect-ratio: 1;
 
         img {
             display: block;
@@ -86,6 +86,7 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        font-size: 1.2rem;
         gap: 0.5rem;
 
         .card-title {

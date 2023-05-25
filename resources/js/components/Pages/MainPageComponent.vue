@@ -84,62 +84,16 @@ export default {
             height: 100%;
             opacity : 0.3;
             z-index: -100;
+            object-fit: cover;
             mask-image: linear-gradient(#000 70%, transparent);
             mask-position: bottom;
-        }
-    }
-
-
-    .main-contacts {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr 2fr;
-        width: 80%;
-        padding-top: 4vh;
-        padding-left: 4vw;
-
-        .contact-elem {
-            display: flex;
-            flex-direction: column;
-
-            span {
-                text-transform: uppercase;
-                margin-bottom: 0.25rem;
-                font-size: 1rem;
-                font-weight: 400;
-            }
-
-            a {
-                text-decoration: none;
-                color: #111111;
-                font-size: 1rem;
-                font-weight: 400;
-            }
-        }
-
-        .contacts-button {
-            text-transform: uppercase;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 90px;
-            width: 100%;
-            //padding: 0 30px;
-            border: 3px solid #ffffff;
-            color: #ffffff;
-            font-weight: 400;
-            font-size: 1.5em;
-            cursor: pointer;
-            border-radius: 50px;
-            grid-row: 1 / 3;
-            grid-column: 3;
-            justify-self: center;
         }
     }
 
     .main-wrapper {
         display: flex;
         justify-content: space-around;
-        gap: 5vh;
+        //gap: 5vh;
         flex-wrap: wrap;
         width: 100%;
     }
@@ -149,12 +103,12 @@ export default {
         display: grid;
         grid-template-columns: 4fr 3fr;
         gap: 3vw;
-        padding: 10vh 15vw 35vh 17vw;
+        padding: 9vh 12vw 9vh 10vw;
         color: #111111;
 
         .main-description-logo {
             display: grid;
-            grid-template-rows: 2fr 1fr 0.2fr;
+            grid-template-rows: 2fr 0.8fr 0.2fr;
             padding: 0 0 0 3vw;
 
             .button-wrapper {
@@ -171,6 +125,7 @@ export default {
                 cursor: pointer;
                 border-radius: 5px;
                 margin-right: auto;
+                margin-bottom: 2vh;
             }
 
             .main-image-wrapper {
@@ -184,16 +139,17 @@ export default {
 
             .header-description-wrapper h4 {
                 font-weight: bold;
-                font-size: 1.2em;
+                font-size: 1.4em;
                 text-transform: uppercase;
+                line-height: 1.5em;
             }
         }
 
         .main-description-text {
-            padding-top: 5vh;
-            padding-right: 4vw;
-            font-size: 15px;
-            font-weight: 700;
+            //padding-top: 5vh;
+            padding-left: 6vw;
+            font-size: 1rem;
+            font-weight: 400;
         }
     }
 
