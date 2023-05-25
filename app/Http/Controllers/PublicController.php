@@ -72,6 +72,36 @@ class PublicController extends Controller
         return view('pages.contacts');
     }
 
+    public function infoList() {
+        $data = DB::table('information_pages')
+            ->select('id', 'page_title')
+            ->get();
+        return view('pages.info.all', [
+            'items' => $data
+        ]);
+    }
+
+    public function infoPage(int $id) {
+        $auth = 0;
+        if (Session::get('user')) {
+            $auth = 1;
+        }
+        $data = DB::table('information_pages')
+            ->where('id', '=', $id)
+            ->select(['page_title', 'page_content'])
+            ->first();
+        $files = DB::table('information_files')
+            ->where('page_id', '=', $id)
+            ->select(['id', 'file', 'text'])
+            ->get();
+        return view('pages.info.edit', [
+            'data' => $data,
+            'files' => $files,
+            'auth' => $auth,
+            'id' => $id
+        ]);
+    }
+
     public function test() {
         return view('pages.test');
     }

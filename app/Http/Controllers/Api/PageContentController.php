@@ -63,13 +63,37 @@ class PageContentController extends Controller
                     ]);
             }
         }
-        return redirect('/info/all');
     }
 
     public function infoFiles(Request $request) {
-        /* TODO: Логика как в AdminApiController::editFiles, + как будто хочется её оттуда перенести
-        и редактировать файлы непосредственно на самой странице, на которой они должны быть
-        но под это нужен отдельный метод
-        потому что таблицы будут разные*/
+        $data = $request->input();
+        $page_id = $data['page_id'];
+        $deleted = explode(',', $data["deleted"]);
+        foreach (array_keys($data) as $key) {
+            if (str_starts_with($key, 'id')) {
+                $fileID = $data[$key];
+                if (in_array($fileID, $deleted)) {
+                    if ($fileID > 0) {
+                        DB::table('information_files')->delete($fileID);
+                    }
+                } else {
+                    $num = explode('_', $key)[1];
+                    $text = $data["text_$num"];
+                    $path = '';
+                    if (isset($request->all()["file_$num"])) {
+                        $path = 'storage/' . $request->all()["file_$num"]->store('/files', 'public');
+                    }
+                    if ($path) {
+                        DB::table('information_files')->updateOrInsert([
+                            'id' => $fileID,
+                        ], [
+                            'page_id' => $page_id,
+                            'file' => $path,
+                            'text' => $text,
+                        ]);
+                    }
+                }
+            }
+        }
     }
 }

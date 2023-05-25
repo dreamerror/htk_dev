@@ -16,7 +16,12 @@ class SecuredController extends Controller
     }
 
     public function addInfo() {
-        return $this->authenticatedView('pages.info.add');
+        $id = DB::table('information_pages')
+            ->select(DB::raw('coalesce(max(id)+1, 1) id'))
+            ->first();
+        return $this->authenticatedView('pages.info.add', [
+            'id' => $id->id,
+        ]);
     }
 
     public function editInfo(int $id) {

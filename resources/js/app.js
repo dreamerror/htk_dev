@@ -35,6 +35,7 @@ Vue.component('admin-menu', require('./components/Menus/AdminMenuComponent.vue')
 Vue.component('main-card', require('./components/Cards/MainPageItemElement.vue').default);
 Vue.component('contacts-card', require('./components/Cards/ContactsItemElement.vue').default);
 Vue.component('price-card', require('./components/Cards/PricesItemElement.vue').default);
+Vue.component('info-card', require('./components/Cards/InfoItemElement.vue').default);
 
 // Lists
 
@@ -57,6 +58,7 @@ Vue.component('transit-trans-page', require('./components/Pages/TransitTransPage
 Vue.component('contacts-page', require('./components/Pages/ContactsPageComponent.vue').default);
 Vue.component('prices-page', require('./components/Pages/PricesPageComponent.vue').default);
 Vue.component('info-edit-page', require('./components/Pages/InfoEditPageComponent.vue').default);
+Vue.component('info-list-page', require('./components/Pages/InfoAllPageComponent.vue').default);
 Vue.component('test-page', require('./components/Pages/TestPageComponent.vue').default);
 
 

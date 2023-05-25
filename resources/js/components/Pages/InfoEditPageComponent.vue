@@ -17,8 +17,27 @@
             </div>
         </div>
 
-        <form method="post" :action="api_files" enctype="multipart/form-data">
+        <form method="post" :action="api_files" enctype="multipart/form-data" v-if="auth">
+            <div class="file-input-wrapper"
+                 v-for="(item, index) in filesArray"
+                 :key="index">
+                <input type="text" :name="`text_${index}`" :value="item.text">
 
+                <input type="file" :name="`file_${index}`" :id="`file_${index}`">
+
+                <button @click.stop="deleteHandler($event, item.id)">
+                    Удалить
+                </button>
+
+                <input type="hidden" :name="`id_${index}`" :value="item.id">
+
+            </div>
+
+            <input type="hidden" name="page_id" :value="id">
+            <input type="hidden" name="deleted" :value="deletedItems" multiple>
+
+            <button @click.stop="addHandler($event)">Добавить элемент</button>
+            <input type="submit">
         </form>
     </div>
 </template>
@@ -34,15 +53,28 @@ export default {
         api_files: String,
         data: {
             type: Object,
-            default: {
-                page_content: '<p>Тело новости</p>',
-                page_title: '<p class="title">Заголовок</p>'
+            default: () => {
+                return {
+                    page_content: '<p>Тело новости</p>',
+                    page_title: '<p class="title">Заголовок</p>'
+                }
             }
         },
-        files: Array,
+        files: {
+            type: Array,
+            default: () => [],
+        },
         id: {
             type: Number,
             default: 0,
+        },
+        auth: Number,
+    },
+    data() {
+        return {
+            filesArray: [...this.files],
+            elementsAdded: 0,
+            deletedItems: [],
         }
     },
     computed: {
@@ -54,7 +86,9 @@ export default {
         }
     },
     mounted() {
-        initEditor(this.api_text, this.setData)
+        if (this.auth) {
+            initEditor(this.api_text, this.setData)
+        }
     },
     methods: {
         setData(payload) {
@@ -63,6 +97,20 @@ export default {
                 content: payload['page-text'],
                 title: payload['page-header']
             }
+        },
+        addHandler(e) {
+            e.preventDefault();
+            this.elementsAdded++;
+            const newItem = {text: '', file: '', id: 0 - this.elementsAdded};
+            this.filesArray.push(newItem);
+        },
+        deleteHandler(e, id) {
+            e.preventDefault();
+            this.filesArray = this.filesArray.filter(function (item) {
+                return item.id !== id
+            });
+            this.deletedItems.push(id);
+            this.elementsAdded--;
         }
     }
 }

@@ -32,6 +32,8 @@ Route::group(['prefix' => 'transportation'], function () {
 
 Route::group(['prefix' => 'info'], function () {
     Route::get('/add', [App\Http\Controllers\SecuredController::class, 'addInfo']);
+    Route::get('/', [App\Http\Controllers\PublicController::class, 'infoList']);
+    Route::get('/show/{id}', [App\Http\Controllers\PublicController::class, 'infoPage']);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -7,7 +7,8 @@
     :api_files="'{{ url('/api/info/files') }}'"
     :data="{{ json_encode($data) }}"
     :files="{{ json_encode($files) }}"
-    :id="{{ $id }}">
+    :id="{{ $id }}"
+    :auth="{{ $auth }}">
 
     </info-edit-page>
 @endsection
