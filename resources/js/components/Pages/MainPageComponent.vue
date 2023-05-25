@@ -85,7 +85,7 @@ export default {
             opacity : 0.3;
             z-index: -100;
             object-fit: cover;
-            mask-image: linear-gradient(#000 70%, transparent);
+            mask-image: linear-gradient(#000 20%, transparent);
             mask-position: bottom;
         }
     }
@@ -120,6 +120,7 @@ export default {
                 align-items: center;
                 padding: 1px 5px;
                 border: 1px solid #316851;
+                font-family: 'Harmonia';
                 color: #ffffff;
                 background: #316851;
                 cursor: pointer;
@@ -147,7 +148,7 @@ export default {
 
         .main-description-text {
             //padding-top: 5vh;
-            padding-left: 6vw;
+            padding-left: 1vw;
             font-size: 1rem;
             font-weight: 400;
         }

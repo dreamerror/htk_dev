@@ -4,7 +4,7 @@
             <img :src="src" alt="">
             <div class="button-wrapper"
             @click="redirect">
-                ПОБРОБНЕЕ
+                ПОДРОБНЕЕ
             </div>
         </div>
         <div class="card-text">
@@ -47,7 +47,9 @@ export default {
 
     .card-img-wrapper {
         position: relative;
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         overflow: hidden;
         width: 100%;
         aspect-ratio: 1;
@@ -60,23 +62,28 @@ export default {
             height: 100%;
             min-width: 100%;
             transform: translate(-50%, -50%);
+            z-index: -100;
         }
 
         .button-wrapper {
-            width: 30%;
-            position: absolute;
-            top: 50%;
-            left: 35%;
+            width: auto;
+            //position: absolute;
+            //top: 45%;
+            //left: 25%;
             display: flex;
             justify-content: center;
-            font-size: 18px;
+            font-size: 2.5rem;
+            font-weight: 400;
             align-items: center;
-            padding: 1px 1px;
+            font-family: 'Harmonia';
+            padding: 10px 2rem;
+            letter-spacing: 0.2rem;
             border: 1px solid #d1a251;
             color: #ffffff;
             background: #d1a251;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 15px;
+            z-index: 100;
         }
     }
 
@@ -86,12 +93,13 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         gap: 0.5rem;
 
         .card-title {
             text-align: center;
             text-transform: uppercase;
+            font-size: 3rem;
         }
 
         span {

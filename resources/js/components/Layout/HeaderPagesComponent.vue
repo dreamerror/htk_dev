@@ -80,7 +80,7 @@ export default {
             height: 100%;
             opacity : 0.3;
             z-index: -100;
-            mask-image: linear-gradient(#000 70%, transparent);
+            mask-image: linear-gradient(#000 20%, transparent);
             mask-position: bottom;
         }
     }

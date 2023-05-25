@@ -185,9 +185,9 @@ export default {
         }
     }
 
-    .contact-elem:first-child {
-        margin-left: 2vw;
-    }
+    //.contact-elem:first-child {
+    //    margin-left: 2vw;
+    //}
 
     .main-menu-wrapper {
         display: flex;
