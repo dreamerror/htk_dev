@@ -5,21 +5,21 @@
             <div class="main-contacts">
                 <div class="contact-elem">
                     <span>Перевозки "Беркут"</span>
-                    <a href="tel:+74232111111">
+                    <a href="tel:+74233130950">
                         <i class="fa fa-phone" aria-hidden="true"></i>
-                        +7 423 211-11-11
+                        +7 (42331) 309-50
                     </a>
                 </div>
 
                 <div class="contact-elem">
                     <span>Склад временного хранения</span>
-                    <a href="tel:+74232111111">
+                    <a href="tel:+74232022521">
                         <i class="fa fa-phone" aria-hidden="true"></i>
-                        +7 423 211-11-11
+                        +7 423 202-25-21
                     </a>
-                    <a href="tel:+74232111111">
+                    <a href="tel:+79025225000">
                         <i class="fa fa-phone" aria-hidden="true"></i>
-                        +7 423 211-11-11
+                        +7 902 522-50-00
                     </a>
                 </div>
 
