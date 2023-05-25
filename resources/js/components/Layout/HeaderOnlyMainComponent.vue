@@ -38,6 +38,7 @@
             <div class="main-header-nav main-header-menu">
                 <div v-for="item in this.navbarElements"
                      class="nav-item"
+                     :class="{mobile: item.mobileOnly}"
                      :key="item.route"
                      @click="redirect(item.route)">
                     {{item.title}}
@@ -75,18 +76,26 @@ export default {
     data() {
         return {
             navbarElements: [
-                {title: "СВХ", route: "/temp-storage"},
-                {title: "Таможенный представитель", route: "/customs"},
+                {title: "СВХ", route: "/temp-storage", mobileOnly: false},
+                {title: "Таможенный представитель", route: "/customs", mobileOnly: false},
                 {title: "Перевозки", route: "/transportation", child: [
                         {title: "Грузовые", route: "/cargo"},
                         {title: "Пассажирские", route: "/passengers"},
                         {title: "Транзитные грузы", route: "/transit"},
-                    ]},
-                {title: "Информация", route: "/info"},
-                {title: "Партнёры", route: "/partners"},
-                {title: "Контакты", route: "/contacts"},
-                {title: "Цены", route: "/prices"},
+                    ], mobileOnly: false},
+                {title: "Грузовые", route: "/cargo", mobileOnly: true},
+                {title: "Пассажирские", route: "/passengers", mobileOnly: true},
+                {title: "Транзитные грузы", route: "/transit", mobileOnly: true},
+                {title: "Информация", route: "/info", mobileOnly: false},
+                {title: "Партнёры", route: "/partners", mobileOnly: false},
+                {title: "Контакты", route: "/contacts", mobileOnly: false},
+                {title: "Цены", route: "/prices", mobileOnly: false},
             ],
+            childElements: [
+                {title: "Грузовые", route: "/cargo"},
+                {title: "Пассажирские", route: "/passengers"},
+                {title: "Транзитные грузы", route: "/transit"},
+            ]
         }
     },
     created() {
@@ -343,16 +352,9 @@ export default {
             background: #316851;
         }
 
-        .main-header-dropdown {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            background: #316851;
-
-            .header-dropdown-item {
-                width: 100%;
-                background: #316851;
-                color: #ffffff;
+        .nav-item:hover {
+            .main-header-dropdown {
+                display: none;
             }
         }
     }
