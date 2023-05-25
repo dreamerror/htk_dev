@@ -123,13 +123,13 @@ export default {
         align-items: flex-end;
         width: 100%;
         //margin-bottom: 2vh;
-        padding: 3vh 3.5vw 0 3.5vw;
-        gap: 3vw;
+        padding: 3vh 13vw 0 3.5vw;
+        gap: 2.5vw;
         //gap: 7vw;
     }
 
     .berkut-logo {
-        width: 7%;
+        width: 7vw;
         aspect-ratio: 1.5;
         cursor: pointer;
     }
@@ -137,6 +137,7 @@ export default {
     .main-menu-container {
         display: flex;
         justify-content: center;
+        width: 100%;
     }
 
     .main-contacts {
@@ -194,14 +195,15 @@ export default {
         justify-content: center;
         align-items: flex-end;
         gap: 6vh;
+        width: 100%;
     }
 
     .main-header-nav {
         background: #316851;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
-        width: auto;
+        width: 100%;
         //gap: 10px;
         border-radius: 30px;
         height: 45px;
@@ -213,9 +215,9 @@ export default {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        font-size: 1.2em;
+        font-size: 1.1em;
         width: auto;
-        padding: 0 30px;
+        padding: 0 2.155vw;
         color: #ffffff;
         height: 100%;
         transition: all .3s linear;
@@ -248,14 +250,16 @@ export default {
         }
     }
 
+    @media (max-width: 900px) {
+        .nav-item {
+            padding: 0;
+        }
+    }
+
     .nav-item:first-child {
         //width: 100%;
         //margin-right: auto;
         border-radius: 30px 0 0 30px;
-    }
-
-    .nav-item:nth-child(2) {
-        //width: 250%;
     }
 
     .nav-item:last-child {

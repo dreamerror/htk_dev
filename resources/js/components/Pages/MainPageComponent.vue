@@ -103,13 +103,13 @@ export default {
         display: grid;
         grid-template-columns: 4fr 3fr;
         gap: 3vw;
-        padding: 9vh 12vw 9vh 10vw;
+        padding: 9vh 13vw 9vh 13vw;
         color: #111111;
 
         .main-description-logo {
             display: grid;
             grid-template-rows: 2fr 0.8fr 0.2fr;
-            padding: 0 0 0 3vw;
+            //padding: 0 0 0 3vw;
 
             .button-wrapper {
                 width: auto;
