@@ -27,6 +27,7 @@ Vue.component('admin-file-item', require('./components/Admin/Items/AdminFilesLis
 Vue.component('header-main', require('./components/Layout/HeaderMainComponent.vue').default);
 Vue.component('header-only-main', require('./components/Layout/HeaderOnlyMainComponent.vue').default);
 Vue.component('header-pages', require('./components/Layout/HeaderPagesComponent.vue').default);
+Vue.component('header-partners', require('./components/Layout/HeaderPartnersComponent.vue').default);
 Vue.component('footer-main', require('./components/Layout/FooterMainComponent.vue').default);
 Vue.component('admin-menu', require('./components/Menus/AdminMenuComponent.vue').default);
 
@@ -36,6 +37,7 @@ Vue.component('main-card', require('./components/Cards/MainPageItemElement.vue')
 Vue.component('contacts-card', require('./components/Cards/ContactsItemElement.vue').default);
 Vue.component('price-card', require('./components/Cards/PricesItemElement.vue').default);
 Vue.component('info-card', require('./components/Cards/InfoItemElement.vue').default);
+Vue.component('partner-card', require('./components/Cards/PartnerCardComponent.vue').default);
 
 // Lists
 
@@ -61,6 +63,7 @@ Vue.component('prices-page', require('./components/Pages/PricesPageComponent.vue
 Vue.component('info-edit-page', require('./components/Pages/InfoEditPageComponent.vue').default);
 Vue.component('info-list-page', require('./components/Pages/InfoAllPageComponent.vue').default);
 Vue.component('transportation-page', require('./components/Pages/TransportationPageComponent.vue').default);
+Vue.component('partners-page', require('./components/Pages/PartnersPageComponent.vue').default);
 Vue.component('test-page', require('./components/Pages/TestPageComponent.vue').default);
 
 

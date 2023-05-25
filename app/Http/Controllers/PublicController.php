@@ -70,6 +70,15 @@ class PublicController extends Controller
         ]);
     }
 
+    public function partners() {
+        $data = DB::table('partners')
+            ->select(['id', 'partner_logo'])
+            ->get();
+        return view('pages.partners', [
+            'data' => $data
+        ]);
+    }
+
     public function passengers() {
         $auth = $this->getAuth();
         $data = $this->getPageContent('pass_trans');

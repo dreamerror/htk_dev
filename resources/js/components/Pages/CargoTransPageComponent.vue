@@ -73,7 +73,7 @@ export default {
         gap: 3vh;
     }
 
-    .page-buttons-wrapper {
+    .partners-logo-wrapper {
         margin-top: 5vh;
         display: flex;
         flex-direction: row;
