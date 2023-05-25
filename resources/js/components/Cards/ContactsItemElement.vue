@@ -4,6 +4,11 @@
             {{ title }}
         </h3>
         <div class="contacts-info">
+            <div class="contacts-map">
+                <slot name="map">
+
+                </slot>
+            </div>
             <div class="contacts-text">
                 <div class="contacts-item"
                 v-for="(item, index) in items"
@@ -16,12 +21,6 @@
                         {{ item.text }}
                     </span>
                 </div>
-            </div>
-
-            <div class="contacts-map">
-                <slot name="map">
-
-                </slot>
             </div>
         </div>
     </div>

@@ -9,6 +9,19 @@ use Illuminate\Support\Facades\Session;
 
 class PublicController extends Controller
 {
+    public function getAuth(): int
+    {
+        if (Session::get('user')) {
+            return 1;
+        }
+        return 0;
+    }
+
+    public function getPageContent(string $pageName) {
+        return DB::table('page_content')->where('page', '=', $pageName)
+            ->select(['page_text', 'page_additional', 'page_description'])->first();
+    }
+
     public function index() {
         $data = DB::select("select title, img_src src, description, route from main_cards_content order by id;");
         return view('pages.index', [
@@ -17,12 +30,8 @@ class PublicController extends Controller
     }
 
     public function tempStorage() {
-        $auth = 0;
-        if (Session::get('user')) {
-            $auth = 1;
-        }
-        $data = DB::table('page_content')->where('page', '=', 'svh')
-            ->select(['page_text', 'page_additional', 'page_description'])->first();
+        $auth = $this->getAuth();
+        $data = $this->getPageContent('svh');
         $files = DB::table('page_files')->where('page', '=', 'svh')
             ->select('id', 'text', 'file')->get();
         return view('pages.svh', [
@@ -33,13 +42,8 @@ class PublicController extends Controller
     }
 
     public function customs() {
-        $auth = 0;
-        if (Session::get('user')) {
-            $auth = 1;
-        }
-        $data = DB::table('page_content')->where('page', '=', 'tp')
-            ->select(['page_text', 'page_additional', 'page_description'])->first();
-        $data = json_decode(json_encode($data), true);
+        $auth = $this->getAuth();
+        $data = $this->getPageContent('tp');
         return view('pages.tp', [
             'data' => $data,
             'auth' => $auth,
@@ -47,13 +51,8 @@ class PublicController extends Controller
     }
 
     public function cargo() {
-        $auth = 0;
-        if (Session::get('user')) {
-            $auth = 1;
-        }
-        $data = DB::table('page_content')->where('page', '=', 'cargo_trans')
-            ->select(['page_text', 'page_additional', 'page_description'])->first();
-        $data = json_decode(json_encode($data), true);
+        $auth = $this->getAuth();
+        $data = $this->getPageContent('cargo_trans');
         return view('pages.transportation.cargo', [
             'data' => $data,
             'auth' => $auth,
@@ -61,11 +60,21 @@ class PublicController extends Controller
     }
 
     public function passengers() {
-        return view('pages.transportation.pass');
+        $auth = $this->getAuth();
+        $data = $this->getPageContent('pass_trans');
+        return view('pages.transportation.pass', [
+            'auth' => $auth,
+            'data' => $data,
+        ]);
     }
 
     public function transit() {
-        return view('pages.transportation.transit');
+        $auth = $this->getAuth();
+        $data = $this->getPageContent('transit_trans');
+        return view('pages.transportation.transit', [
+            'auth' => $auth,
+            'data' => $data
+        ]);
     }
 
     public function contacts() {
@@ -82,10 +91,7 @@ class PublicController extends Controller
     }
 
     public function infoPage(int $id) {
-        $auth = 0;
-        if (Session::get('user')) {
-            $auth = 1;
-        }
+        $auth = $this->getAuth();
         $data = DB::table('information_pages')
             ->where('id', '=', $id)
             ->select(['page_title', 'page_content'])

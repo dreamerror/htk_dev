@@ -1,58 +1,75 @@
 <template>
     <div class="page-wrapper">
 
-        <div class="page-title">
-            <h1>
-                ПАССАЖИРСКИЕ МЕЖДУНАРОДНЫЕ ПЕРЕВОЗКИ ООО "БЕРКУТ"
-            </h1>
+        <header-pages
+            :bg_image="'/storage/bg/svh.png'"
+            :url="url"
+            :content="pageDescription">
+
+        </header-pages>
+
+
+        <div class="page-text" data-editable data-name="page-text" v-html="pageText">
+            {{pageText}}
         </div>
 
-        <div class="page-description">
-
-            <div class="page-text">
-                <p>
-                    ООО "Беркут" располагает 6-ю пятидесяти пяти местными комфортабельными автобусами.
-                    Каждый из них имеет право вьезда на территорию Китая, что позволяет нам осуществлять
-                    поездки не только по территории города Владивостока, Приморского края, но и по территории КНР.
-                </p>
-                <p>
-                    Диспетчер пассажирских перевозок ООО "Беркут":
-                </p>
-                <p>
-                    Грешихина Татьяна
-                </p>
-                <p>
-                    тел.: +7 902 524-02-45
-                </p>
-            </div>
-        </div>
-
-        <div class="page-title">
-            <h1>
-                ЗАКАЗ БИЛЕТОВ, ПОЕЗДКИ В ХУНЬЧУНЬ ЧЕРЕЗ ООО "БЕРКУТ"
-            </h1>
-        </div>
-
-        <div class="page-description">
-            <div class="page-text">
-                <p>
-                    Заказать билеты в Хуньчунь (КНР) через туроператора ООО "Беркут" по телефонам:
-                </p>
-                <p>
-                    +7 924 241-54-88
-                </p>
-                <p>
-                    +7 914 663-57-04
-                </p>
-            </div>
+        <div class="page-additional" data-editable data-name="page-additional" v-html="pageAdditional">
+            {{pageAdditional}}
         </div>
 
     </div>
 </template>
 
 <script>
+import {initEditor} from "../../inc/ContentTools/editor";
+
 export default {
-    name: "PassTransPageComponent"
+    name: "PassTransPageComponent",
+    props: {
+        url: String,
+        auth: Number,
+        api_text: String,
+        data: {
+            type: Object,
+            default: () => {
+                return {
+                    page_description: '<p class="title">ПАССАЖИРСКИЕ МЕЖДУНАРОДНЫЕ ПЕРЕВОЗКИ ООО "БЕРКУТ"</p>' +
+                        '<p>ООО "Беркут" располагает 6-ю пятидесяти пяти местными комфортабельными автобусами.\n' +
+                        'Каждый из них имеет право вьезда на территорию Китая, что позволяет нам осуществлять\n' +
+                        'поездки не только по территории города Владивостока, Приморского края, но и по территории КНР.</p>',
+                    page_text: '',
+                    page_additional: '',
+                }
+            }
+        }
+    },
+    mounted() {
+        if (this.auth) {
+            initEditor(this.api_text, this.setData)
+        }
+    },
+    computed: {
+        pageText() {
+            return this.data['page_text']
+        },
+        pageAdditional() {
+            return this.data['page_additional']
+        },
+        pageDescription() {
+            return this.data["page_description"]
+        }
+    },
+    methods: {
+        setData(payload) {
+            console.log(payload)
+            return {
+                page: 'pass_trans',
+                text: payload['page-text'],
+                additional: payload['page-additional'],
+                description: payload['page-header']
+            }
+        }
+    }
 }
 </script>
 
@@ -61,19 +78,7 @@ export default {
     .page-wrapper {
         display: flex;
         flex-direction: column;
-        padding: 5vh 15vw;
         gap: 3vh;
-    }
-
-    .page-title h1 {
-        background-image: url('/storage/banner.png');
-        font-weight: 700;
-        color: #ffffff;
-        display: flex;
-        background-size: 100% 100%;
-        justify-content: center;
-        align-items: center;
-        padding: 12vh 0;
     }
 
     .page-description {
@@ -85,38 +90,6 @@ export default {
     @media (max-width: 899px) {
         .page-description {
             flex-wrap: wrap;
-        }
-    }
-
-    .page-documents {
-        max-width: 340px;
-        display: flex;
-        flex-direction: column;
-        gap: 1vh;
-
-        img {
-            width: 100%;
-            height: auto;
-            box-shadow: 4px 6px 10px rgb(0 0 0 / 20%);
-            border: 6px solid #fff;
-        }
-
-        p {
-            position: relative;
-            color: #0a0a0d;
-            font-size: 12px;
-            font-weight: 500;
-            line-height: 18px;
-        }
-
-        p::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 98px;
-            height: 2px;
-            background: #316851;
         }
     }
 

@@ -1,7 +1,12 @@
-@extends('pages.layouts.app')
+@extends('pages.layouts.main')
 
 @section('content')
-    <pass-trans-page>
+    <pass-trans-page
+    :url="'{{ url('/') }}'"
+    :auth="{{ $auth }}"
+    :data="{{ json_encode($data) }}"
+    :api_text="'{{ url('/api/edit-content') }}'"
+    >
 
     </pass-trans-page>
 @endsection

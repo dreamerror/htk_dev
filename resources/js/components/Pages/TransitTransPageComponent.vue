@@ -1,115 +1,117 @@
 <template>
     <div class="page-wrapper">
 
-        <div class="page-title">
-            <h1>
+        <header-pages
+            :bg_image="'/storage/bg/svh.png'"
+            :url="url"
+            :content="pageDescription">
 
-            </h1>
+        </header-pages>
+
+
+        <div class="page-text" data-editable data-name="page-text">
+            <p>
+                По вопросам обращаться:
+            </p>
+            <p>
+                Генеральный директор ООО "Беркут"
+            </p>
+            <p>
+                Машкин Александр Владимирович
+            </p>
+            <p>
+                тел.: +7 924 526-78-00
+            </p>
         </div>
 
-        <div class="page-description">
-
-            <div class="page-text">
-                <p>
-                    Являясь лицензированным таможенным перевозчиком наша компания может перевозить любые
-                    транзитные грузы без внесения обеспечения уплаты таможенных платежей.
-                </p>
-                <p>
-                    По вопросам обращаться:
-                </p>
-                <p>
-                    Генеральный директор ООО "Беркут"
-                </p>
-                <p>
-                    Машкин Александр Владимирович
-                </p>
-                <p>
-                    тел.: +7 924 526-78-00
-                </p>
-            </div>
+        <div class="page-additional" data-editable data-name="page-additional" v-html="pageAdditional">
+            {{pageAdditional}}
         </div>
 
     </div>
 </template>
 
 <script>
+import {initEditor} from "../../inc/ContentTools/editor";
+
 export default {
-    name: "TransitTransPageComponent"
+    name: "TransitTransPageComponent",
+    props: {
+        url: String,
+        auth: Number,
+        api_text: String,
+        data: {
+            type: Object,
+            default: () => {
+                return {
+                    page_description: '<p>' +
+                        'Являясь лицензированным таможенным перевозчиком наша компания может перевозить любые\n' +
+                        'транзитные грузы без внесения обеспечения уплаты таможенных платежей.\n' +
+                        '</p>',
+                    page_text: '',
+                    page_additional: '',
+                }
+            }
+        }
+    },
+    mounted() {
+        if (this.auth) {
+            initEditor(this.api_text, this.setData)
+        }
+    },
+    computed: {
+        pageText() {
+            return this.data['page_text']
+        },
+        pageAdditional() {
+            return this.data['page_additional']
+        },
+        pageDescription() {
+            return this.data["page_description"]
+        }
+    },
+    methods: {
+        setData(payload) {
+            console.log(payload)
+            return {
+                page: 'transit_trans',
+                text: payload['page-text'],
+                additional: payload['page-additional'],
+                description: payload['page-header']
+            }
+        }
+    }
 }
 </script>
 
 <style scoped lang="scss">
 
-    .page-wrapper {
-        display: flex;
-        flex-direction: column;
-        padding: 5vh 15vw;
-        gap: 3vh;
-    }
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
 
-    .page-title h1 {
-        background-image: url('/storage/banner.png');
-        font-weight: 700;
-        color: #ffffff;
-        display: flex;
-        background-size: 100% 100%;
-        justify-content: center;
-        align-items: center;
-        padding: 12vh 0;
-    }
+.page-description {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
 
+@media (max-width: 899px) {
     .page-description {
-        display: flex;
-        flex-direction: row;
-        gap: 2vw;
+        flex-wrap: wrap;
     }
+}
 
-    @media (max-width: 899px) {
-        .page-description {
-            flex-wrap: wrap;
-        }
-    }
+.page-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
 
-    .page-documents {
-        max-width: 340px;
-        display: flex;
-        flex-direction: column;
-        gap: 1vh;
-
-        img {
-            width: 100%;
-            height: auto;
-            box-shadow: 4px 6px 10px rgb(0 0 0 / 20%);
-            border: 6px solid #fff;
-        }
-
-        p {
-            position: relative;
-            color: #0a0a0d;
-            font-size: 12px;
-            font-weight: 500;
-            line-height: 18px;
-        }
-
-        p::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 98px;
-            height: 2px;
-            background: #316851;
-        }
-    }
-
-    .page-text {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 28px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
 </style>

@@ -1,56 +1,33 @@
 <template>
     <div class="page-wrapper">
+
         <header-pages
-            :bg_image="'/storage/banner.png'"
-            :url="url">
-
-            <template v-slot:description data-editable data-name="page-header">
-                <h3>
-                    ООО "Беркут" работает на рынке транспортных услуг уже более 27 лет.
-                </h3>
-
-                <p>
-                    Компания дислоцируется на базе собственных гаражей один из которых расположен в
-                    непосредственной близости к государственной границе с Китаем
-                    (п. Краскино, Хасанский район, 24 километра от границы), второй в пригороде Владивостока.
-                </p>
-
-                <p>
-                    В число наших давних и надежных партнеров входят логистические компании провинции Цзилинь,
-                    организующих складскую обработку и таможенную очистку товаров  на территории Китая.
-                </p>
-            </template>
+            :bg_image="'/storage/bg/svh.png'"
+            :url="url"
+            :content="pageDescription">
 
         </header-pages>
 
-        <div class="page-content">
-                <div class="page-documents">
-                    <img src="/storage/cargo_svid.jpg" alt="" data-no-resize>
-                </div>
 
-                <div class="page-text" data-editable data-name="page-text">
-                    <p class="title">
-                        Свидетельство о включении в реестр таможенных перевозчиков
-                    </p>
-                    <p>
-                        В распоряжении компании 37 тягачей и 57 единиц прицепного состава, среди которых:
-                    </p>
-
-                    <ul>
-                        <li>8 рефрижераторных фургонов, позволяющих перевозить замороженную продукцию;</li>
-                        <li>7 контейнеров для перевозки живого краба;</li>
-                        <li>20 фургонов различной вместительности и грузоподъемности;</li>
-                        <li>15 контейнеровозов;</li>
-                        <li>5 полуприцепов площадного типа;</li>
-                        <li>2 трала.</li>
-                    </ul>
-                </div>
-
-            <div class="page-additional-info" data-editable data-name="page-additional">
-
-            </div>
-
+        <div class="page-text" data-editable data-name="page-text">
+            <p>
+                По вопросам обращаться:
+            </p>
+            <p>
+                Генеральный директор ООО "Беркут"
+            </p>
+            <p>
+                Машкин Александр Владимирович
+            </p>
+            <p>
+                тел.: +7 924 526-78-00
+            </p>
         </div>
+
+        <div class="page-additional" data-editable data-name="page-additional" v-html="pageAdditional">
+            {{pageAdditional}}
+        </div>
+
     </div>
 </template>
 
@@ -58,30 +35,49 @@
 import {initEditor} from "../../inc/ContentTools/editor";
 
 export default {
-    name: "SVHPageComponent",
+    name: "TransitTransPageComponent",
     props: {
         url: String,
-        api: String,
-        data: Object,
+        auth: Number,
+        api_text: String,
+        data: {
+            type: Object,
+            default: () => {
+                return {
+                    page_description: '<p>' +
+                        'Являясь лицензированным таможенным перевозчиком наша компания может перевозить любые\n' +
+                        'транзитные грузы без внесения обеспечения уплаты таможенных платежей.\n' +
+                        '</p>',
+                    page_text: '',
+                    page_additional: '',
+                }
+            }
+        }
     },
     mounted() {
-        initEditor(this.api, this.setData)
+        if (this.auth) {
+            initEditor(this.api_text, this.setData)
+        }
     },
-    // computed: {
-    //     pageText() {
-    //         return this.data['page_text']
-    //     },
-    //     pageAdditional() {
-    //         return this.data["page_additional"]
-    //     }
-    // },
+    computed: {
+        pageText() {
+            return this.data['page_text']
+        },
+        pageAdditional() {
+            return this.data['page_additional']
+        },
+        pageDescription() {
+            return this.data["page_description"]
+        }
+    },
     methods: {
         setData(payload) {
             console.log(payload)
             return {
-                page: 'cargo_trans',
+                page: 'transit_trans',
                 text: payload['page-text'],
-                additional: payload['page-additional']
+                additional: payload['page-additional'],
+                description: payload['page-header']
             }
         }
     }
@@ -90,87 +86,32 @@ export default {
 
 <style scoped lang="scss">
 
-    .page-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 3vh;
-    }
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
 
-    .page-buttons-wrapper {
-        margin-top: 5vh;
-        display: flex;
-        flex-direction: row;
+.page-description {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+
+@media (max-width: 899px) {
+    .page-description {
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 2vw;
     }
+}
 
-    .page-button {
-        text-transform: uppercase;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 25%;
-        aspect-ratio: 4;
-        padding: 1px 15px;
-        border: 2px solid #d1a251;
-        color: #d1a251;
-        background: #d1a251;
-        font-weight: bold;
-        cursor: pointer;
-        border-radius: 50px;
-    }
+.page-text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
 
-    .header-bg:after {
-        background-image: url("/storage/bg/tp.jpg");
-    }
-
-    .page-content {
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2vh;
-        width: 50%;
-    }
-
-    .doc-text {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 2vw;
-    }
-
-    .page-documents {
-        grid-column: 1;
-        grid-row: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 1vh;
-
-        img {
-            width: 100%;
-            //height: auto;
-            box-shadow: 4px 6px 10px rgb(0 0 0 / 20%);
-            border: 6px solid #fff;
-        }
-    }
-
-    .page-text {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .title {
-        font-size: 1.5rem;
-        font-weight: 400;
-        line-height: 28px;
-        text-transform: uppercase;
-    }
-
-    .page-additional-info {
-        grid-row: 2;
-        grid-column: 1 / span 2;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 
 </style>

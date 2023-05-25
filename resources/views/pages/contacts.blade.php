@@ -1,7 +1,8 @@
-@extends('pages.layouts.app')
+@extends('pages.layouts.main')
 
 @section('content')
-    <contacts-page>
+    <contacts-page
+    :url="'{{ url('/') }}'">
 
     </contacts-page>
 @endsection

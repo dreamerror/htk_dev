@@ -1,5 +1,13 @@
 <template>
     <div class="contacts-wrapper">
+
+        <header-pages
+            :bg_image="'/storage/bg/svh.png'"
+            :url="url"
+            :content="pageDescription">
+
+        </header-pages>
+
         <contacts-item-element
         title="ООО «Хасанская транспортная компания»"
         :items="htkItem">
@@ -43,6 +51,22 @@ import ContactsItemElement from "../Cards/ContactsItemElement.vue";
 export default {
     name: "ContactsPageComponent",
     components: {ContactsItemElement},
+    props: {
+        url: String,
+        page_data: {
+            type: Object,
+            default: () => {
+                return {
+                    'page_description': '',
+                }
+            }
+        }
+    },
+    computed: {
+        pageDescription() {
+            return this.page_data['page_description'];
+        }
+    },
     data() {
         return {
             htkItem: [
@@ -84,7 +108,8 @@ export default {
     .contacts-wrapper {
         display: flex;
         flex-direction: column;
-        padding: 5vh 10vw;
+        gap: 3vh;
+        //padding: 5vh 10vw;
     }
 
 </style>

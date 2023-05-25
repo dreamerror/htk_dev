@@ -1,13 +1,12 @@
 <template>
     <div class="page-wrapper">
-        <price-card
-        v-for="item in items"
-        :key="item.text"
-        :title="item.text"
-        :file="item.file"
-        text="Скачать документ">
+        <header-pages
+            :bg_image="'/storage/bg/svh.png'"
+            :url="url"
+            :content="pageDescription"
+            :files="items">
 
-        </price-card>
+        </header-pages>
     </div>
 </template>
 
@@ -15,8 +14,22 @@
 export default {
     name: "PricesPageComponent",
     props: {
+        url: String,
         items: Array,
-    }
+        page_data: {
+            type: Object,
+            default: () => {
+                return {
+                    'page_description': '',
+                }
+            }
+        }
+    },
+    computed: {
+        pageDescription() {
+            return this.page_data['page_description'];
+        }
+    },
 }
 </script>
 
@@ -25,7 +38,6 @@ export default {
     .page-wrapper {
         display: flex;
         flex-direction: column;
-        padding: 5vh 15vw;
     }
 
 </style>
