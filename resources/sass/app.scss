@@ -22,6 +22,11 @@
     src: url('../fonts/HarmoniaSansProCyr-Regular.otf');
 }
 
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'azbuka04';
 }
@@ -34,5 +39,5 @@ p.title {
 }
 
 div.page-content {
-    padding: 0 13vw;
+    padding: 0 13vw 5vh;
 }

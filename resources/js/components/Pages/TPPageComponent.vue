@@ -120,7 +120,7 @@ export default {
         gap: 1vh;
 
         img {
-            width: 100%;
+            width: 80%;
             //height: auto;
             box-shadow: 4px 6px 10px rgb(0 0 0 / 20%);
             border: 6px solid #fff;

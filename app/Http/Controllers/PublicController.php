@@ -22,6 +22,14 @@ class PublicController extends Controller
             ->select(['page_text', 'page_additional', 'page_description'])->first();
     }
 
+    public function getPageFiles(string $pageName) {
+        return DB::table('page_files')
+            ->where('page', '=', $pageName)
+            ->select('id', 'text', 'file')
+            ->orderBy('id', 'desc')
+            ->get();
+    }
+
     public function index() {
         $data = DB::select("select title, img_src src, description, route from main_cards_content order by id;");
         return view('pages.index', [
@@ -32,8 +40,7 @@ class PublicController extends Controller
     public function tempStorage() {
         $auth = $this->getAuth();
         $data = $this->getPageContent('svh');
-        $files = DB::table('page_files')->where('page', '=', 'svh')
-            ->select('id', 'text', 'file')->get();
+        $files = $this->getPageFiles('svh');
         return view('pages.svh', [
             'data' => $data,
             'auth' => $auth,
@@ -48,6 +55,10 @@ class PublicController extends Controller
             'data' => $data,
             'auth' => $auth,
         ]);
+    }
+
+    public function transportIndex() {
+        return view('pages.transportation.index');
     }
 
     public function cargo() {

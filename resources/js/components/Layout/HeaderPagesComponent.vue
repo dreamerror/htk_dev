@@ -15,7 +15,7 @@
             <div class="header-description-text" data-editable data-name="page-header" v-html="content">
                 {{content}}
             </div>
-            <div data-ce-tag="static" class="page-buttons-wrapper">
+            <div data-ce-tag="static" class="page-buttons-wrapper" v-if="files.length">
                 <download-button
                     v-for="file in files"
                     :key="file.id"
@@ -26,6 +26,16 @@
                 >
 
                 </download-button>
+            </div>
+            <div data-ce-tag="static" class="page-buttons-wrapper" v-if="redirections.length">
+                <redirect-button
+                v-for="item in redirections"
+                :key="item.route"
+                :url="url"
+                :route="item.route"
+                :text="item.text">
+
+                </redirect-button>
             </div>
         </div>
     </div>
@@ -39,6 +49,10 @@ export default {
         url: String,
         content: String,
         files: {
+            type: Array,
+            default: [],
+        },
+        redirections: {
             type: Array,
             default: [],
         },
@@ -131,7 +145,7 @@ export default {
         flex-direction: column;
         align-items: center;
         gap: 1vh;
-        padding: 10vh 10vw 35vh 10vw;
+        padding: 9vh 13vw 9vh 13vw;
         color: #111111;
 
         .header-description-logo {
@@ -166,13 +180,11 @@ export default {
         }
 
         .header-description-text {
-            width: 80%;
+            width: 100%;
             text-align: center;
             padding-top: 3vh;
-            padding-right: 4vw;
             font-size: 15px;
             font-weight: 700;
-            text-transform: uppercase;
         }
     }
 

@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::group(['prefix' => 'transportation'], function () {
+    Route::get('/', [App\Http\Controllers\PublicController::class, 'transportIndex']);
     Route::get('/cargo', [App\Http\Controllers\PublicController::class, 'cargo']);
     Route::get('/passengers', [App\Http\Controllers\PublicController::class, 'passengers']);
     Route::get('/transit', [App\Http\Controllers\PublicController::class, 'transit']);

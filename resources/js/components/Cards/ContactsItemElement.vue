@@ -4,7 +4,8 @@
             {{ title }}
         </h3>
         <div class="contacts-info">
-            <div class="contacts-map">
+            <div class="contacts-map"
+            v-if="showMap">
                 <slot name="map">
 
                 </slot>
@@ -34,7 +35,11 @@ export default {
         items: {
             type: Array,
             default: () => []
-        }
+        },
+        showMap: {
+            type: Boolean,
+            default: false,
+        },
     }
 }
 </script>
@@ -44,7 +49,10 @@ export default {
     .contacts-item-wrapper {
         display: flex;
         flex-direction: column;
-        border-bottom: 1px solid gray;
+    }
+
+    .contacts-item-wrapper:not(:last-child) {
+        margin-bottom: 2vh;
     }
 
     .contacts-info {

@@ -46,6 +46,7 @@ Vue.component('admin-card-list', require('./components/Lists/AdminCardsListCompo
 
 Vue.component('default-button', require('./components/Buttons/DefaultButtonComponent.vue').default);
 Vue.component('download-button', require('./components/Buttons/DownloadButtonComponent.vue').default);
+Vue.component('redirect-button', require('./components/Buttons/RedirectButtonComponent.vue').default);
 
 // Pages
 
@@ -59,6 +60,7 @@ Vue.component('contacts-page', require('./components/Pages/ContactsPageComponent
 Vue.component('prices-page', require('./components/Pages/PricesPageComponent.vue').default);
 Vue.component('info-edit-page', require('./components/Pages/InfoEditPageComponent.vue').default);
 Vue.component('info-list-page', require('./components/Pages/InfoAllPageComponent.vue').default);
+Vue.component('transportation-page', require('./components/Pages/TransportationPageComponent.vue').default);
 Vue.component('test-page', require('./components/Pages/TestPageComponent.vue').default);
 
 

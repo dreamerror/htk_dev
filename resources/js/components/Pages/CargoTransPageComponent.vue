@@ -28,7 +28,7 @@
 import {initEditor} from "../../inc/ContentTools/editor";
 
 export default {
-    name: "SVHPageComponent",
+    name: "CargoTransPageComponent",
     props: {
         url: String,
         api: String,

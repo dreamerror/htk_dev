@@ -101,6 +101,7 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 1vh;
+        width: 80%;
 
         img {
             width: 100%;

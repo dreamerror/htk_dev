@@ -11,7 +11,8 @@
         <div class="page-content">
             <contacts-item-element
                 title="ООО «Хасанская транспортная компания»"
-                :items="htkItem">
+                :items="htkItem"
+                :show-map="true">
 
                 <template v-slot:map>
                     <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3Aa613d88d0f8545c9c27e046ca73c780297c9226aea9d2b138bb27059b4d29960"
@@ -24,7 +25,8 @@
 
             <contacts-item-element
                 title="Склад временного хранения (СВХ)"
-                :items="svhItem">
+                :items="svhItem"
+                :show-map="true">
 
                 <template v-slot:map>
                     <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3Ae2f63bcc667adf962cca588dd74b7bde9bff30687ef8f1a5ad92a36a82e482c0"

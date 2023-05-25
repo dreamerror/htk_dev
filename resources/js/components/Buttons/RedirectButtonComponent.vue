@@ -1,6 +1,6 @@
 <template>
     <div class="page-button"
-    @click="downloadFile">
+    @click="redirect">
         <div class="button-text" ref="text-block">
             {{ text }}
         </div>
@@ -8,35 +8,19 @@
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
-    name: "DownloadButtonComponent",
+    name: "RedirectButtonComponent",
     props: {
-        file: String,
-        filename: String,
-        ext: String,
+        url: String,
+        route: String,
         text: String,
     },
     mounted() {
-        this.adjustFontSize()
+        // this.adjustFontSize()
     },
     methods: {
-        downloadFile() {
-            axios({
-                url: this.file,
-                method: 'GET',
-                responseType: 'blob',
-            }).then((res) => {
-                let FILE = window.URL.createObjectURL(new Blob([res.data]));
-
-                let docUrl = document.createElement('a');
-                docUrl.href = FILE;
-                docUrl.setAttribute('download', `${this.filename}.${this.ext}`);
-                console.log(docUrl)
-                document.body.appendChild(docUrl);
-                docUrl.click();
-            });
+        redirect() {
+            window.location.href = `${this.url}/${this.route}`
         },
         checkOverflow() {
             const el = this.$refs["text-block"];
@@ -55,16 +39,15 @@ export default {
             const increment = 0.05;
             const el = this.$refs["text-block"];
 
-            el.style.fontSize = "0.1em";
+            el.style.fontSize = "0.1rem";
 
             while (!fitted) {
                 if (this.checkOverflow()) {
-                    el.style.fontSize = `${lastSize - increment}em`
+                    el.style.fontSize = `${lastSize - increment}rem`
                     fitted = true
                 } else {
-                    lastSize = parseFloat(el.style.fontSize.slice(0, -2)) + increment
-                    console.log(lastSize)
-                    el.style.fontSize = `${lastSize}em`
+                    lastSize = parseFloat(el.style.fontSize.slice(0, -3)) + increment
+                    el.style.fontSize = `${lastSize}rem`
                 }
             }
 
@@ -83,11 +66,11 @@ export default {
         width: 25%;
         aspect-ratio: 5;
         text-align: center;
-        //padding: 10px 10px;
+        padding: 20px 20px;
         font-size: 1rem;
-        border: 2px solid #d1a251;
+        border: 2px solid #316851;
         color: #ffffff;
-        background: #d1a251;
+        background: #316851;
         //font-weight: bold;
         cursor: pointer;
         border-radius: 50px;
@@ -95,7 +78,7 @@ export default {
 
     .page-button:hover {
         background: #111111;
-        color: #d1a251;
+        color: #316851;
     }
 
     .button-text {
@@ -104,6 +87,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: 1rem;
     }
 
 </style>
