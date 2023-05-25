@@ -116,10 +116,10 @@ export default {
 
     .main-contacts {
         display: grid;
-        grid-template-columns: 1fr 1fr 2fr;
-        width: 60%;
+        grid-template-columns: 1fr 1.5fr 2fr;
+        width: 90%;
         padding-top: 4vh;
-        padding-left: 1vw;
+        padding-left: 4vw;
 
         .contact-elem {
             display: flex;
@@ -129,12 +129,14 @@ export default {
                 text-transform: uppercase;
                 margin-bottom: 0.25rem;
                 font-size: 1rem;
+                font-weight: 400;
             }
 
             a {
                 text-decoration: none;
                 color: #111111;
                 font-size: 1rem;
+                font-weight: 400;
             }
         }
 
@@ -143,13 +145,18 @@ export default {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 70%;
-            padding: 1px 15px;
+            height: 90px;
+            width: 100%;
+            //padding: 0 30px;
             border: 3px solid #ffffff;
             color: #ffffff;
-            font-weight: bold;
+            font-weight: 400;
+            font-size: 1.5em;
             cursor: pointer;
             border-radius: 50px;
+            grid-row: 1 / 3;
+            grid-column: 3;
+            justify-self: center;
         }
     }
 
