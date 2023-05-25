@@ -213,11 +213,12 @@ export default {
     .nav-item {
         position: relative;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         font-size: 1.1em;
         width: auto;
-        padding: 0 2.155vw;
+        //padding: 0 2.155vw;
+        flex-grow: 1;
         color: #ffffff;
         height: 100%;
         transition: all .3s linear;
