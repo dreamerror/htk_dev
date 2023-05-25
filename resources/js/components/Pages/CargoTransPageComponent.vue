@@ -150,4 +150,12 @@ export default {
         grid-column: 1 / span 2;
     }
 
+    @media (max-width: 900px) {
+        .page-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
 </style>

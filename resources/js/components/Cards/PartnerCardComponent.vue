@@ -39,4 +39,10 @@ export default {
         }
     }
 
+    @media(max-width: 900px) {
+        .partner-wrapper {
+            width: 30vw;
+        }
+    }
+
 </style>

@@ -106,4 +106,10 @@ export default {
         align-items: center;
     }
 
+    @media (max-width: 900px) {
+        .page-button {
+            width: 100%;
+        }
+    }
+
 </style>

@@ -146,4 +146,12 @@ export default {
         padding: 0 22.5vw;
     }
 
+    @media (max-width: 900px) {
+        .page-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
 </style>

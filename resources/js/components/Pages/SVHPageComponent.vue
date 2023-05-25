@@ -80,7 +80,6 @@ export default {
     }
 
     .page-content {
-        //margin: 0 auto;
         padding: 0 13vw;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -127,6 +126,14 @@ export default {
     .page-additional-info {
         grid-row: 2;
         grid-column: 1 / span 2;
+    }
+
+    @media (max-width: 900px) {
+        .page-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
     }
 
 </style>
