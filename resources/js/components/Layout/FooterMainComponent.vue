@@ -131,7 +131,7 @@ export default {
         width: 100%;
         background: #316851;
         display: grid;
-        grid-template-columns: 1fr repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         padding: 1vh 1vw;
         grid-gap: 2vw;
     }
@@ -186,6 +186,20 @@ export default {
         border-top: .1vh solid #ffffff;
         width: 100%;
         transform: translateY(-1rem);
+    }
+
+    @media (max-width: 900px) {
+        .main-footer-wrapper {
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2vh;
+            align-items: flex-start;
+        }
+
+        .footer-logos {
+            order: 5;
+        }
     }
 
 </style>

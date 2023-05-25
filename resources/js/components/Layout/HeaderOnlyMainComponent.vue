@@ -1,9 +1,5 @@
 <template>
     <div class="main-header-wrapper">
-        <div class="main-header-nav mobile nav-item"
-        @click="navBarHandler">
-            Меню
-        </div>
 
         <img src="/storage/berkut-logo.svg" alt="" class="desktop berkut-logo"
              @click="redirect('')">
@@ -11,6 +7,8 @@
         <div class="main-menu-container">
 
         <div class="main-menu-wrapper">
+            <img src="/storage/berkut-logo.svg" alt="" class="mobile berkut-logo"
+                 @click="redirect('')">
             <div class="main-contacts">
                 <div class="contact-elem">
                     <span>Перевозки "Беркут"</span>
@@ -37,15 +35,14 @@
                 </div>
             </div>
 
-            <div class="main-header-nav desktop main-header-menu"
-                 v-if="showNav">
+            <div class="main-header-nav main-header-menu">
                 <div v-for="item in this.navbarElements"
                      class="nav-item"
                      :key="item.route"
                      @click="redirect(item.route)">
                     {{item.title}}
 
-                    <i class="fa fa-chevron-down nav-arrow"
+                    <i class="fa fa-chevron-down nav-arrow desktop"
                        aria-hidden="true"
                        v-if="item.child"></i>
 
@@ -58,7 +55,6 @@
                             {{ children.title }}
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -91,7 +87,6 @@ export default {
                 {title: "Контакты", route: "/contacts"},
                 {title: "Цены", route: "/prices"},
             ],
-            showNav: window.screen.width > 899,
         }
     },
     created() {
@@ -104,9 +99,6 @@ export default {
         redirect(route) {
             window.location.href = `${this.url}${route}`
 
-        },
-        navBarHandler() {
-            this.showNav = !this.showNav;
         },
         windowResizeHandler() {
             this.showNav = window.screen.width > 899;
@@ -184,10 +176,6 @@ export default {
             border-radius: 50px;
         }
     }
-
-    //.contact-elem:first-child {
-    //    margin-left: 2vw;
-    //}
 
     .main-menu-wrapper {
         display: flex;
@@ -292,31 +280,80 @@ export default {
         }
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 901px) {
         .mobile {
             display: none;
         }
     }
 
-    @media (max-width: 899px) {
+    @media (max-width: 900px) {
         .desktop {
             display: none;
         }
 
         .main-header-wrapper {
             flex-direction: column;
+            padding: 3vh 3.5vw 0 3.5vw;
         }
 
-        .main-header-menu {
+        .main-header-nav {
             display: flex;
             flex-direction: column;
             height: auto;
+            flex-grow: 1;
             width: 100%;
             align-items: center;
             gap: 1vh;
             z-index: 100;
             transition: all .3s linear;
             padding: 1vh 0;
+            border-radius: 0;
+        }
+
+        .main-menu-wrapper {
+            align-items: center;
+        }
+
+        .berkut-logo {
+            width: 30vw;
+        }
+
+        .main-contacts {
+            .contacts-button {
+                display: none;
+            }
+        }
+
+        .nav-item {
+            width: 100%;
+            height: 100%;
+            background: #316851;
+        }
+
+        .nav-item:first-child {
+            border-radius: 0;
+        }
+
+        .nav-item:last-child {
+            border-radius: 0;
+            background: #316851;
+        }
+
+        .nav-item:nth-last-child(2) {
+            background: #316851;
+        }
+
+        .main-header-dropdown {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: #316851;
+
+            .header-dropdown-item {
+                width: 100%;
+                background: #316851;
+                color: #ffffff;
+            }
         }
     }
 

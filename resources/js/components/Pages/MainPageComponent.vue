@@ -93,7 +93,6 @@ export default {
     .main-wrapper {
         display: flex;
         justify-content: space-around;
-        //gap: 5vh;
         flex-wrap: wrap;
         width: 100%;
     }

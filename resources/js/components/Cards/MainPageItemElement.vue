@@ -40,7 +40,6 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        //padding: 0.1vh 0.1vw;
         width: 100%;
         gap: 1vw;
     }
@@ -67,9 +66,6 @@ export default {
 
         .button-wrapper {
             width: auto;
-            //position: absolute;
-            //top: 45%;
-            //left: 25%;
             display: flex;
             justify-content: center;
             font-size: 3rem;
@@ -108,7 +104,7 @@ export default {
         }
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 901px) {
         .card-wrapper {
             flex-direction: row;
             width: 100%;
@@ -127,7 +123,7 @@ export default {
         }
     }
 
-    @media (max-width: 899px) {
+    @media (max-width: 900px) {
         .card-wrapper {
             flex-direction: column;
             width: 100%;
@@ -135,6 +131,23 @@ export default {
 
         .card-img-wrapper {
             margin: 0 auto;
+            width: 80%;
+        }
+
+        .card-img-wrapper {
+            .button-wrapper {
+                font-size: 1rem;
+            }
+        }
+
+        .card-text {
+            .card-title {
+                font-size: 1rem;
+            }
+
+            span {
+                font-size: 0.75rem;
+            }
         }
     }
 
