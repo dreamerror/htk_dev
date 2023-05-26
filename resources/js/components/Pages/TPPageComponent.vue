@@ -129,9 +129,10 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 1vh;
+        width: 70%;
 
         img {
-            width: 80%;
+            width: 100%;
             //height: auto;
             box-shadow: 4px 6px 10px rgb(0 0 0 / 20%);
             border: 6px solid #fff;
@@ -139,8 +140,6 @@ export default {
     }
 
     .page-text {
-        width: 30%;
-
         display: flex;
         flex-direction: column;
         align-items: flex-start;

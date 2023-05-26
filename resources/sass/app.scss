@@ -43,8 +43,9 @@ div.page-content {
 }
 
 .header-description-text {
-    h1, h3 {
+    h1, h3, .title {
         text-transform: uppercase;
+        margin-bottom: 2rem !important;
     }
 }
 

@@ -183,7 +183,7 @@ export default {
             text-align: center;
             padding-top: 3vh;
             font-size: 15px;
-            font-weight: 700;
+            font-weight: 400;
         }
     }
 

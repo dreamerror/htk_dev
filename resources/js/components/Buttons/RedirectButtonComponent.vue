@@ -69,7 +69,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 25%;
+        width: 30%;
         aspect-ratio: 5;
         text-align: center;
         padding: 20px 20px;
