@@ -55,15 +55,14 @@ export default {
             const increment = 0.05;
             const el = this.$refs["text-block"];
 
-            el.style.fontSize = "0.1em";
+            el.style.fontSize = "2em";
 
             while (!fitted) {
-                if (this.checkOverflow()) {
-                    el.style.fontSize = `${lastSize - increment}em`
+                if (!this.checkOverflow()) {
+                    el.style.fontSize = `${lastSize + increment}em`
                     fitted = true
                 } else {
-                    lastSize = parseFloat(el.style.fontSize.slice(0, -2)) + increment
-                    console.log(lastSize)
+                    lastSize = parseFloat(el.style.fontSize.slice(0, -2)) - increment
                     el.style.fontSize = `${lastSize}em`
                 }
             }
@@ -83,12 +82,10 @@ export default {
         width: 25%;
         aspect-ratio: 5;
         text-align: center;
-        //padding: 10px 10px;
         font-size: 1rem;
         border: 2px solid #d1a251;
         color: #ffffff;
         background: #d1a251;
-        //font-weight: bold;
         cursor: pointer;
         border-radius: 50px;
     }

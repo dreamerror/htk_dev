@@ -12,6 +12,12 @@ Route::post('/edit-content', [App\Http\Controllers\Api\PageContentController::cl
 
 Route::group(['prefix' => 'info'], function () {
     Route::post('/text', [App\Http\Controllers\Api\PageContentController::class, 'editInfo']);
+    Route::post('/files', [App\Http\Controllers\Api\PageContentController::class, 'infoFiles']);
+});
+
+Route::group(['prefix' => 'upload'], function () {
+    Route::post('/image', [App\Http\Controllers\Api\PageContentController::class, 'saveImage']);
+    Route::post('/insert/image', [App\Http\Controllers\Api\PageContentController::class, 'insertImage']);
 });
 
 Route::group(['prefix' => 'admin'], function () {

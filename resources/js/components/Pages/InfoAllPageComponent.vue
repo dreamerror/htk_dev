@@ -11,6 +11,7 @@
             <info-card
             v-for="page in pages"
             :key="page.id"
+            :url="url"
             :title="page.page_title"
             :id="page.id">
 
@@ -21,14 +22,21 @@
 
 <script>
 export default {
-    name: "SVHPageComponent",
+    name: "InfoAllPageComponent",
     props: {
         url: String,
         pages: Array,
     },
     computed: {
         pageDescription() {
-            return '<p class="title">Информация</p>';
+            return '<p class="title">Уважаемые клиенты и посетители сайта!</p>' +
+                '' +
+                '<p>В настоящем разделе сайта публикуется:</p>' +
+                '<p>- информация, требующая официального размещения;</p>' +
+                '<p>- уведомления по договорным обязательствам;</p>' +
+                '<p>- информация о порядке осуществления деятельности склада временного хранения;</p>' +
+                '<p>- информация о предъявлемых требованиях законодательством России к СВХ;</p>' +
+                '<p>- иная необходимая информация.</p>';
         }
     },
 }
@@ -43,11 +51,11 @@ export default {
     }
 
     .page-content {
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2vh;
-        width: 50%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2vw;
     }
 
 </style>

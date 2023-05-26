@@ -21,6 +21,11 @@
                 {{pageAdditional}}
             </div>
 
+            <file-upload-inputs
+                :api_files="''"
+                :files="files"
+                page_name="svh" />
+
         </div>
     </div>
 </template>
@@ -33,6 +38,7 @@ export default {
     props: {
         url: String,
         api: String,
+        api_files: String,
         data: Object,
         auth: Number,
         files: Array,
@@ -84,6 +90,7 @@ export default {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2vh;
+        margin-bottom: 2vh;
         width: 100%;
     }
 

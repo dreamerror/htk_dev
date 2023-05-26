@@ -12,33 +12,15 @@
             <div class="page-text" data-editable data-name="page-text" v-html="pageContent">
                 {{pageContent}}
             </div>
-            <div class="page-files">
 
-            </div>
-
-            <form method="post" :action="api_files" enctype="multipart/form-data" v-if="auth">
-                <div class="file-input-wrapper"
-                     v-for="(item, index) in filesArray"
-                     :key="index">
-                    <input type="text" :name="`text_${index}`" :value="item.text">
-
-                    <input type="file" :name="`file_${index}`" :id="`file_${index}`">
-
-                    <button @click.stop="deleteHandler($event, item.id)">
-                        Удалить
-                    </button>
-
-                    <input type="hidden" :name="`id_${index}`" :value="item.id">
-
-                </div>
-
-                <input type="hidden" name="page_id" :value="id">
-                <input type="hidden" name="deleted" :value="deletedItems" multiple>
-
-                <button @click.stop="addHandler($event)">Добавить элемент</button>
-                <input type="submit">
-            </form>
+            <file-upload-inputs
+                :api_files="api_files"
+                :files="files"
+                type="info"
+                :id="id" />
         </div>
+
+
     </div>
 </template>
 
@@ -69,13 +51,6 @@ export default {
             default: 0,
         },
         auth: Number,
-    },
-    data() {
-        return {
-            filesArray: [...this.files],
-            elementsAdded: 0,
-            deletedItems: [],
-        }
     },
     computed: {
         pageContent() {

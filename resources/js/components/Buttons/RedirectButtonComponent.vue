@@ -1,7 +1,7 @@
 <template>
     <div class="page-button"
     @click="redirect">
-        <div class="button-text" ref="text-block">
+        <div class="button-text" ref="text-block" v-html="text">
             {{ text }}
         </div>
     </div>
@@ -14,9 +14,15 @@ export default {
         url: String,
         route: String,
         text: String,
+        resize: {
+            type: Boolean,
+            default: false
+        }
     },
     mounted() {
-        // this.adjustFontSize()
+        if (this.resize) {
+            this.adjustFontSize()
+        }
     },
     methods: {
         redirect() {
@@ -39,15 +45,15 @@ export default {
             const increment = 0.05;
             const el = this.$refs["text-block"];
 
-            el.style.fontSize = "0.1rem";
+            el.style.fontSize = "0.1em";
 
             while (!fitted) {
                 if (this.checkOverflow()) {
-                    el.style.fontSize = `${lastSize - increment}rem`
+                    el.style.fontSize = `${lastSize - increment}em`
                     fitted = true
                 } else {
-                    lastSize = parseFloat(el.style.fontSize.slice(0, -3)) + increment
-                    el.style.fontSize = `${lastSize}rem`
+                    lastSize = parseFloat(el.style.fontSize.slice(0, -2)) + increment
+                    el.style.fontSize = `${lastSize}em`
                 }
             }
 

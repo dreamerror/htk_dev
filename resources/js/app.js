@@ -43,6 +43,7 @@ Vue.component('partner-card', require('./components/Cards/PartnerCardComponent.v
 
 Vue.component('main-card-list', require('./components/Lists/MainCardsListComponent.vue').default);
 Vue.component('admin-card-list', require('./components/Lists/AdminCardsListComponent.vue').default);
+Vue.component('file-upload-inputs', require('./components/Lists/PageFilesUploadComponent.vue').default);
 
 // Buttons
 

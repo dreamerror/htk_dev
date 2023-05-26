@@ -106,9 +106,9 @@ export default {
         color: #111111;
 
         .main-description-logo {
-            display: grid;
-            grid-template-rows: 2fr 0.8fr 0.2fr;
-            //padding: 0 0 0 3vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
             .button-wrapper {
                 width: auto;

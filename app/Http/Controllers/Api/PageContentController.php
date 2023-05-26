@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\DB;
 
 class PageContentController extends Controller
 {
+    public function saveImage(Request $request) {
+        $filename = $request->image->hashName();
+        $url = "storage/".$request->image->store("/page_images", 'public');
+        echo json_encode(["url" => $url]);
+    }
+
+    public function insertImage(Request $request) {
+        echo json_encode(['alt' => "image"]);
+    }
     public function editContent(Request $request) {
         $data = json_decode($request->getContent(), true);
 
@@ -69,24 +78,28 @@ class PageContentController extends Controller
         $data = $request->input();
         $page_id = $data['page_id'];
         $deleted = explode(',', $data["deleted"]);
+        foreach ($deleted as $delID) {
+            if (intval($delID) > 0) DB::table('information_files')->delete($delID);
+        }
         foreach (array_keys($data) as $key) {
             if (str_starts_with($key, 'id')) {
                 $fileID = $data[$key];
-                if (in_array($fileID, $deleted)) {
+                $num = explode('_', $key)[1];
+                $text = $data["text_$num"];
+                $path = '';
+                if (isset($request->all()["file_$num"])) {
+                    $path = 'storage/' . $request->all()["file_$num"]->store('/files', 'public');
+                }
+                if ($path) {
                     if ($fileID > 0) {
-                        DB::table('information_files')->delete($fileID);
-                    }
-                } else {
-                    $num = explode('_', $key)[1];
-                    $text = $data["text_$num"];
-                    $path = '';
-                    if (isset($request->all()["file_$num"])) {
-                        $path = 'storage/' . $request->all()["file_$num"]->store('/files', 'public');
-                    }
-                    if ($path) {
-                        DB::table('information_files')->updateOrInsert([
-                            'id' => $fileID,
-                        ], [
+                        DB::table('information_files')->where('id', '=', $fileID)
+                            ->update([
+                            'page_id' => $page_id,
+                            'file' => $path,
+                            'text' => $text,
+                        ]);
+                    } else {
+                        DB::table('information_files')->insert([
                             'page_id' => $page_id,
                             'file' => $path,
                             'text' => $text,
@@ -95,5 +108,45 @@ class PageContentController extends Controller
                 }
             }
         }
+
+        return redirect()->back();
+    }
+
+    public function pagesFiles(Request $request) {
+        $data = $request->input();
+        $page_name = $data['page_name'];
+        $deleted = explode(',', $data["deleted"]);
+        foreach ($deleted as $delID) {
+            if (intval($delID) > 0) DB::table('page_files')->delete($delID);
+        }
+        foreach (array_keys($data) as $key) {
+            if (str_starts_with($key, 'id')) {
+                $fileID = $data[$key];
+                $num = explode('_', $key)[1];
+                $text = $data["text_$num"];
+                $path = '';
+                if (isset($request->all()["file_$num"])) {
+                    $path = 'storage/' . $request->all()["file_$num"]->store('/files', 'public');
+                }
+                if ($path) {
+                    if ($fileID > 0) {
+                        DB::table('page_files')->where('id', '=', $fileID)
+                            ->update([
+                                'page' => $page_name,
+                                'file' => $path,
+                                'text' => $text,
+                            ]);
+                    } else {
+                        DB::table('information_files')->insert([
+                            'page' => $page_name,
+                            'file' => $path,
+                            'text' => $text,
+                        ]);
+                    }
+                }
+            }
+        }
+
+        return redirect()->back();
     }
 }

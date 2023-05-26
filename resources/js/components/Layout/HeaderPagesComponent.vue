@@ -50,11 +50,11 @@ export default {
         content: String,
         files: {
             type: Array,
-            default: [],
+            default: () => [],
         },
         redirections: {
             type: Array,
-            default: [],
+            default: () => [],
         },
     },
     methods: {
@@ -194,6 +194,8 @@ export default {
         flex-wrap: wrap;
         justify-content: center;
         gap: 2vw;
+        width: 100%;
+        padding: 0 13vw;
     }
 
 </style>
