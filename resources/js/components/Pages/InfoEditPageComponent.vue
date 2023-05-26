@@ -14,6 +14,7 @@
             </div>
 
             <file-upload-inputs
+                v-if="auth"
                 :api_files="api_files"
                 :files="files"
                 type="info"

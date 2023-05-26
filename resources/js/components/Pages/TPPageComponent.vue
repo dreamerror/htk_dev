@@ -3,7 +3,8 @@
         <header-pages
             :bg_image="'/storage/bg/tp.jpg'"
             :url="url"
-            :content="pageDescription">
+            :content="pageDescription"
+            :files="files">
 
         </header-pages>
 
@@ -20,6 +21,12 @@
                 {{pageAdditional}}
             </div>
 
+            <file-upload-inputs
+                v-if="auth"
+                :api_files="`${url}/api/edit-files`"
+                :files="files"
+                page_name="tp" />
+
         </div>
     </div>
 </template>
@@ -28,12 +35,16 @@
 import {initEditor} from "../../inc/ContentTools/editor";
 
 export default {
-    name: "SVHPageComponent",
+    name: "TPPageComponent",
     props: {
         url: String,
         api: String,
         data: Object,
         auth: Number,
+        files: {
+            type: Array,
+            default: () => [],
+        }
     },
     mounted() {
         if (this.auth) {

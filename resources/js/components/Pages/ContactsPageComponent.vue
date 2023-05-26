@@ -15,7 +15,7 @@
                 :show-map="true">
 
                 <template v-slot:map>
-                    <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3Aa613d88d0f8545c9c27e046ca73c780297c9226aea9d2b138bb27059b4d29960"
+                    <iframe src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=true&amp;um=constructor%3Aa00034760dea283ea23963a7fe425da0b924e5c4cc5f04618346e4912ed06023"
                             frameborder="0" allowfullscreen="true" width="100%" height="300px" style="display: block;">
 
                     </iframe>

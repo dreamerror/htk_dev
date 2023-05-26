@@ -22,7 +22,8 @@
             </div>
 
             <file-upload-inputs
-                :api_files="''"
+                v-if="auth"
+                :api_files="`${url}/api/edit-files`"
                 :files="files"
                 page_name="svh" />
 
