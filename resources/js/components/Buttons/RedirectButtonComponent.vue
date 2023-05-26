@@ -90,4 +90,10 @@ export default {
         font-size: 1rem;
     }
 
+    @media (max-width: 899px) {
+        .page-button {
+            width: 100%;
+        }
+    }
+
 </style>

@@ -7,7 +7,7 @@
         <div class="main-menu-container">
 
         <div class="main-menu-wrapper">
-            <div class="main-contacts">
+            <div class="main-contacts desktop">
                 <div class="mobile berkut-logo">
                     <img src="/storage/berkut-logo.svg" alt=""
                          @click="redirect('')">
@@ -37,10 +37,18 @@
                 </div>
             </div>
 
+            <div class="header-image-wrapper mobile">
+                <img src="/storage/htk-logo-color-main.svg" class alt=""
+                     @click="redirect('')">
+            </div>
+
+            <div class="contacts-button mobile">
+                Заказать обратный звонок
+            </div>
+
             <div class="main-header-nav main-header-menu">
                 <div v-for="item in this.navbarElements"
                      class="nav-item"
-                     :class="{mobile: item.mobileOnly}"
                      :key="item.route"
                      @click="redirect(item.route)">
                     {{item.title}}
@@ -78,42 +86,24 @@ export default {
     data() {
         return {
             navbarElements: [
-                {title: "СВХ", route: "/temp-storage", mobileOnly: false},
-                {title: "Таможенный представитель", route: "/customs", mobileOnly: false},
+                {title: "СВХ", route: "/temp-storage"},
+                {title: "Таможенный представитель", route: "/customs"},
                 {title: "Перевозки", route: "/transportation", child: [
                         {title: "Грузовые", route: "/cargo"},
                         {title: "Пассажирские", route: "/passengers"},
                         {title: "Транзитные грузы", route: "/transit"},
-                    ], mobileOnly: false},
-                {title: "Грузовые", route: "/cargo", mobileOnly: true},
-                {title: "Пассажирские", route: "/passengers", mobileOnly: true},
-                {title: "Транзитные грузы", route: "/transit", mobileOnly: true},
-                {title: "Информация", route: "/info", mobileOnly: false},
-                {title: "Партнёры", route: "/partners", mobileOnly: false},
-                {title: "Контакты", route: "/contacts", mobileOnly: false},
-                {title: "Цены", route: "/prices", mobileOnly: false},
+                    ]},
+                {title: "Информация", route: "/info"},
+                {title: "Партнёры", route: "/partners"},
+                {title: "Контакты", route: "/contacts"},
+                {title: "Цены", route: "/prices"},
             ],
-            childElements: [
-                {title: "Грузовые", route: "/cargo"},
-                {title: "Пассажирские", route: "/passengers"},
-                {title: "Транзитные грузы", route: "/transit"},
-            ]
         }
-    },
-    created() {
-        window.addEventListener('resize', this.windowResizeHandler)
-    },
-    destroyed() {
-        window.removeEventListener('resize', this.windowResizeHandler)
     },
     methods: {
         redirect(route) {
             window.location.href = `${this.url}${route}`
-
         },
-        windowResizeHandler() {
-            this.showNav = window.screen.width > 899;
-        }
     }
 }
 </script>
@@ -291,13 +281,13 @@ export default {
         }
     }
 
-    @media (min-width: 901px) {
+    @media (min-width: 900px) {
         .mobile {
             display: none;
         }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 899px) {
         .desktop {
             display: none;
         }
@@ -307,6 +297,31 @@ export default {
             padding: 3vh 3.5vw 0 3.5vw;
         }
 
+        .header-image-wrapper {
+            cursor: pointer;
+        }
+
+        .contacts-button {
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            //height: 90px;
+            width: auto;
+            padding: 20px 60px;
+            border: 3px solid #ffffff;
+            color: #ffffff;
+            font-weight: 400;
+            font-size: 1.5em;
+            cursor: pointer;
+            border-radius: 50px;
+        }
+
+        .header-image-wrapper img {
+            width: 100%;
+            aspect-ratio: 2;
+        }
+
         .main-header-nav {
             display: flex;
             flex-direction: column;
@@ -314,32 +329,14 @@ export default {
             flex-grow: 1;
             width: 100%;
             align-items: center;
-            gap: 1vh;
             z-index: 100;
             transition: all .3s linear;
-            padding: 1vh 0;
-            border-radius: 0;
+            border-radius: 10px;
         }
 
         .main-menu-wrapper {
             align-items: center;
             gap: 3vh;
-        }
-
-        .berkut-logo {
-            width: 60%;
-            //justify-self: start;
-            //margin-right: auto;
-        }
-
-        .main-contacts {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-
-            .contacts-button {
-                grid-column: 1 / span 2;
-                margin-top: 2vh;
-            }
         }
 
         .contact-elem-last {
@@ -354,16 +351,11 @@ export default {
         }
 
         .nav-item:first-child {
-            border-radius: 0;
+            border-radius: 10px 10px 0 0;
         }
 
         .nav-item:last-child {
-            border-radius: 0;
-            background: #316851;
-        }
-
-        .nav-item:nth-last-child(2) {
-            background: #316851;
+            border-radius: 0 0 10px 10px;
         }
 
         .nav-item:hover {

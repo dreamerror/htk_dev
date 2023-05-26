@@ -47,3 +47,15 @@ div.page-content {
         text-transform: uppercase;
     }
 }
+
+@media (max-width: 899px) {
+    .desktop {
+        display: none !important;
+    }
+}
+
+@media (min-width: 900px) {
+    .mobile {
+        display: none !important;
+    }
+}

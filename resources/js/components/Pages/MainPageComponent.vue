@@ -9,7 +9,7 @@
             </header-only-main>
             <div class="main-description">
                 <div class="main-description-logo">
-                    <div class="main-image-wrapper">
+                    <div class="main-image-wrapper desktop">
                         <img src="/storage/htk-logo-color-main.svg" class alt="">
                     </div>
                     <div class="header-description-wrapper">

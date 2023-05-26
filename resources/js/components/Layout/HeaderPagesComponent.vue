@@ -6,7 +6,7 @@
 
         </header-only-main>
         <div class="header-description">
-            <div class="header-description-logo">
+            <div class="header-description-logo desktop">
                 <div class="header-image-wrapper">
                     <img src="/storage/htk-logo-color-main.svg" class alt="">
                 </div>
@@ -158,7 +158,6 @@ export default {
             .header-image-wrapper img {
                 width: 100%;
                 aspect-ratio: 2;
-
             }
 
             .header-image-wrapper {
