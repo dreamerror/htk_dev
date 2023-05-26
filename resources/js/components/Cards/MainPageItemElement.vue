@@ -127,6 +127,11 @@ export default {
         .card-wrapper {
             flex-direction: column;
             width: 100%;
+            gap: 5vh;
+        }
+
+        .card-wrapper:not(:last-of-type) {
+            margin-bottom: 5vh;
         }
 
         .card-img-wrapper {
