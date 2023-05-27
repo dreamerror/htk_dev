@@ -17,6 +17,17 @@
 
             </info-card>
         </div>
+
+        <div class="add-button"
+        v-if="this.auth">
+            <redirect-button
+                :url="url"
+                route="info/add"
+                text="Новая запись"
+                :resize="true"
+            />
+        </div>
+
     </div>
 </template>
 
@@ -26,6 +37,7 @@ export default {
     props: {
         url: String,
         pages: Array,
+        auth: Number,
     },
     computed: {
         pageDescription() {
@@ -56,6 +68,15 @@ export default {
         flex-wrap: wrap;
         justify-content: center;
         gap: 2vw;
+    }
+
+    .add-button {
+        width: 100%;
+
+
+        .page-button {
+            margin: 2vh auto;
+        }
     }
 
 </style>

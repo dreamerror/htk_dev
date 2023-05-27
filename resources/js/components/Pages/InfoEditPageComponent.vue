@@ -114,7 +114,6 @@ export default {
     .page-text {
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
 
     .title {

@@ -104,9 +104,11 @@ class PublicController extends Controller
     public function infoList() {
         $data = DB::table('information_pages')
             ->select('id', 'page_title')
+            ->orderBy('id', 'desc')
             ->get();
         return view('pages.info.all', [
-            'items' => $data
+            'items' => $data,
+            'auth' => $this->getAuth(),
         ]);
     }
 

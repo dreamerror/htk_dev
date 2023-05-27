@@ -42,7 +42,7 @@ export default {
         adjustFontSize() {
             let fitted = false
             let lastSize
-            const increment = 0.05;
+            const increment = 0.1;
             const el = this.$refs["text-block"];
 
             el.style.fontSize = "3em";
@@ -70,7 +70,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 25%;
+        width: 30%;
         aspect-ratio: 5;
         text-align: center;
         padding: 20px 20px;

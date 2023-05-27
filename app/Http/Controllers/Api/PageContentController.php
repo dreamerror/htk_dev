@@ -51,27 +51,21 @@ class PageContentController extends Controller
     public function editInfo(Request $request) {
         $data = json_decode($request->getContent(), true);
         $id = $data['id'];
-        if ($id == 0) {
-            DB::table('information_pages')->insert([
-                'page_title' => $data['title'],
-                'page_content' => $data['content']
-            ]);
-        } else {
-            if (isset($data['title'])) {
-                DB::table('information_pages')
-                    ->where('id', '=', $id)
-                    ->update([
-                        'page_title' => $data['title']
-                    ]);
-            }
-            if (isset($data['content'])) {
-                DB::table('information_pages')
-                    ->where('id', '=', $id)
-                    ->update([
-                        'page_content' => $data['content']
-                    ]);
-            }
+        if (isset($data['title'])) {
+            DB::table('information_pages')
+                ->updateOrInsert(['id' => $id,],
+                [
+                    'page_title' => $data['title']
+                ]);
         }
+        if (isset($data['content'])) {
+            DB::table('information_pages')
+                ->updateOrInsert(['id' => $id,],
+                [
+                    'page_content' => $data['content']
+                ]);
+        }
+
     }
 
     public function infoFiles(Request $request) {
