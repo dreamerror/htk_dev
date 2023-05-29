@@ -9,25 +9,35 @@
         </header-pages>
 
         <div class="page-content">
-            <div class="page-doc-wrapper">
+
+            <div class="page-img-wrapper">
                 <div class="page-documents">
                     <img src="/storage/svh_svid.png" alt="" data-no-resize>
                 </div>
 
-                <div class="page-text" data-editable data-name="page-text" v-html="pageText">
-                    {{pageText}}
+                <div class="svh-map">
+                    <img data-ce-tag="static" class="svh-map" src="/storage/svh-map.jpg" alt="">
                 </div>
             </div>
 
-            <div class="page-additional-info" data-editable data-name="page-additional" v-html="pageAdditional">
-                {{pageAdditional}}
-            </div>
 
-            <file-upload-inputs
-                v-if="auth"
-                :api_files="`${url}/api/edit-files`"
-                :files="files"
-                page_name="svh" />
+            <div class="page-text-wrapper">
+
+                <div class="page-text" data-editable data-name="page-text" v-html="pageText">
+                    {{pageText}}
+                </div>
+
+                <div class="page-additional-info" data-editable data-name="page-additional" v-html="pageAdditional">
+                    {{pageAdditional}}
+                </div>
+
+                <file-upload-inputs
+                    v-if="auth"
+                    :api_files="`${url}/api/edit-files`"
+                    :files="files"
+                    page_name="svh" />
+
+            </div>
 
         </div>
     </div>
@@ -56,7 +66,7 @@ export default {
             return this.data['page_text']
         },
         pageAdditional() {
-            return '<img data-ce-tag="static" class="svh-map" src="/storage/svh-map.jpg" alt="">' + this.data['page_additional']
+            return this.data['page_additional']
         },
         pageDescription() {
             return this.data["page_description"]
@@ -86,14 +96,21 @@ export default {
     .page-content {
         padding: 0 13vw;
         display: flex;
-        flex-direction: column;
-        gap: 2vh;
+        flex-direction: row;
+        gap: 2vw;
         margin-bottom: 2vh;
         width: 100%;
 
-        .page-doc-wrapper {
+        .page-img-wrapper {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            gap: 2vh;
+            width: 70%;
+        }
+
+        .page-text-wrapper {
+            display: flex;
+            flex-direction: column;
             gap: 2vw;
         }
     }
@@ -105,11 +122,9 @@ export default {
         gap: 2vw;
     }
 
-    .page-documents {
+    .page-documents, .svh-map {
         display: flex;
-        flex-direction: column;
-        gap: 1vh;
-        width: 70%;
+        width: 100%;
 
         img {
             width: 100%;
@@ -118,6 +133,8 @@ export default {
             border: 6px solid #fff;
         }
     }
+
+
 
     .page-text {
         display: flex;

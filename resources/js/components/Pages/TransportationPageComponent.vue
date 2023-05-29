@@ -21,7 +21,6 @@ export default {
             items: [
                 {text: 'Грузовые', route: 'transportation/cargo'},
                 {text: 'Пассажирские', route: 'transportation/passengers'},
-                {text: 'Транзитные грузы', route: 'transportation/transit'},
             ]
         }
     },

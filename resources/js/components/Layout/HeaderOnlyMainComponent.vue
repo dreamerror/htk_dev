@@ -87,10 +87,9 @@ export default {
             navbarElements: [
                 {title: "СВХ", route: "/temp-storage"},
                 {title: "Таможенный представитель", route: "/customs"},
-                {title: "Перевозки", route: "/transportation", child: [
+                {title: "Международные перевозки", route: "/transportation", child: [
                         {title: "Грузовые", route: "/cargo"},
-                        {title: "Пассажирские", route: "/passengers"},
-                        {title: "Транзитные грузы", route: "/transit"},
+                        {title: "Пассажирские", route: "/passengers"}
                     ]},
                 {title: "Информация", route: "/info"},
                 {title: "Партнёры", route: "/partners"},

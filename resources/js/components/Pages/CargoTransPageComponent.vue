@@ -9,10 +9,6 @@
 
         <div class="page-content">
             <div class="page-doc-wrapper">
-                <div class="page-documents">
-                    <img src="/storage/cargo_svid.jpg" alt="" data-no-resize>
-                </div>
-
                 <div class="page-text" data-editable data-name="page-text" v-html="pageText">
                     {{pageText}}
                 </div>
@@ -119,20 +115,6 @@ export default {
         flex-direction: row;
         justify-content: center;
         gap: 2vw;
-    }
-
-    .page-documents {
-        display: flex;
-        flex-direction: column;
-        gap: 1vh;
-        width: 50%;
-
-        img {
-            width: 100%;
-            //height: auto;
-            box-shadow: 4px 6px 10px rgb(0 0 0 / 20%);
-            border: 6px solid #fff;
-        }
     }
 
     .page-text {
