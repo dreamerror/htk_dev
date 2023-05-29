@@ -35,7 +35,7 @@ export default {
         justify-content: center;
 
         img {
-            width: 100%;
+            width: 80%;
             aspect-ratio: auto;
         }
     }
