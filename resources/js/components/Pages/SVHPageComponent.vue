@@ -83,10 +83,6 @@ export default {
         gap: 3vh;
     }
 
-    .header-bg:after {
-        background-image: url("/storage/bg/svh.png");
-    }
-
     .page-content {
         padding: 0 13vw;
         display: flex;
@@ -113,7 +109,7 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 1vh;
-        width: 70%;
+        width: 50vw;
 
         img {
             width: 100%;

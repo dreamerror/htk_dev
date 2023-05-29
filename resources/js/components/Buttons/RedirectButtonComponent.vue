@@ -94,6 +94,7 @@ export default {
         justify-content: center;
         align-items: center;
         font-size: 1rem;
+        font-family: 'Harmonia';
     }
 
     @media (max-width: 899px) {

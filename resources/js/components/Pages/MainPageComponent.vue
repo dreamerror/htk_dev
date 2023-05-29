@@ -109,6 +109,7 @@ export default {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            gap: 2vh;
 
             .button-wrapper {
                 width: auto;
