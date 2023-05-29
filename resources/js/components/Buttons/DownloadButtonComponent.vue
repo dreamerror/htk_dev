@@ -55,14 +55,14 @@ export default {
             const increment = 0.05;
             const el = this.$refs["text-block"];
 
-            el.style.fontSize = "2em";
+            el.style.fontSize = "0.1em";
 
             while (!fitted) {
-                if (!this.checkOverflow()) {
-                    el.style.fontSize = `${lastSize + increment}em`
+                if (this.checkOverflow()) {
+                    el.style.fontSize = `${lastSize - increment}em`
                     fitted = true
                 } else {
-                    lastSize = parseFloat(el.style.fontSize.slice(0, -2)) - increment
+                    lastSize = parseFloat(el.style.fontSize.slice(0, -2)) + increment
                     el.style.fontSize = `${lastSize}em`
                 }
             }

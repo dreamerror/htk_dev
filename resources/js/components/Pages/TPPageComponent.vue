@@ -9,6 +9,7 @@
         </header-pages>
 
         <div class="page-content">
+            <div class="page-doc-wrapper">
                 <div class="page-documents">
                     <img src="/storage/tp_prikaz.png" alt="" data-no-resize>
                 </div>
@@ -16,6 +17,8 @@
                 <div class="page-text" data-editable data-name="page-text" v-html="pageText">
                     {{pageText}}
                 </div>
+            </div>
+
 
             <div class="page-additional-info" data-editable data-name="page-additional" v-html="pageAdditional">
                 {{pageAdditional}}
@@ -111,9 +114,15 @@ export default {
     .page-content {
         width: 100%;
         padding: 0 13vw;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 2vh;
+    }
+
+    .page-doc-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 2vw;
     }
 
     .doc-text {
@@ -124,8 +133,6 @@ export default {
     }
 
     .page-documents {
-        grid-column: 1;
-        grid-row: 1;
         display: flex;
         flex-direction: column;
         gap: 1vh;

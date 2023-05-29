@@ -195,7 +195,6 @@ export default {
         justify-content: center;
         gap: 2vw;
         width: 100%;
-        padding: 0 13vw;
     }
 
 </style>

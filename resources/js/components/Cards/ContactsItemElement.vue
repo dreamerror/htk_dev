@@ -58,8 +58,8 @@ export default {
     .contacts-info {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
         align-items: center;
+        gap: 5vw;
     }
 
     @media (max-width: 899px) {

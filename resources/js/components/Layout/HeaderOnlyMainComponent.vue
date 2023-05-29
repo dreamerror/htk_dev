@@ -6,72 +6,71 @@
 
         <div class="main-menu-container">
 
-        <div class="main-menu-wrapper">
-            <div class="main-contacts desktop">
-                <div class="mobile berkut-logo">
-                    <img src="/storage/berkut-logo.svg" alt=""
+            <div class="main-menu-wrapper">
+                <div class="main-contacts desktop">
+                    <div class="mobile berkut-logo">
+                        <img src="/storage/berkut-logo.svg" alt=""
+                             @click="redirect('')">
+                    </div>
+                    <div class="contact-elem">
+                        <span>Перевозки "Беркут"</span>
+                        <a href="tel:+74233130950">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            +7 42331 309-50
+                        </a>
+                    </div>
+
+                    <div class="contact-elem contact-elem-last">
+                        <span>Склад временного хранения</span>
+                        <a href="tel:+74232022521">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            +7 423 202-25-21
+                        </a>
+                        <a href="tel:+79025225000">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            +7 902 522-50-00
+                        </a>
+                    </div>
+
+                    <div class="contacts-button">
+                        Заказать обратный звонок
+                    </div>
+                </div>
+
+                <div class="header-image-wrapper mobile">
+                    <img src="/storage/htk-logo-color-main.svg" class alt=""
                          @click="redirect('')">
                 </div>
-                <div class="contact-elem">
-                    <span>Перевозки "Беркут"</span>
-                    <a href="tel:+74233130950">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        +7 42331 309-50
-                    </a>
-                </div>
 
-                <div class="contact-elem contact-elem-last">
-                    <span>Склад временного хранения</span>
-                    <a href="tel:+74232022521">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        +7 423 202-25-21
-                    </a>
-                    <a href="tel:+79025225000">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        +7 902 522-50-00
-                    </a>
-                </div>
-
-                <div class="contacts-button">
+                <div class="contacts-button mobile">
                     Заказать обратный звонок
                 </div>
-            </div>
 
-            <div class="header-image-wrapper mobile">
-                <img src="/storage/htk-logo-color-main.svg" class alt=""
-                     @click="redirect('')">
-            </div>
+                <div class="main-header-nav main-header-menu">
+                    <div v-for="item in this.navbarElements"
+                         class="nav-item"
+                         :key="item.route"
+                         @click="redirect(item.route)">
+                        {{item.title}}
 
-            <div class="contacts-button mobile">
-                Заказать обратный звонок
-            </div>
+                        <i class="fa fa-chevron-down nav-arrow desktop"
+                           aria-hidden="true"
+                           v-if="item.child"></i>
 
-            <div class="main-header-nav main-header-menu">
-                <div v-for="item in this.navbarElements"
-                     class="nav-item"
-                     :key="item.route"
-                     @click="redirect(item.route)">
-                    {{item.title}}
-
-                    <i class="fa fa-chevron-down nav-arrow desktop"
-                       aria-hidden="true"
-                       v-if="item.child"></i>
-
-                    <div class="main-header-dropdown"
-                         v-if="item.child">
-                        <div class="header-dropdown-item"
-                             v-for="children in item.child"
-                             :key="children.route"
-                             @click.stop="redirect(`${item.route}${children.route}`)">
-                            {{ children.title }}
+                        <div class="main-header-dropdown"
+                             v-if="item.child">
+                            <div class="header-dropdown-item"
+                                 v-for="children in item.child"
+                                 :key="children.route"
+                                 @click.stop="redirect(`${item.route}${children.route}`)">
+                                {{ children.title }}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
-
-
 
     </div>
 </template>

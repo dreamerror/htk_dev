@@ -8,12 +8,14 @@
         </header-pages>
 
         <div class="page-content">
-            <div class="page-documents">
-                <img src="/storage/cargo_svid.jpg" alt="" data-no-resize>
-            </div>
+            <div class="page-doc-wrapper">
+                <div class="page-documents">
+                    <img src="/storage/cargo_svid.jpg" alt="" data-no-resize>
+                </div>
 
-            <div class="page-text" data-editable data-name="page-text" v-html="pageText">
-                {{pageText}}
+                <div class="page-text" data-editable data-name="page-text" v-html="pageText">
+                    {{pageText}}
+                </div>
             </div>
 
             <div class="page-additional-info" data-editable data-name="page-additional" v-html="pageAdditional">
@@ -98,16 +100,18 @@ export default {
         border-radius: 50px;
     }
 
-    .header-bg:after {
-        background-image: url("/storage/bg/tp.jpg");
-    }
-
     .page-content {
         padding: 0 13vw;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 2vh;
         width: 100%;
+    }
+
+    .page-doc-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 2vw;
     }
 
     .doc-text {
@@ -118,11 +122,10 @@ export default {
     }
 
     .page-documents {
-        grid-column: 1;
-        grid-row: 1;
         display: flex;
         flex-direction: column;
         gap: 1vh;
+        width: 70%;
 
         img {
             width: 100%;
@@ -136,6 +139,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        width: 100%;
     }
 
     .title {
