@@ -56,7 +56,7 @@ export default {
             return this.data['page_text']
         },
         pageAdditional() {
-            return this.data['page_additional']
+            return '<img data-ce-tag="static" class="svh-map" src="/storage/svh-map.jpg" alt="">' + this.data['page_additional']
         },
         pageDescription() {
             return this.data["page_description"]
@@ -109,7 +109,7 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 1vh;
-        width: 50vw;
+        width: 70%;
 
         img {
             width: 100%;
@@ -123,6 +123,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        width: 100%;
     }
 
     .title {
@@ -135,6 +136,7 @@ export default {
     .page-additional-info {
         grid-row: 2;
         grid-column: 1 / span 2;
+        margin-left: auto;
     }
 
     @media (max-width: 900px) {

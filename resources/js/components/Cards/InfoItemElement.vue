@@ -88,6 +88,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+        font-family: 'Harmonia';
     }
 
     @media (max-width: 899px) {

@@ -19,8 +19,8 @@ export default {
     data() {
         return {
             items: [
-                {text: 'Пассажирские', route: 'transportation/passengers'},
                 {text: 'Грузовые', route: 'transportation/cargo'},
+                {text: 'Пассажирские', route: 'transportation/passengers'},
                 {text: 'Транзитные грузы', route: 'transportation/transit'},
             ]
         }
