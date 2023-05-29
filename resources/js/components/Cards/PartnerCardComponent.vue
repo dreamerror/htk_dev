@@ -33,9 +33,10 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+
         img {
-            width: inherit;
-            height: inherit;
+            width: 100%;
+            aspect-ratio: auto;
         }
     }
 
