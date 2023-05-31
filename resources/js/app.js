@@ -1,4 +1,6 @@
 require('./bootstrap');
+import {store} from "./store/default";
+import Vue from 'vue'
 
 window.Vue = require('vue').default;
 
@@ -70,4 +72,5 @@ Vue.component('test-page', require('./components/Pages/TestPageComponent.vue').d
 
 const app = new Vue({
     el: '#app',
+    store: store,
 });

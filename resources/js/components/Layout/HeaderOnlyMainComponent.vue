@@ -35,6 +35,11 @@
                     <div class="contacts-button">
                         Заказать обратный звонок
                     </div>
+
+                    <div class="lang-switch" @click="switchLanguage">
+                        <img src="/storage/flags/cn.png" alt="" v-if="this.$store.state.lang === 'ru'">
+                        <img src="/storage/flags/ru.png" alt="" v-if="this.$store.state.lang === 'cn'">
+                    </div>
                 </div>
 
                 <div class="header-image-wrapper mobile">
@@ -80,7 +85,7 @@
 export default {
     name: "HeaderOnlyMainComponent",
     props: {
-      url: String
+        url: String,
     },
     data() {
         return {
@@ -102,6 +107,22 @@ export default {
         redirect(route) {
             window.location.href = `${this.url}${route}`
         },
+        getCookie(name) {
+            return document.cookie
+                .split('; ')
+                .find((row) => row.startsWith(`${name}=`))
+                .split('=')[1]
+        },
+        replaceValueInCookie(oldVal, newVal) {
+            document.cookie = document.cookie.replace(oldVal, newVal)
+        },
+        switchLanguage() {
+            // const lang = this.getCookie('lang');
+            // const newLang = lang === 'ru' ? 'cn' : 'ru';
+            // this.replaceValueInCookie(`lang=${lang}`, `lang=${newLang}`)
+            this.$store.commit('switchLang');
+            window.location.reload();
+        }
     }
 }
 </script>
@@ -117,6 +138,19 @@ export default {
         padding: 3vh 13vw 0 3.5vw;
         gap: 2.5vw;
         //gap: 7vw;
+    }
+
+    .lang-switch {
+        cursor: pointer;
+        height: calc(40px + 2.5em);
+        aspect-ratio: 1;
+
+        align-self: center;
+
+        img {
+            height: inherit;
+            width: inherit;
+        }
     }
 
     .berkut-logo {
