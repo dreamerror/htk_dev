@@ -127,9 +127,11 @@ class PublicController extends Controller
 
     public function infoPage(int $id) {
         $auth = $this->getAuth();
+        $column = 'page_title';
+        if ($this->getLang() != 'ru') $column = 'cn_page_title as page_title';
         $data = DB::table('information_pages')
             ->where('id', '=', $id)
-            ->select(['page_title', 'page_content'])
+            ->select([$column, 'page_content'])
             ->first();
         $files = DB::table('information_files')
             ->where('page_id', '=', $id)
