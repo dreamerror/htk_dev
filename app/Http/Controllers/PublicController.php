@@ -31,7 +31,7 @@ class PublicController extends Controller
 
     public function getPageFiles(string $pageName) {
         $column = 'text';
-        if ($this->getLang() != 'ru') $column = 'cn_text';
+        if ($this->getLang() != 'ru') $column = 'cn_text as text';
         return DB::table('page_files')
             ->where('page', '=', $pageName)
             ->select('id', $column, 'file')
@@ -149,7 +149,7 @@ class PublicController extends Controller
 
     public function prices() {
         $column = 'text';
-        if ($this->getLang() != 'ru') $column = 'cn_text';
+        if ($this->getLang() != 'ru') $column = 'cn_text as text';
         $data = DB::table('prices_files')
             ->select([$column, 'file_route'])
             ->orderBy('id');
