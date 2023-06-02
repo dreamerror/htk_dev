@@ -7,7 +7,7 @@
 
             <div class="footer-contacts">
                 <span class="title">
-                    Наш офис:
+                    {{ translations.office[this.$store.state.lang] }}:
                 </span>
                 <span v-for="item in officeElements"
                 :key="item.text"
@@ -25,7 +25,7 @@
 
             <div class="footer-contacts">
                 <span class="title">
-                    СВХ:
+                    {{ translations.svh[this.$store.state.lang] }}:
                 </span>
                 <span v-for="item in svhElements"
                       :key="item.text"
@@ -44,7 +44,7 @@
 
             <div class="footer-contacts">
                 <span class="title">
-                    Перевозки «Беркут»:
+                    {{ translations.berkut[this.$store.state.lang] }}:
                 </span>
                 <span v-for="item in berkutElements"
                       :key="item.text"
@@ -62,7 +62,7 @@
 
             <div class="footer-contacts">
                 <span class="title">
-                    Таможенный представитель:
+                    {{ translations.tp[this.$store.state.lang] }}:
                 </span>
                 <span v-for="item in tpElements"
                       :key="item.text"
@@ -93,6 +93,12 @@ export default {
                 phone: this.phoneClickHandler,
                 email: this.mailClickHandler,
                 address: this.addressClickHandler,
+            },
+            translations: {
+                office: {ru: 'Наш офис', cn: '我们办公室'},
+                svh: {ru: 'СВХ', cn: '监管库'},
+                berkut: {ru: 'Перевозки «Беркут»', cn: 'Перевозки «Беркут»'},
+                tp: {ru: 'Таможенный представитель', cn: '报关代理'},
             }
         }
     },
