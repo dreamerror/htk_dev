@@ -13,7 +13,7 @@
                              @click="redirect('')">
                     </div>
                     <div class="contact-elem">
-                        <span>Перевозки "Беркут"</span>
+                        <span>{{ translations.berkut[this.$store.state.lang] }}</span>
                         <a href="tel:+74233130950">
                             <i class="fa fa-phone" aria-hidden="true"></i>
                             +7 42331 309-50
@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="contact-elem contact-elem-last">
-                        <span>Склад временного хранения</span>
+                        <span>{{ translations.svh_full[this.$store.state.lang] }}</span>
                         <a href="tel:+74232022521">
                             <i class="fa fa-phone" aria-hidden="true"></i>
                             +7 423 202-25-21
@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="contacts-button">
-                        Заказать обратный звонок
+                        {{ translations.call[this.$store.state.lang] }}
                     </div>
 
                     <div class="lang-switch" @click="switchLanguage">
@@ -89,18 +89,36 @@ export default {
     },
     data() {
         return {
-            navbarElements: [
-                {title: "СВХ", route: "/temp-storage"},
-                {title: "Таможенный представитель", route: "/customs"},
-                {title: "Международные перевозки", route: "/transportation", child: [
-                        {title: "Грузовые", route: "/cargo"},
-                        {title: "Пассажирские", route: "/passengers"}
+            translations: {
+                svh: {ru: 'СВХ', cn: '监管库'},
+                tp: {ru: 'Таможенный представитель', cn: '报关代理'},
+                transport: {ru: 'Международные перевозки', cn: '国际运输'},
+                cargo: {ru: 'Грузовые', cn: '货运'},
+                passengers: {ru: 'Пассажирские', cn: '客运'},
+                info: {ru: 'Информация', cn: '公司信息'},
+                partners: {ru: 'Партнеры', cn: '合作伙伴'},
+                contacts: {ru: 'Контакты', cn: '联系我们'},
+                prices: {ru: 'Цены', cn: '询价'},
+                berkut: {ru: 'Перевозки "Беркут"', cn: '金雕国际运输公司'},
+                svh_full: {ru: 'Склад временного хранения', cn: '监管库'},
+                call: {ru: 'Заказать обратный звонок', cn: '要求电话回拨'},
+            },
+        }
+    },
+    computed: {
+        navbarElements() {
+            return [
+                {title: this.translations.svh[this.$store.state.lang], route: "/temp-storage"},
+                {title: this.translations.tp[this.$store.state.lang], route: "/customs"},
+                {title: this.translations.transport[this.$store.state.lang], route: "/transportation", child: [
+                        {title: this.translations.cargo[this.$store.state.lang], route: "/cargo"},
+                        {title: this.translations.passengers[this.$store.state.lang], route: "/passengers"}
                     ]},
-                {title: "Информация", route: "/info"},
-                {title: "Партнёры", route: "/partners"},
-                {title: "Контакты", route: "/contacts"},
-                {title: "Цены", route: "/prices"},
-            ],
+                {title: this.translations.info[this.$store.state.lang], route: "/info"},
+                {title: this.translations.partners[this.$store.state.lang], route: "/partners"},
+                {title: this.translations.contacts[this.$store.state.lang], route: "/contacts"},
+                {title: this.translations.prices[this.$store.state.lang], route: "/prices"},
+            ]
         }
     },
     methods: {
@@ -108,18 +126,23 @@ export default {
             window.location.href = `${this.url}${route}`
         },
         getCookie(name) {
-            return document.cookie
+            let val = document.cookie
                 .split('; ')
                 .find((row) => row.startsWith(`${name}=`))
-                .split('=')[1]
+            if (val) {
+                return val.split('=')[1]
+            } else {
+                document.cookie = 'lang=ru'
+                return 'ru';
+            }
         },
-        replaceValueInCookie(oldVal, newVal) {
-            document.cookie = document.cookie.replace(oldVal, newVal)
+        replaceValueInCookie(newVal) {
+            document.cookie = newVal
         },
         switchLanguage() {
-            // const lang = this.getCookie('lang');
-            // const newLang = lang === 'ru' ? 'cn' : 'ru';
-            // this.replaceValueInCookie(`lang=${lang}`, `lang=${newLang}`)
+            const lang = this.getCookie('lang');
+            const newLang = lang === 'ru' ? 'cn' : 'ru';
+            this.replaceValueInCookie(`lang=${newLang}`)
             this.$store.commit('switchLang');
             window.location.reload();
         }

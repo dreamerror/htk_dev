@@ -18,21 +18,32 @@ class PublicController extends Controller
         return 0;
     }
 
+    public function getLang() {
+        return Cookie::get('lang', 'ru');
+    }
+
     public function getPageContent(string $pageName) {
-        return DB::table('page_content')->where('page', '=', $pageName)
+        return DB::table('page_content')
+            ->where('page', '=', $pageName)
+            ->where('lang', '=', $this->getLang())
             ->select(['page_text', 'page_additional', 'page_description'])->first();
     }
 
     public function getPageFiles(string $pageName) {
         return DB::table('page_files')
             ->where('page', '=', $pageName)
+            ->where('lang', '=', $this->getLang())
             ->select('id', 'text', 'file')
             ->orderBy('id', 'desc')
             ->get();
     }
 
     public function index() {
-        $data = DB::select("select title, img_src src, description, route from main_cards_content order by id;");
+        $data = DB::table('main_cards_content')
+            ->where('lang', '=', $this->getLang())
+            ->select(['title', 'img_src as src', 'description', 'route'])
+            ->orderBy('id')
+            ->get();
         return view('pages.index', [
             'cards' => $data,
         ]);

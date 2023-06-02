@@ -4,7 +4,7 @@
             <img :src="src" alt="">
             <div class="button-wrapper"
             @click="redirect">
-                ПОДРОБНЕЕ
+                {{ translations.about[this.$store.state.lang] }}
             </div>
         </div>
         <div class="card-text">
@@ -26,6 +26,13 @@ export default {
         title: String,
         description: String,
         route: String,
+    },
+    data() {
+        return {
+            translations: {
+                about: {ru: 'ПОДРОБНЕЕ', cn: '简介'}
+            }
+        }
     },
     methods: {
         redirect() {
