@@ -115,8 +115,10 @@ class PublicController extends Controller
     }
 
     public function infoList() {
+        $column = 'page_title';
+        if ($this->getLang() != 'ru') $column = 'cn_page_title as page_title';
         $data = DB::table('information_pages')
-            ->select('id', 'page_title')
+            ->select(['id', $column])
             ->orderBy('id', 'desc')
             ->get();
         return view('pages.info.all', [
@@ -127,11 +129,9 @@ class PublicController extends Controller
 
     public function infoPage(int $id) {
         $auth = $this->getAuth();
-        $column = 'page_title';
-        if ($this->getLang() != 'ru') $column = 'cn_page_title as page_title';
         $data = DB::table('information_pages')
             ->where('id', '=', $id)
-            ->select([$column, 'page_content'])
+            ->select(['page_title', 'page_content'])
             ->first();
         $files = DB::table('information_files')
             ->where('page_id', '=', $id)
