@@ -151,7 +151,7 @@ class PublicController extends Controller
         $column = 'text';
         if ($this->getLang() != 'ru') $column = 'cn_text as text';
         $data = DB::table('prices_files')
-            ->select([$column, 'file_route'])
+            ->select([$column, 'file_route as file', 'id'])
             ->orderBy('id')
             ->get();
         return view('pages.prices', [
