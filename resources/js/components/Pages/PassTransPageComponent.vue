@@ -67,7 +67,8 @@ export default {
                 page: 'pass_trans',
                 text: payload['page-text'],
                 additional: payload['page-additional'],
-                description: payload['page-header']
+                description: payload['page-header'],
+                lang: this.$store.state.lang
             }
         }
     }

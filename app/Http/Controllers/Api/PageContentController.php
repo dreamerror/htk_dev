@@ -25,7 +25,8 @@ class PageContentController extends Controller
                 'page' => $data['page']
             ], [
                 'page' => $data['page'],
-                'page_text' => $data['text']
+                'page_text' => $data['text'],
+                'lang' => $data['lang']
             ]);
         }
 
@@ -34,7 +35,8 @@ class PageContentController extends Controller
                 'page' => $data['page']
             ], [
                 'page' => $data['page'],
-                'page_additional' => $data['additional']
+                'page_additional' => $data['additional'],
+                'lang' => $data['lang']
             ]);
         }
 
@@ -43,7 +45,8 @@ class PageContentController extends Controller
                 'page' => $data['page']
             ], [
                 'page' => $data['page'],
-                'page_description' => $data['description']
+                'page_description' => $data['description'],
+                'lang' => $data['lang']
             ]);
         }
     }
@@ -55,14 +58,16 @@ class PageContentController extends Controller
             DB::table('information_pages')
                 ->updateOrInsert(['id' => $id,],
                 [
-                    'page_title' => $data['title']
+                    'page_title' => $data['title'],
+                    'lang' => $data['lang']
                 ]);
         }
         if (isset($data['content'])) {
             DB::table('information_pages')
                 ->updateOrInsert(['id' => $id,],
                 [
-                    'page_content' => $data['content']
+                    'page_content' => $data['content'],
+                    'lang' => $data['lang']
                 ]);
         }
 
@@ -140,7 +145,6 @@ class PageContentController extends Controller
                 }
             }
         }
-
         return redirect()->back();
     }
 }

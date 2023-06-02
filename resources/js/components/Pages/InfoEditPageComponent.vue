@@ -71,7 +71,8 @@ export default {
             return {
                 id: this.id,
                 content: payload['page-text'],
-                title: payload['page-header']
+                title: payload['page-header'],
+                lang: this.$store.state.lang
             }
         },
         addHandler(e) {
