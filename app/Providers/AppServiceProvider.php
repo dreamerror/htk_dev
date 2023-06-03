@@ -18,16 +18,13 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot()
     {
         View::composer('pages.layouts.main', function ($view) {
             return $view->with('data',
-                DB::table('footer_content')->select(['position', 'type', 'text'])->orderBy('id')->get());
+                DB::table('footer_content')
+                    ->select(['position', 'type', 'text'])
+                    ->orderBy('id')->get());
         });
     }
 }

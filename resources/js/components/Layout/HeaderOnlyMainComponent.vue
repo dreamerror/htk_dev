@@ -51,6 +51,11 @@
                     Заказать обратный звонок
                 </div>
 
+                <div class="lang-switch mobile" @click="switchLanguage">
+                    <img src="/storage/flags/cn.png" alt="" v-if="this.$store.state.lang === 'ru'">
+                    <img src="/storage/flags/ru.png" alt="" v-if="this.$store.state.lang === 'cn'">
+                </div>
+
                 <div class="main-header-nav main-header-menu">
                     <div v-for="item in this.navbarElements"
                          class="nav-item"
