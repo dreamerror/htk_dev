@@ -1,7 +1,7 @@
 <template>
     <div class="page-wrapper">
         <header-pages
-            :bg_image="'/storage/bg/cargo_trans.png'"
+            :bg_image="'/storage/bg/cargo.jpg'"
             :url="url"
             :content="pageDescription">
 

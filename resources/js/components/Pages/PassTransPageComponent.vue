@@ -2,7 +2,7 @@
     <div class="page-wrapper">
 
         <header-pages
-            :bg_image="'/storage/bg/svh.png'"
+            :bg_image="'/storage/bg/passenger.jpg'"
             :url="url"
             :content="pageDescription">
 
