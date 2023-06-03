@@ -2,7 +2,7 @@
     <div class="contacts-wrapper">
 
         <header-pages
-            :bg_image="'/storage/bg/svh.png'"
+            :bg_image="'/storage/bg/contacts.jpg'"
             :url="url"
             :content="pageDescription">
 

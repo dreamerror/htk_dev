@@ -1,7 +1,7 @@
 <template>
     <div class="page-wrapper">
         <header-partners
-            :bg_image="'/storage/bg/svh.png'"
+            :bg_image="'/storage/bg/partners.jpg'"
             :url="url"
             :items="items">
 
