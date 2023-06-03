@@ -137,7 +137,7 @@ export default {
             if (val) {
                 return val.split('=')[1]
             } else {
-                document.cookie = 'lang=ru'
+                document.cookie = 'lang=ru; path=/'
                 return 'ru';
             }
         },
@@ -147,7 +147,7 @@ export default {
         switchLanguage() {
             const lang = this.getCookie('lang');
             const newLang = lang === 'ru' ? 'cn' : 'ru';
-            this.replaceValueInCookie(`lang=${newLang}`)
+            this.replaceValueInCookie(`lang=${newLang}; path=/`)
             this.$store.commit('switchLang');
             window.location.reload();
         }
