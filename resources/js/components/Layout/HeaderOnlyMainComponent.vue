@@ -151,6 +151,11 @@ export default {
             this.$store.commit('switchLang');
             window.location.reload();
         }
+    },
+    beforeMount() {
+        if (this.getCookie('lang') !== this.$store.state.lang) {
+            this.$store.commit('switchLang');
+        }
     }
 }
 </script>

@@ -8,19 +8,7 @@ export const store = new Vuex.Store({
     state () {
         return {
             count: 0,
-            lang: () => {
-                let val = document.cookie
-                    .split('; ')
-                    .find((row) => row.startsWith('lang='))
-                if (val) {
-                    console.log(val.split('=')[1])
-                    return val.split('=')[1]
-                } else {
-                    document.cookie = 'lang=ru'
-                    console.log('ru')
-                    return 'ru';
-                }
-            }
+            lang: 'ru',
         }
     },
     mutations: {
