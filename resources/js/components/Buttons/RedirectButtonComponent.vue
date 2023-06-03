@@ -1,7 +1,7 @@
 <template>
     <div class="page-button"
     @click="redirect">
-        <div class="button-text" ref="text-block" v-html="text">
+        <div class="button-text" ref="text-block" v-html="text" :style="style">
             {{ text }}
         </div>
     </div>
@@ -57,6 +57,12 @@ export default {
                 }
             }
 
+        }
+    },
+    computed: {
+        style() {
+            const wrap = this.$store.state.lang === 'ru' ? 'normal' : 'nowrap'
+            return `white-space: ${wrap};`
         }
     }
 }

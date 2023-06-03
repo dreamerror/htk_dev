@@ -23,10 +23,17 @@ class PublicController extends Controller
     }
 
     public function getPageContent(string $pageName) {
-        return DB::table('page_content')
-            ->where('page', '=', $pageName)
-            ->where('lang', '=', $this->getLang())
-            ->select(['page_text', 'page_additional', 'page_description'])->first();
+        if ($pageName != 'tp') {
+            return DB::table('page_content')
+                ->where('page', '=', $pageName)
+                ->where('lang', '=', $this->getLang())
+                ->select(['page_text', 'page_additional', 'page_description'])->first();
+        } else {
+            return DB::table('page_content')
+                ->where('page', '=', $pageName)
+                ->where('lang', '=', 'ru')
+                ->select(['page_text', 'page_additional', 'page_description'])->first();
+        }
     }
 
     public function getPageFiles(string $pageName) {

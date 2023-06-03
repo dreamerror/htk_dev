@@ -1,7 +1,7 @@
 <template>
     <div class="info-item-wrapper"
     @click="redirect">
-        <div class="info-item-text" v-html="textFromHtml" ref="text-block">
+        <div class="info-item-text" v-html="textFromHtml" ref="text-block" :style="style">
             {{textFromHtml}}
         </div>
 
@@ -57,6 +57,12 @@ export default {
                 }
             }
 
+        }
+    },
+    computed: {
+        style() {
+            const wrap = this.$store.state.lang === 'ru' ? 'normal' : 'nowrap'
+            return `white-space: ${wrap};`
         }
     }
 }

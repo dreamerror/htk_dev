@@ -1,7 +1,7 @@
 <template>
     <div class="page-button"
     @click="downloadFile">
-        <div class="button-text" ref="text-block">
+        <div class="button-text" ref="text-block" :style="style">
             {{ text }}
         </div>
     </div>
@@ -67,6 +67,12 @@ export default {
                 }
             }
 
+        }
+    },
+    computed: {
+        style() {
+            const wrap = this.$store.state.lang === 'ru' ? 'normal' : 'nowrap'
+            return `white-space: ${wrap};`
         }
     }
 }
