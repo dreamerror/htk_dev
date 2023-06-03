@@ -44,6 +44,7 @@ class AdminApiController extends Controller
                     $num = explode('_', $key)[1];
                     $text = $data["text_$num"];
                     $type = $data["type_$num"];
+                    $lang = $data["lang_$num"];
 
                     if ($id > 0) {
                         DB::table('footer_content')->updateOrInsert([
@@ -51,13 +52,15 @@ class AdminApiController extends Controller
                         ], [
                             'text' => $text,
                             'type' => $type,
-                            'position' => $position
+                            'position' => $position,
+                            'lang' => $lang
                         ]);
                     } else {
                         DB::table('footer_content')->insert([
                             'text' => $text,
                             'type' => $type,
-                            'position' => $position
+                            'position' => $position,
+                            'lang' => $lang
                         ]);
                     }
                 } else { // delete

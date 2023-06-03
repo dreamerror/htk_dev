@@ -28,7 +28,7 @@ class AdminController extends Controller
     }
 
     public function contacts() {
-        $data = DB::table('footer_content')->select(['id', 'position', 'type', 'text'])->get();
+        $data = DB::table('footer_content')->select(['id', 'position', 'type', 'text', 'lang'])->get();
         return $this->authenticatedView('pages.admin.contacts', ['data' => $data]);
     }
 

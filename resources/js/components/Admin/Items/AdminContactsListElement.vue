@@ -20,6 +20,12 @@
                         </option>
                     </select>
 
+                    <select :name="`lang_${index}`" v-model="item.lang">
+                        <option v-for="option in typeLang" :value="option.value">
+                            {{option.text}}
+                        </option>
+                    </select>
+
                     <button @click.stop="deleteHandler($event, item.id)">
                         Удалить
                     </button>
@@ -54,6 +60,10 @@ export default {
                 {text: 'Адрес', value: 'address'},
                 {text: 'Телефон', value: 'phone'},
                 {text: 'E-mail', value: 'email'},
+            ],
+            typeLang: [
+                {text: 'Русский', value: 'ru'},
+                {text: 'Китайский', value: 'cn'},
             ],
             contentArray: this.content,
             deletedItems: [],
