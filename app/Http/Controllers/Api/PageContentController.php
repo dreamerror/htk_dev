@@ -136,7 +136,7 @@ class PageContentController extends Controller
                                 'text' => $text,
                             ]);
                     } else {
-                        DB::table('information_files')->insert([
+                        DB::table('page_files')->insert([
                             'page' => $page_name,
                             'file' => $path,
                             'text' => $text,
