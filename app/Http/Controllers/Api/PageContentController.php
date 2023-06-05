@@ -17,6 +17,14 @@ class PageContentController extends Controller
     public function insertImage(Request $request) {
         echo json_encode(['alt' => "image"]);
     }
+
+    public function deleteInfo(Request $request) {
+        $data = $request->input();
+        $id = $data['id'];
+        DB::table('information_pages')->delete($id);
+        return redirect()->back();
+    }
+
     public function editContent(Request $request) {
         $data = json_decode($request->getContent(), true);
 

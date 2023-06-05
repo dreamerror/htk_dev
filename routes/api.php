@@ -13,6 +13,7 @@ Route::post('/edit-files', [App\Http\Controllers\Api\PageContentController::clas
 
 Route::group(['prefix' => 'info'], function () {
     Route::post('/text', [App\Http\Controllers\Api\PageContentController::class, 'editInfo']);
+    Route::post('/delete', [App\Http\Controllers\Api\PageContentController::class, 'deleteInfo']);
     Route::post('/files', [App\Http\Controllers\Api\PageContentController::class, 'infoFiles']);
 });
 
