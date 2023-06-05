@@ -118,7 +118,7 @@ class PublicController extends Controller
     }
 
     public function passengers() {
-        $bg = $this->getBackground('passengers');
+        $bg = $this->getBackground('passenger');
         $auth = $this->getAuth();
         $data = $this->getPageContent('pass_trans');
         return view('pages.transportation.pass', [
