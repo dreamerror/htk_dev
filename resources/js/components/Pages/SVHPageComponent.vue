@@ -1,7 +1,7 @@
 <template>
     <div class="page-wrapper">
         <header-pages
-            :bg_image="'/storage/bg/svh.jpg'"
+            :bg_image="bg.src"
             :url="url"
             :content="pageDescription"
             :files="files">
@@ -55,6 +55,7 @@ export default {
         data: Object,
         auth: Number,
         files: Array,
+        bg: Object,
     },
     mounted() {
         if (this.auth) {

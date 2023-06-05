@@ -20,7 +20,10 @@ class AdminController extends Controller
     }
 
     public function backgrounds() {
-        return $this->authenticatedView('pages.admin.backgrounds');
+        $data = DB::table('page_backgrounds')->select(['id', 'page', 'src', 'title'])->get();
+        return $this->authenticatedView('pages.admin.backgrounds', [
+            'data' => $data
+        ]);
     }
 
     public function documents() {

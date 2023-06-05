@@ -2,7 +2,8 @@
 
 @section('content')
     <contacts-page
-    :url="'{{ url('/') }}'">
+    :url="'{{ url('/') }}'"
+    :bg="{{ json_encode($bg) }}">
 
     </contacts-page>
 @endsection

@@ -1,7 +1,7 @@
 <template>
     <div class="page-wrapper">
         <header-pages
-            :bg_image="'/storage/bg/prices.jpg'"
+            :bg_image="bg.src"
             :url="url"
             :content="pageDescription"
             :files="items">
@@ -16,6 +16,7 @@ export default {
     props: {
         url: String,
         items: Array,
+        bg: Object,
         page_data: {
             type: Object,
             default: () => {

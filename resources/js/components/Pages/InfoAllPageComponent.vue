@@ -1,7 +1,7 @@
 <template>
     <div class="page-wrapper">
         <header-pages
-            :bg_image="'/storage/bg/info.jpg'"
+            :bg_image="bg.src"
             :url="url"
             :content="pageDescription">
 
@@ -38,6 +38,7 @@ export default {
         url: String,
         pages: Array,
         auth: Number,
+        bg: Object,
     },
     computed: {
         pageDescription() {

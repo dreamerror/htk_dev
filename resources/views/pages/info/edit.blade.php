@@ -8,7 +8,8 @@
     :data="{{ json_encode($data) }}"
     :files="{{ json_encode($files) }}"
     :id="{{ $id }}"
-    :auth="{{ $auth }}">
+    :auth="{{ $auth }}"
+    :bg="{{ json_encode($bg) }}">
 
     </info-edit-page>
 @endsection

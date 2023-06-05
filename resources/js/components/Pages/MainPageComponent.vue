@@ -1,7 +1,7 @@
 <template>
     <div class="main-wrapper">
         <div class="main-bg">
-            <img class="bg-image" src="/storage/bg/main-bg.jpg" alt="">
+            <img class="bg-image" :src="bg.src" alt="">
 
             <header-only-main
             :url="url">
@@ -53,6 +53,7 @@ export default {
     props: {
       cards: Array,
       url: String,
+        bg: Object,
     },
     data() {
         return {

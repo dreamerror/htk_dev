@@ -6,7 +6,8 @@
     :api_text="'{{ url('/api/info/text') }}'"
     :api_files="'{{ url('/api/info/files') }}'"
     :id="{{ $id }}"
-    :auth="1">
+    :auth="1"
+    :bg="{{ json_encode($bg) }}">
 
     </info-edit-page>
 @endsection

@@ -2,7 +2,7 @@
     <div class="contacts-wrapper">
 
         <header-pages
-            :bg_image="'/storage/bg/contacts.jpg'"
+            :bg_image="bg.src"
             :url="url"
             :content="pageDescription">
 
@@ -57,6 +57,7 @@ export default {
     components: {ContactsItemElement},
     props: {
         url: String,
+        bg: Object,
         page_data: {
             type: Object,
             default: () => {

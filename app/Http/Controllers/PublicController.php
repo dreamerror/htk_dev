@@ -22,6 +22,13 @@ class PublicController extends Controller
         return Cookie::get('lang', 'ru');
     }
 
+    public function getBackground(string $page) {
+        return DB::table('page_backgrounds')
+            ->where('page', '=', $page)
+            ->select(['id', 'src'])
+            ->first();
+    }
+
     public function getPageContent(string $pageName) {
         return DB::table('page_content')
             ->where('page', '=', $pageName)
@@ -40,6 +47,7 @@ class PublicController extends Controller
     }
 
     public function index() {
+        $bg = $this->getBackground('main');
         $data = DB::table('main_cards_content')
             ->where('lang', '=', $this->getLang())
             ->select(['title', 'img_src as src', 'description', 'route'])
@@ -47,57 +55,71 @@ class PublicController extends Controller
             ->get();
         return view('pages.index', [
             'cards' => $data,
+            'bg' => $bg
         ]);
     }
 
     public function tempStorage() {
+        $bg = $this->getBackground('svh');
         $auth = $this->getAuth();
         $data = $this->getPageContent('svh');
         $files = $this->getPageFiles('svh');
         return view('pages.svh', [
             'data' => $data,
             'auth' => $auth,
-            'files' => $files
+            'files' => $files,
+            'bg' => $bg
         ]);
     }
 
     public function customs() {
+        $bg = $this->getBackground('tp');
         $auth = $this->getAuth();
         $data = $this->getPageContent('tp');
         return view('pages.tp', [
             'data' => $data,
             'auth' => $auth,
+            'bg' => $bg
         ]);
     }
 
     public function transportIndex() {
-        return view('pages.transportation.index');
+        $bg = $this->getBackground('transportation');
+        return view('pages.transportation.index', [
+            'bg' => $bg
+        ]);
     }
 
     public function cargo() {
+        $bg = $this->getBackground('cargo');
         $auth = $this->getAuth();
         $data = $this->getPageContent('cargo_trans');
         return view('pages.transportation.cargo', [
             'data' => $data,
             'auth' => $auth,
+            'bg' => $bg
         ]);
     }
 
     public function partners() {
+        $bg = $this->getBackground('partners');
         $data = DB::table('partners')
             ->select(['id', 'partner_logo'])
             ->get();
         return view('pages.partners', [
-            'data' => $data
+            'data' => $data,
+            'bg' => $bg
         ]);
     }
 
     public function passengers() {
+        $bg = $this->getBackground('passengers');
         $auth = $this->getAuth();
         $data = $this->getPageContent('pass_trans');
         return view('pages.transportation.pass', [
             'auth' => $auth,
             'data' => $data,
+            'bg' => $bg
         ]);
     }
 
@@ -111,10 +133,14 @@ class PublicController extends Controller
     }
 
     public function contacts() {
-        return view('pages.contacts');
+        $bg = $this->getBackground('contacts');
+        return view('pages.contacts', [
+            'bg' => $bg
+        ]);
     }
 
     public function infoList() {
+        $bg = $this->getBackground('info');
         $column = 'page_title';
         if ($this->getLang() != 'ru') $column = 'cn_page_title as page_title';
         $data = DB::table('information_pages')
@@ -124,10 +150,12 @@ class PublicController extends Controller
         return view('pages.info.all', [
             'items' => $data,
             'auth' => $this->getAuth(),
+            'bg' => $bg
         ]);
     }
 
     public function infoPage(int $id) {
+        $bg = $this->getBackground('info');
         $auth = $this->getAuth();
         $data = DB::table('information_pages')
             ->where('id', '=', $id)
@@ -141,7 +169,8 @@ class PublicController extends Controller
             'data' => $data,
             'files' => $files,
             'auth' => $auth,
-            'id' => $id
+            'id' => $id,
+            'bg' => $bg
         ]);
     }
 
@@ -150,6 +179,7 @@ class PublicController extends Controller
     }
 
     public function prices() {
+        $bg = $this->getBackground('prices');
         $column = 'text';
         if ($this->getLang() != 'ru') $column = 'cn_text as text';
         $data = DB::table('prices_files')
@@ -157,7 +187,8 @@ class PublicController extends Controller
             ->orderBy('id')
             ->get();
         return view('pages.prices', [
-           'items' => $data
+           'items' => $data,
+            'bg' => $bg
         ]);
     }
 }

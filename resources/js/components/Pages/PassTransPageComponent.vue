@@ -2,7 +2,7 @@
     <div class="page-wrapper">
 
         <header-pages
-            :bg_image="'/storage/bg/passenger.jpg'"
+            :bg_image="bg.src"
             :url="url"
             :content="pageDescription">
 
@@ -30,6 +30,7 @@ export default {
         url: String,
         auth: Number,
         api_text: String,
+        bg: Object,
         data: {
             type: Object,
             default: () => {

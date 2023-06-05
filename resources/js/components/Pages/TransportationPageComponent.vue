@@ -1,7 +1,7 @@
 <template>
     <div class="page-wrapper">
         <header-pages
-            :bg_image="'/storage/bg/transport.jpg'"
+            :bg_image="bg.src"
             :url="url"
             :content="''"
             :redirections="usingItems">
@@ -15,6 +15,7 @@ export default {
     name: "TransportationPageComponent",
     props: {
         url: String,
+        bg: Object,
     },
     data() {
         return {

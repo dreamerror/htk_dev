@@ -2,7 +2,8 @@
 
 @section('content')
     <transportation-page
-    :url="'{{ url('/') }}'">
+    :url="'{{ url('/') }}'"
+    :bg="{{ json_encode($bg) }}">
 
     </transportation-page>
 @endsection

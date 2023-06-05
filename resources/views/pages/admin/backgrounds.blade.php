@@ -3,7 +3,8 @@
 @section('content')
 
     <admin-bg-page
-    :api="'{{ url('/api/admin/background') }}'">
+    :api="'{{ url('/api/admin/background') }}'"
+    :data="{{ json_encode($data) }}">
 
     </admin-bg-page>
 

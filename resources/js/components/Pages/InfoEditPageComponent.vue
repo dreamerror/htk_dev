@@ -1,7 +1,7 @@
 <template>
     <div class="page-wrapper">
         <header-pages
-            :bg_image="'/storage/bg/info.jpg'"
+            :bg_image="bg.src"
             :url="url"
             :content="pageTitle"
             :files="files">
@@ -34,6 +34,7 @@ export default {
         url: String,
         api_text: String,
         api_files: String,
+        bg: Object,
         data: {
             type: Object,
             default: () => {

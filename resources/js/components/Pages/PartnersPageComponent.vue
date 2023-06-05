@@ -1,7 +1,7 @@
 <template>
     <div class="page-wrapper">
         <header-partners
-            :bg_image="'/storage/bg/partners.jpg'"
+            :bg_image="bg.src"
             :url="url"
             :items="items">
 
@@ -14,6 +14,7 @@ export default {
     name: "PartnersPageComponent",
     props: {
         url: String,
+        bg: Object,
         items: {
             type: Array,
             default: () => []

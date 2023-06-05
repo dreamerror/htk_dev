@@ -1,7 +1,7 @@
 <template>
     <div class="page-wrapper">
         <header-pages
-            :bg_image="'/storage/bg/cargo.jpg'"
+            :bg_image="bg.src"
             :url="url"
             :content="pageDescription">
 
@@ -32,6 +32,7 @@ export default {
         api: String,
         data: Object,
         auth: Number,
+        bg: Object,
     },
     mounted() {
         if (this.auth) {
