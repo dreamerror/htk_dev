@@ -113,7 +113,7 @@ class PageContentController extends Controller
 
     public function pagesFiles(Request $request) {
         $data = $request->input();
-        $page_name = $data['page_name'];
+        $page_name = $data['page'];
         $deleted = explode(',', $data["deleted"]);
         foreach ($deleted as $delID) {
             if (intval($delID) > 0) DB::table('page_files')->delete($delID);
