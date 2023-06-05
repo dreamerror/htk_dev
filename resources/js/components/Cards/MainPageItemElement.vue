@@ -75,7 +75,7 @@ export default {
             width: auto;
             display: flex;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 400;
             align-items: center;
             font-family: 'Harmonia';
@@ -108,6 +108,14 @@ export default {
         span {
             width: 90%;
             text-align: center;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .card-img-wrapper {
+            .button-wrapper {
+                font-size: 1.5rem;
+            }
         }
     }
 
