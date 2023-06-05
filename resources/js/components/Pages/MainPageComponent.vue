@@ -18,7 +18,7 @@
                         </h4>
                     </div>
 
-                    <div class="button-wrapper">
+                    <div class="button-wrapper desktop">
                         {{ translations.about[this.$store.state.lang] }}
                     </div>
                 </div>
@@ -36,6 +36,10 @@
                     <p>
                         {{ translations.block_4[this.$store.state.lang] }}
                     </p>
+
+                    <div class="button-wrapper mobile">
+                        {{ translations.about[this.$store.state.lang] }}
+                    </div>
                 </div>
             </div>
         </div>

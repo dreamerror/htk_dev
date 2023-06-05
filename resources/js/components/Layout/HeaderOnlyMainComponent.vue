@@ -32,7 +32,7 @@
                         </a>
                     </div>
 
-                    <div class="contacts-button">
+                    <div class="contacts-button" ref="text-block">
                         {{ translations.call[this.$store.state.lang] }}
                     </div>
 
@@ -150,12 +150,45 @@ export default {
             this.replaceValueInCookie(`lang=${newLang}; path=/`)
             this.$store.commit('switchLang');
             window.location.reload();
+        },
+        checkOverflow() {
+            const el = this.$refs["text-block"];
+            let curOverflow = el.style.overflow;
+            if (!curOverflow || curOverflow === "visible") {
+                el.style.overflow = "hidden";
+            }
+            let isOverflowing =
+                el.clientWidth < el.scrollWidth || el.clientHeight < el.scrollHeight;
+            el.style.overflow = curOverflow;
+            return isOverflowing;
+        },
+        adjustFontSize() {
+            let fitted = false
+            let lastSize
+            const increment = 0.05;
+            const el = this.$refs["text-block"];
+
+            el.style.fontSize = "0.1em";
+
+            while (!fitted) {
+                if (this.checkOverflow()) {
+                    el.style.fontSize = `${lastSize - increment}em`
+                    fitted = true
+                } else {
+                    lastSize = parseFloat(el.style.fontSize.slice(0, -2)) + increment
+                    el.style.fontSize = `${lastSize}em`
+                }
+            }
+
         }
     },
     beforeMount() {
         if (this.getCookie('lang') !== this.$store.state.lang) {
             this.$store.commit('switchLang');
         }
+    },
+    mounted() {
+        this.adjustFontSize();
     }
 }
 </script>
@@ -237,7 +270,7 @@ export default {
             border: 3px solid #ffffff;
             color: #ffffff;
             font-weight: 400;
-            font-size: 1.5em;
+            white-space: nowrap;
             cursor: pointer;
             border-radius: 50px;
         }
