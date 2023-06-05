@@ -44,7 +44,6 @@ class AdminApiController extends Controller
 
     public function deletePartner(Request $request) {
         $id = $request->id;
-        return $id;
         DB::table('partners')->where('id', '=', $id)->delete();
         return redirect('/admin/partners');
     }
