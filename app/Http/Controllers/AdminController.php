@@ -26,6 +26,13 @@ class AdminController extends Controller
         ]);
     }
 
+    public function partners() {
+        $data = DB::table('partners')->select(['id', 'partner_name as title', 'partner_logo as src'])->get();
+        return $this->authenticatedView('pages.admin.partners', [
+            'data' => $data
+        ]);
+    }
+
     public function documents() {
         return $this->authenticatedView('pages.admin.documents');
     }

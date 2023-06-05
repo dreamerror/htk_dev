@@ -23,6 +23,7 @@ Route::group(['prefix' => 'upload'], function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Route::post('/background', [App\Http\Controllers\Api\AdminApiController::class, 'editBackground']);
+    Route::post('/partner', [App\Http\Controllers\Api\AdminApiController::class, 'editPartner']);
     Route::post('/card', [App\Http\Controllers\Api\AdminApiController::class, 'editCards']);
     Route::post('/document', [App\Http\Controllers\Api\AdminApiController::class, 'editDocument']);
     Route::post('/contacts', [App\Http\Controllers\Api\AdminApiController::class, 'editContacts']);

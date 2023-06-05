@@ -18,6 +18,7 @@ Route::group(['middleware' => ['web'], 'prefix' => 'login'], function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);
     Route::get('/backgrounds', [App\Http\Controllers\AdminController::class, 'backgrounds']);
+    Route::get('/partners', [App\Http\Controllers\AdminController::class, 'partners']);
     Route::get('/cards', [App\Http\Controllers\AdminController::class, 'cards']);
     Route::get('/documents', [App\Http\Controllers\AdminController::class, 'documents']);
     Route::get('/contacts', [App\Http\Controllers\AdminController::class, 'contacts']);

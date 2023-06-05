@@ -24,6 +24,10 @@
             Задний фон страницы
         </div>
         <div class="admin-nav-button"
+             @click="redirect('/partners')">
+            Партнёры
+        </div>
+        <div class="admin-nav-button"
              @click="redirect('/contacts')">
             Контакты
         </div>

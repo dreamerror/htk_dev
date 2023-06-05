@@ -23,6 +23,25 @@ class AdminApiController extends Controller
         return redirect('/admin/backgrounds');
     }
 
+    public function editPartner(Request $request) {
+        $id = $request->id;
+        $path = '';
+        if (isset($request->all()['image'])) {
+            $path = '/storage/' . $request->all()['image']->store('/partners', 'public');
+        }
+        if ($path && $id > 0) {
+            DB::table('page_backgrounds')->where('id', '=', $id)->update([
+                'partner_logo' => $path,
+            ]);
+        } elseif ($id < 0) {
+            DB::table('page_backgrounds')->insert([
+                'partner_name' => $request->title,
+                'partner_logo' => $path,
+            ]);
+        }
+        return redirect('/admin/backgrounds');
+    }
+
     public function editDocument(Request $request) {
         $docFileNames = [
             'svh_svid' => 'svh_svid.png',
