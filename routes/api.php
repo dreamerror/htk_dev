@@ -12,6 +12,10 @@ Route::post('/edit-content', [App\Http\Controllers\Api\PageContentController::cl
 Route::post('/edit-files', [App\Http\Controllers\Api\PageContentController::class, 'pagesFiles']);
 Route::post('/contacts', [App\Http\Controllers\Api\PageContentController::class, 'editContacts']);
 
+Route::group(['prefix' => 'mail'], function () {
+    Route::post('/call-request', [App\Http\Controllers\Mail\MailController::class, 'requestCall']);
+});
+
 Route::group(['prefix' => 'info'], function () {
     Route::post('/text', [App\Http\Controllers\Api\PageContentController::class, 'editInfo']);
     Route::post('/delete', [App\Http\Controllers\Api\PageContentController::class, 'deleteInfo']);

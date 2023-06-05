@@ -83,7 +83,7 @@
         </div>
 
         <modal-window
-        :api="'/'"
+        :api="`${url}/api/mail/call-request`"
         v-if="showModal"
         @close-modal="showModal = false">
 
