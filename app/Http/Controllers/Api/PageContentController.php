@@ -59,7 +59,6 @@ class PageContentController extends Controller
                 ->updateOrInsert(['id' => $id,],
                 [
                     'page_title' => $data['title'],
-                    'lang' => $data['lang']
                 ]);
         }
         if (isset($data['content'])) {
@@ -67,7 +66,6 @@ class PageContentController extends Controller
                 ->updateOrInsert(['id' => $id,],
                 [
                     'page_content' => $data['content'],
-                    'lang' => $data['lang']
                 ]);
         }
 
