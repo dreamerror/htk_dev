@@ -175,6 +175,24 @@ export default {
             padding-left: 1vw;
             font-size: 1rem;
             font-weight: 400;
+
+            .button-wrapper {
+                width: auto;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                font-size: 18px;
+                align-items: center;
+                padding: 1px 5px;
+                border: 1px solid #316851;
+                font-family: 'Harmonia';
+                color: #ffffff;
+                background: #316851;
+                cursor: pointer;
+                border-radius: 5px;
+                margin-right: auto;
+                margin-bottom: 2vh;
+            }
         }
     }
 
