@@ -405,7 +405,7 @@ export default {
             justify-content: center;
             align-items: center;
             //height: 90px;
-            width: auto;
+            width: 100%;
             padding: 20px 60px;
             border: 3px solid #ffffff;
             color: #ffffff;
