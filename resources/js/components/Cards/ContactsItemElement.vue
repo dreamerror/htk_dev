@@ -10,8 +10,8 @@
 
                 </slot>
             </div>
-            <div class="contacts-text" v-html="content">
-                {{ content }}
+            <div class="contacts-text" v-html="text">
+                {{ text }}
             </div>
         </div>
     </div>

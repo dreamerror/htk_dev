@@ -67,6 +67,11 @@ export default {
         tp: Object,
         additional: Object,
     },
+    computed: {
+        pageDescription() {
+            return this.page_data['page_description']
+        }
+    }
 }
 </script>
 
