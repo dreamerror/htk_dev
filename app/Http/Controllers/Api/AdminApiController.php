@@ -30,11 +30,11 @@ class AdminApiController extends Controller
             $path = '/storage/' . $request->all()['image']->store('/partners', 'public');
         }
         if ($path && $id > 0) {
-            DB::table('page_backgrounds')->where('id', '=', $id)->update([
+            DB::table('partners')->where('id', '=', $id)->update([
                 'partner_logo' => $path,
             ]);
         } elseif ($id < 0) {
-            DB::table('page_backgrounds')->insert([
+            DB::table('partners')->insert([
                 'partner_name' => $request->input()['title'],
                 'partner_logo' => $path,
             ]);
