@@ -79,10 +79,12 @@ class PublicController extends Controller
         $bg = $this->getBackground('tp');
         $auth = $this->getAuth();
         $data = $this->getPageContent('tp');
+        $files = $this->getPageFiles('tp');
         return view('pages.tp', [
             'data' => $data,
             'auth' => $auth,
-            'bg' => $bg
+            'bg' => $bg,
+            'files' => $files
         ]);
     }
 
