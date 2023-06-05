@@ -273,6 +273,8 @@ export default {
             white-space: nowrap;
             cursor: pointer;
             border-radius: 50px;
+            box-shadow: 0 0 5px 0 black;
+            text-shadow: 0 0 5px 0 black;
         }
     }
 
@@ -414,6 +416,8 @@ export default {
             font-size: 1.5em;
             cursor: pointer;
             border-radius: 50px;
+            box-shadow: 0 0 5px 0 black;
+            text-shadow: 0 0 5px 0 black;
         }
 
         .header-image-wrapper img {
