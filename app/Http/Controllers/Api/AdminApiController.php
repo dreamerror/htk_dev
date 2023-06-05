@@ -33,6 +33,35 @@ class AdminApiController extends Controller
         return redirect('/admin/documents');
     }
 
+    public function editCards(Request $request) {
+        $data = $request->input();
+        $route = '';
+        if (isset($request->all()['image'])) {
+            $route = '/storage/' . $request->all()['image']->store('/', 'public');
+        }
+
+        if ($route) {
+            DB::table('main_cards_content')
+                ->where('id', '=', $data['id'])
+                ->update([
+                    'title' => $data['title'],
+                    'description' => $data['description'],
+                    'img_src' => $route,
+                    'lang' => $data['lang']
+                ]);
+        } else {
+            DB::table('main_cards_content')
+                ->where('id', '=', $data['id'])
+                ->update([
+                    'title' => $data['title'],
+                    'description' => $data['description'],
+                    'lang' => $data['lang']
+                ]);
+        }
+
+        return redirect('/admin/cards');
+    }
+
     public function editContacts(Request $request) {
         $data = $request->input();
         $position = $data['position'];

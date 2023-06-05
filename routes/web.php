@@ -15,14 +15,14 @@ Route::group(['middleware' => ['web'], 'prefix' => 'login'], function () {
    Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 });
 
-Route::get('/register', [App\Http\Controllers\Auth\LoginController::class, 'showRegisterForm']);
-
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [App\Http\Controllers\AdminController::class, 'index']);
     Route::get('/backgrounds', [App\Http\Controllers\AdminController::class, 'backgrounds']);
+    Route::get('/cards', [App\Http\Controllers\AdminController::class, 'cards']);
     Route::get('/documents', [App\Http\Controllers\AdminController::class, 'documents']);
     Route::get('/contacts', [App\Http\Controllers\AdminController::class, 'contacts']);
     Route::get('/files', [App\Http\Controllers\AdminController::class, 'files']);
+    Route::get('/register', [App\Http\Controllers\Auth\LoginController::class, 'showRegisterForm']);
 });
 
 Route::group(['prefix' => 'transportation'], function () {

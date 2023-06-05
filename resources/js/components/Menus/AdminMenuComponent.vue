@@ -11,16 +11,13 @@
              @click="redirect('/register')">
             Новый пользователь
         </div>
-        <div class="admin-nav-button">
+        <div class="admin-nav-button"
+             @click="redirect('/cards')">
             Карточки
         </div>
         <div class="admin-nav-button"
         @click="redirect('/backgrounds')">
             Задний фон страницы
-        </div>
-        <div class="admin-nav-button"
-             @click="redirect('/documents')">
-            Отображаемые документы
         </div>
         <div class="admin-nav-button"
              @click="redirect('/contacts')">

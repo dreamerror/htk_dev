@@ -36,4 +36,10 @@ class AdminController extends Controller
         $data = DB::table('page_files')->select(['id', 'page', 'text', 'file'])->get();
         return $this->authenticatedView('pages.admin.files', ['data' => $data]);
     }
+
+    public function cards() {
+        $data = DB::table('main_cards_content')->select(['id', 'title', 'img_src as src',
+            'description as text', 'lang'])->get();
+        return $this->authenticatedView('pages.admin.cards', ['items' => $data]);
+    }
 }
