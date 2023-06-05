@@ -73,6 +73,14 @@ Vue.component('transportation-page', require('./components/Pages/TransportationP
 Vue.component('partners-page', require('./components/Pages/PartnersPageComponent.vue').default);
 Vue.component('test-page', require('./components/Pages/TestPageComponent.vue').default);
 
+// Inputs
+
+Vue.component('text-input', require('./components/Inputs/TextInputComponent.vue').default);
+
+// Utils
+
+Vue.component('modal-window', require('./components/Utils/ModalWindowComponent.vue').default);
+
 
 const app = new Vue({
     el: '#app',

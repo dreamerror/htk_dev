@@ -32,7 +32,7 @@
                         </a>
                     </div>
 
-                    <div class="contacts-button" ref="text-block">
+                    <div class="contacts-button" ref="text-block" @click="showModal = true">
                         {{ translations.call[this.$store.state.lang] }}
                     </div>
 
@@ -47,7 +47,7 @@
                          @click="redirect('')">
                 </div>
 
-                <div class="contacts-button mobile" ref="text-block">
+                <div class="contacts-button mobile" ref="text-block" @click="showModal = true">
                     {{ translations.call[this.$store.state.lang] }}
                 </div>
 
@@ -82,6 +82,13 @@
 
         </div>
 
+        <modal-window
+        :api="'/'"
+        v-if="showModal"
+        @close-modal="showModal = false">
+
+        </modal-window>
+
     </div>
 </template>
 
@@ -108,6 +115,7 @@ export default {
                 svh_full: {ru: 'Склад временного хранения', cn: '监管库'},
                 call: {ru: 'Заказать обратный звонок', cn: '要求电话回拨'},
             },
+            showModal: false,
         }
     },
     computed: {
