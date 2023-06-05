@@ -22,31 +22,31 @@ class PageContentController extends Controller
 
         if (isset($data['text'])) {
             DB::table('page_content')->updateOrInsert([
-                'page' => $data['page']
+                'page' => $data['page'],
+                'lang' => $data['lang']
             ], [
                 'page' => $data['page'],
                 'page_text' => $data['text'],
-                'lang' => $data['lang']
             ]);
         }
 
         if (isset($data['additional'])) {
             DB::table('page_content')->updateOrInsert([
-                'page' => $data['page']
+                'page' => $data['page'],
+                'lang' => $data['lang']
             ], [
                 'page' => $data['page'],
-                'page_additional' => $data['additional'],
-                'lang' => $data['lang']
+                'page_additional' => $data['additional']
             ]);
         }
 
         if (isset($data['description'])) {
             DB::table('page_content')->updateOrInsert([
-                'page' => $data['page']
+                'page' => $data['page'],
+                'lang' => $data['lang']
             ], [
                 'page' => $data['page'],
-                'page_description' => $data['description'],
-                'lang' => $data['lang']
+                'page_description' => $data['description']
             ]);
         }
     }
