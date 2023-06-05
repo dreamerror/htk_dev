@@ -47,7 +47,7 @@
                          @click="redirect('')">
                 </div>
 
-                <div class="contacts-button mobile">
+                <div class="contacts-button mobile" ref="text-block">
                     Заказать обратный звонок
                 </div>
 
@@ -409,6 +409,7 @@ export default {
             padding: 20px 60px;
             border: 3px solid #ffffff;
             color: #ffffff;
+            white-space: nowrap;
             font-weight: 400;
             font-size: 1.5em;
             cursor: pointer;
