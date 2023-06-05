@@ -71,10 +71,9 @@ export default {
         display: flex;
         flex-direction: column;
         gap: 0.5vh;
-    }
-
-    .contacts-item span {
-        white-space: pre-line;
+        p {
+            white-space: pre-line;
+        }
     }
 
     .contacts-map {
