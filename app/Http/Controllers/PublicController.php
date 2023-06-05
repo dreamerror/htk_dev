@@ -53,9 +53,12 @@ class PublicController extends Controller
             ->select(['title', 'img_src as src', 'description', 'route'])
             ->orderBy('id')
             ->get();
+        $content = $this->getPageContent('main');
         return view('pages.index', [
             'cards' => $data,
-            'bg' => $bg
+            'bg' => $bg,
+            'content' => $content,
+            'auth' => $this->getAuth(),
         ]);
     }
 

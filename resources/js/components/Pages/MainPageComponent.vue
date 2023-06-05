@@ -12,32 +12,21 @@
                     <div class="main-image-wrapper desktop">
                         <img src="/storage/htk-logo-color-main.svg" class alt="">
                     </div>
-                    <div class="header-description-wrapper">
-                        <h4>
-                            {{ translations.title[this.$store.state.lang] }}
-                        </h4>
+                    <div class="header-description-wrapper" data-editable data-name="page-description" v-html="pageDescription">
+                        {{pageDescription}}
                     </div>
 
-                    <div class="button-wrapper desktop">
+                    <div class="button-wrapper desktop" data-ce-tag="static">
                         {{ translations.about[this.$store.state.lang] }}
                     </div>
                 </div>
 
                 <div class="main-description-text">
-                    <p>
-                        {{ translations.block_1[this.$store.state.lang] }}
-                    </p>
-                    <p>
-                        {{ translations.block_2[this.$store.state.lang] }}
-                    </p>
-                    <p>
-                        {{ translations.block_3[this.$store.state.lang] }}
-                    </p>
-                    <p>
-                        {{ translations.block_4[this.$store.state.lang] }}
-                    </p>
+                    <div class="main-description-inner" data-editable data-name="page-text" v-html="pageText">
+                        {{pageText}}
+                    </div>
 
-                    <div class="button-wrapper mobile">
+                    <div class="button-wrapper mobile" data-ce-tag="static">
                         {{ translations.about[this.$store.state.lang] }}
                     </div>
                 </div>
@@ -52,36 +41,45 @@
 </template>
 
 <script>
+import {initEditor} from "../../inc/ContentTools/editor";
+
 export default {
     name: "MainPageComponent",
     props: {
-      cards: Array,
-      url: String,
+        cards: Array,
+        url: String,
         bg: Object,
+        data: Object,
+        auth: Number,
+        api: String,
+    },
+    mounted() {
+        if (this.auth) {
+            initEditor(this.api, this.setData)
+        }
     },
     data() {
         return {
             translations: {
                 about: {ru: 'ПОДРОБНЕЕ', cn: '简介'},
-                title: {ru: 'Полноценный комплекс услуг в области внешнеэкономической деятельности', cn: '提供外贸领域全面服务'},
-                block_1: {ru: 'Наши специалисты обеспечат эффективную доставку автомобильным транспортом ' +
-                        'Ваших товаров до двери, взяв на себя все формальности с перевозкой, хранением ' +
-                        'на складе временного хранения (СВХ) и таможенным оформлением, оформим транзитные грузы',
-                    cn: '金雕国际运输公司确保有效货物车运，' +
-                        '保证门到门送取货，办理所有运输手续，提供监管库和清关，处理过境货物服务。'},
-                block_2: {ru: 'Обращаясь к нам, Вы получаете гарантию нашими финансовыми обязательствами перед таможенными ' +
-                        'органами по таможенным платежам и возмещению ущерба при утрате по ' +
-                        'страхованию гражданской ответственности',
-                    cn: '选金雕国际运输公司您可以全放心，因公司对海关费用和民事责任采用自己的金融资产担保。'},
-                block_3: {ru: 'Не являясь крупной корпорацией, отягощенной бюрократическим аппаратом, ' +
-                        'мы индивидуально подходим к каждому клиенту и оказываем услуги в более минимальные сроки',
-                    cn: '因公司不是一个大集团公司，不受大官僚机构的负担，那可对每个客户个别对待，尽速提供服务。'},
-                block_4: {ru: 'ООО «Хасанская транспортная компания» является владельцем склада временного хранения ' +
-                        'и оказывает услуги в данной области согласно действующему законодательству. На территории ' +
-                        'склада присутствует вся необходимая материально-техническая база для выполнения работ ' +
-                        'любой сложности с Вашим грузом.',
-                    cn: '哈桑运输有限公司是监管库的所有者，并在此淋雨根据现行法规提供相关的服务。该仓库拥有所有必要的物流设施，' +
-                        '可以对您的货物进行所需处理工作。'},
+            }
+        }
+    },
+    computed: {
+        pageText() {
+            return this.data['page_text']
+        },
+        pageDescription() {
+            return this.data["page_description"]
+        }
+    },
+    methods: {
+        setData(payload) {
+            return {
+                page: 'main',
+                text: payload['page-text'],
+                description: payload['page-description'],
+                lang: this.$store.state.lang
             }
         }
     }
@@ -175,6 +173,11 @@ export default {
             padding-left: 1vw;
             font-size: 1rem;
             font-weight: 400;
+
+            .main-description-inner {
+                font-size: 1rem;
+                font-weight: 400;
+            }
 
             .button-wrapper {
                 width: auto;
