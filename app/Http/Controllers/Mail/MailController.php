@@ -42,5 +42,7 @@ class MailController extends Controller
         $mail->msgHTML($message);
 
         $mail->send();
+
+        return redirect()->back();
     }
 }
