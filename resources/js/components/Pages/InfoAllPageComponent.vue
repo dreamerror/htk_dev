@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import {initEditor} from "../../inc/ContentTools/editor";
+
 export default {
     name: "InfoAllPageComponent",
     props: {
@@ -39,6 +41,11 @@ export default {
         pages: Array,
         auth: Number,
         bg: Object,
+    },
+    mounted() {
+        if (this.auth) {
+            initEditor(`${this.url}/api/edit-content`, this.setData)
+        }
     },
     computed: {
         pageDescription() {
@@ -61,9 +68,18 @@ export default {
                     '<p>- 关于俄罗斯法律对临时存储仓库的要求的信息;</p>' +
                     '<p>- 其他必要的信息.</p>';
             }
-
         }
     },
+    methods: {
+        setData(payload) {
+            console.log(payload)
+            return {
+                page: 'info',
+                description: payload['page-header'],
+                lang: this.$store.state.lang
+            }
+        }
+    }
 }
 </script>
 
