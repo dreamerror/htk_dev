@@ -50,7 +50,7 @@ export default {
         gap: 1vh;
     }
 
-    .file-block-wrapper {
+    .doc-block-wrapper {
         display: flex;
         flex-direction: row;
         align-items: center;
