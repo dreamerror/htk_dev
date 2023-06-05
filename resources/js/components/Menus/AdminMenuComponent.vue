@@ -16,6 +16,10 @@
             Карточки
         </div>
         <div class="admin-nav-button"
+             @click="redirect('/documents')">
+            Отображаемые документы
+        </div>
+        <div class="admin-nav-button"
         @click="redirect('/backgrounds')">
             Задний фон страницы
         </div>
