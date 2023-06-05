@@ -35,7 +35,7 @@ class MailController extends Controller
         $mail->Password = config('app.yandex_key');
 
         $mail->setFrom('main@htk25rus.ru', 'Htk25rus.ru');
-        $mail->addAddress('alipov050403andrey@gmail.com');
+        $mail->addAddress('Bulatov757@yandex.ru');
 
         $mail->Subject = 'Заказ обратного звонка';
 
