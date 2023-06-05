@@ -30,7 +30,7 @@ export default {
     data() {
         return {
             translations: {
-                about: {ru: 'ПОДРОБНЕЕ', cn: '简介'}
+                about: {ru: 'ПОДРОБНЕЕ', cn: '更多信息'}
             }
         }
     },
