@@ -22,7 +22,7 @@
 
             <form method="post" :action="`${url}/api/info/delete`" v-if="auth">
                 <input type="hidden" name="id" :value="id">
-                <input type="submit" placeholder="Удалить">
+                <input type="submit" value="Удалить">
             </form>
         </div>
 

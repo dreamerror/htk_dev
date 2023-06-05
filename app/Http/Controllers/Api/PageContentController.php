@@ -19,10 +19,9 @@ class PageContentController extends Controller
     }
 
     public function deleteInfo(Request $request) {
-        $data = $request->input();
-        $id = $data['id'];
-        DB::table('information_pages')->delete($id);
-        return redirect()->back();
+        $id = $request->id;
+        DB::table('information_pages')->where('id', '=', $id)->delete();
+        return redirect('/info');
     }
 
     public function editContent(Request $request) {
