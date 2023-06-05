@@ -18,7 +18,7 @@
                 <input type="submit">
             </form>
 
-            <form method="post" :action="delete_api" v-if="id !== -1">
+            <form method="post" :action="delete_api" v-if="id > 0">
                 <input type="hidden" :value="id">
                 <input type="submit" value="Удалить">
             </form>

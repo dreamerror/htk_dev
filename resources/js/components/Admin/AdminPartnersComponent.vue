@@ -27,7 +27,7 @@ export default {
             array.push({
                 src: '',
                 title: 'Добавить',
-                id: -1
+                id: 0
             })
             return array
         }

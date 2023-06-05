@@ -33,7 +33,7 @@ class AdminApiController extends Controller
             DB::table('partners')->where('id', '=', $id)->update([
                 'partner_logo' => $path,
             ]);
-        } elseif ($id < 0) {
+        } elseif ($path) {
             DB::table('partners')->insert([
                 'partner_name' => $request->title,
                 'partner_logo' => $path,
