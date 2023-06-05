@@ -274,7 +274,7 @@ export default {
             cursor: pointer;
             border-radius: 50px;
             box-shadow: 0 0 5px 0 black;
-            text-shadow: 0 0 5px 0 black;
+            text-shadow: 0 0 10px #000000;
         }
     }
 
@@ -417,7 +417,7 @@ export default {
             cursor: pointer;
             border-radius: 50px;
             box-shadow: 0 0 5px 0 black;
-            text-shadow: 0 0 5px 0 black;
+            text-shadow: 0 0 10px #000000;
         }
 
         .header-image-wrapper img {
