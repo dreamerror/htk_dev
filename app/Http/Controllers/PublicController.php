@@ -192,9 +192,11 @@ class PublicController extends Controller
             ->select([$column, 'file_route as file', 'id'])
             ->orderBy('id')
             ->get();
+        $auth = $this->getAuth();
         return view('pages.prices', [
            'items' => $data,
-            'bg' => $bg
+            'bg' => $bg,
+            'auth' => $auth,
         ]);
     }
 }

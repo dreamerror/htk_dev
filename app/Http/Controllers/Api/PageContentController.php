@@ -147,4 +147,39 @@ class PageContentController extends Controller
         }
         return redirect()->back();
     }
+
+    public function priceFiles(Request $request) {
+        $data = $request->input();
+        $page_name = $data['page'];
+        $deleted = explode(',', $data["deleted"]);
+        foreach ($deleted as $delID) {
+            if (intval($delID) > 0) DB::table('prices_files')->delete($delID);
+        }
+        foreach (array_keys($data) as $key) {
+            if (str_starts_with($key, 'id')) {
+                $fileID = $data[$key];
+                $num = explode('_', $key)[1];
+                $text = $data["text_$num"];
+                $path = '';
+                if (isset($request->all()["file_$num"])) {
+                    $path = 'storage/' . $request->all()["file_$num"]->store('/files', 'public');
+                }
+                if ($path) {
+                    if ($fileID > 0) {
+                        DB::table('prices_files')->where('id', '=', $fileID)
+                            ->update([
+                                'file_route' => $path,
+                                'text' => $text,
+                            ]);
+                    } else {
+                        DB::table('page_files')->insert([
+                            'file_route' => $path,
+                            'text' => $text,
+                        ]);
+                    }
+                }
+            }
+        }
+        return redirect()->back();
+    }
 }

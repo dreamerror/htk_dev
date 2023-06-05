@@ -21,7 +21,7 @@ export default {
 
     computed: {
         newData() {
-            let array = this.data;
+            let array = [...this.data];
             array.push({
                 src: '',
                 title: 'Добавить',

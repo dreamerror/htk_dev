@@ -6,6 +6,7 @@
                  v-for="(item, index) in filesArray"
                  :key="index">
                 <input type="text" :name="`text_${index}`" :value="item.text">
+                <input type="text" :name="`cntext_${index}`" placeholder="Текст на китайском">
 
                 <input type="file" :name="`file_${index}`" :id="`file_${index}`">
 

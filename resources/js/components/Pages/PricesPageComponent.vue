@@ -7,6 +7,12 @@
             :files="items">
 
         </header-pages>
+
+        <file-upload-inputs
+            v-if="auth"
+            :api_files="`${url}/api/edit-price-files`"
+            :files="items"
+            page_name="svh" />
     </div>
 </template>
 
@@ -15,6 +21,10 @@ export default {
     name: "PricesPageComponent",
     props: {
         url: String,
+        auth: {
+            type: Number,
+            default: 0,
+        },
         items: Array,
         bg: Object,
         page_data: {
