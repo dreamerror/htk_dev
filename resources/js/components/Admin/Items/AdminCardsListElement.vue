@@ -20,12 +20,6 @@
                     {{ text }}
                 </textarea>
 
-                <select :name="lang" v-model="lang">
-                    <option v-for="option in typeLang" :value="option.value">
-                        {{option.text}}
-                    </option>
-                </select>
-
                 <input type="hidden" name="id" :value="id">
                 <input type="submit">
             </form>

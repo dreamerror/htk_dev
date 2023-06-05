@@ -46,16 +46,14 @@ class AdminApiController extends Controller
                 ->update([
                     'title' => $data['title'],
                     'description' => $data['description'],
-                    'img_src' => $route,
-                    'lang' => $data['lang']
+                    'img_src' => $route
                 ]);
         } else {
             DB::table('main_cards_content')
                 ->where('id', '=', $data['id'])
                 ->update([
                     'title' => $data['title'],
-                    'description' => $data['description'],
-                    'lang' => $data['lang']
+                    'description' => $data['description']
                 ]);
         }
 
