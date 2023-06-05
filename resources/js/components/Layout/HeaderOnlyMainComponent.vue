@@ -171,7 +171,7 @@ export default {
             el.style.fontSize = "0.1em";
 
             while (!fitted) {
-                if (this.checkOverflow()) {
+                if (this.checkOverflow() || parseFloat(el.style.fontSize.slice(0, -2)) > 1.5) {
                     el.style.fontSize = `${lastSize - increment}em`
                     fitted = true
                 } else {
