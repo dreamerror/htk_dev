@@ -153,12 +153,12 @@ class PublicController extends Controller
             ->select(['id', $column])
             ->orderBy('id', 'desc')
             ->get();
-        $data = $this->getPageContent('info');
+        $content = $this->getPageContent('info');
         return view('pages.info.all', [
             'items' => $data,
             'auth' => $this->getAuth(),
             'bg' => $bg,
-            'content' => $data,
+            'content' => $content,
         ]);
     }
 
