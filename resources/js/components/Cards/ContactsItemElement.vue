@@ -73,6 +73,7 @@ export default {
         gap: 0.5vh;
         p {
             white-space: pre-line;
+            margin: 1em;
         }
     }
 
