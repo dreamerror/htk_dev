@@ -5,7 +5,8 @@
     :url="'{{ url('/') }}'"
     :pages="{{ json_encode($items) }}"
     :auth="{{ $auth }}"
-    :bg="{{ json_encode($bg) }}">
+    :bg="{{ json_encode($bg) }}"
+    :content="{{ json_encode($content) }}">
 
     </info-list-page>
 @endsection
