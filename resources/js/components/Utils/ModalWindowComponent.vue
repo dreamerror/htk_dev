@@ -57,6 +57,7 @@ export default {
         justify-content: center;
         align-items: center;
         background-color: #000000da;
+        z-index: 200;
     }
 
     .modal-wrapper {
@@ -66,7 +67,7 @@ export default {
         width: 50%;
         padding: 2rem 2rem;
         border-radius: 20px;
-        z-index: 100;
+        z-index: 300;
     }
 
     button {
