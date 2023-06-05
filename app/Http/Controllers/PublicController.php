@@ -36,6 +36,13 @@ class PublicController extends Controller
             ->select(['page_text', 'page_additional', 'page_description'])->first();
     }
 
+    public function getContacts(string $position) {
+        return DB::table('contacts')
+            ->where('position', '=', $position)
+            ->where('lang', '=', $this->getLang())
+            ->select(['title', 'content', 'position'])->first();
+    }
+
     public function getPageFiles(string $pageName) {
         $column = 'text';
         if ($this->getLang() != 'ru') $column = 'cn_text as text';
@@ -140,8 +147,16 @@ class PublicController extends Controller
 
     public function contacts() {
         $bg = $this->getBackground('contacts');
+        $htk = $this->getContacts('htk');
+        $svh = $this->getContacts('svh');
+        $tp = $this->getContacts('tp');
+        $additional = $this->getContacts('additional');
         return view('pages.contacts', [
-            'bg' => $bg
+            'bg' => $bg,
+            'htk' => $htk,
+            'svh' => $svh,
+            'tp' => $tp,
+            'additional' => $additional,
         ]);
     }
 

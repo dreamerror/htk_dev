@@ -1,6 +1,6 @@
 <template>
     <div class="contacts-item-wrapper">
-        <h3>
+        <h3 v-html="title">
             {{ title }}
         </h3>
         <div class="contacts-info">
@@ -10,18 +10,8 @@
 
                 </slot>
             </div>
-            <div class="contacts-text">
-                <div class="contacts-item"
-                v-for="(item, index) in items"
-                :key="index">
-                    <span
-                    v-if="item.title">
-                        <strong>{{ item.title }}</strong>
-                    </span>
-                    <span>
-                        {{ item.text }}
-                    </span>
-                </div>
+            <div class="contacts-text" v-html="content">
+                {{ content }}
             </div>
         </div>
     </div>
@@ -31,15 +21,19 @@
 export default {
     name: "ContactsItemElement",
     props: {
-        title: String,
-        items: {
-            type: Array,
-            default: () => []
-        },
+        content: Object,
         showMap: {
             type: Boolean,
             default: false,
         },
+    },
+    computed: {
+        text() {
+            return this.content['content']
+        },
+        title() {
+            return this.content['title']
+        }
     }
 }
 </script>
