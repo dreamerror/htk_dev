@@ -29,5 +29,6 @@ export default {
         flex-grow: 1;
         flex-wrap: wrap;
         margin: 0 auto;
+        overflow-x: hidden;
     }
 </style>

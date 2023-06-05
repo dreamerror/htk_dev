@@ -75,7 +75,7 @@ export default {
             width: auto;
             display: flex;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 400;
             align-items: center;
             font-family: 'Harmonia';
