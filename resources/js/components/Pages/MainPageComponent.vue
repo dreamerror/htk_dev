@@ -16,7 +16,8 @@
                         {{pageDescription}}
                     </div>
 
-                    <div class="button-wrapper desktop" data-ce-tag="static">
+                    <div class="button-wrapper desktop" data-ce-tag="static"
+                    @click="redirectInfo">
                         {{ translations.about[this.$store.state.lang] }}
                     </div>
                 </div>
@@ -26,7 +27,8 @@
                         {{pageText}}
                     </div>
 
-                    <div class="button-wrapper mobile" data-ce-tag="static">
+                    <div class="button-wrapper mobile" data-ce-tag="static"
+                    @click="redirectInfo">
                         {{ translations.about[this.$store.state.lang] }}
                     </div>
                 </div>
@@ -81,7 +83,10 @@ export default {
                 description: payload['page-description'],
                 lang: this.$store.state.lang
             }
-        }
+        },
+        redirectInfo() {
+            window.location.href = `${this.url}/info`
+        },
     }
 }
 </script>
