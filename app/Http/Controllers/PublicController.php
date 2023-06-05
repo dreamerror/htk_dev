@@ -39,6 +39,7 @@ class PublicController extends Controller
     public function getPageFiles(string $pageName) {
         $column = 'text';
         if ($this->getLang() != 'ru') $column = 'cn_text as text';
+        if ($pageName == 'tp') $column = 'text';
         return DB::table('page_files')
             ->where('page', '=', $pageName)
             ->select('id', $column, 'file')
