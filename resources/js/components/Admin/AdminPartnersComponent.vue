@@ -5,7 +5,8 @@
         :src="item.src"
         :title="item.title"
         :id="item.id"
-        :api="api">
+        :api="api"
+        :delete_api="delete_api">
 
         </admin-partner-item>
     </div>
@@ -17,6 +18,7 @@ export default {
     props: {
         api: String,
         data: Array,
+        delete_api: String,
     },
 
     computed: {

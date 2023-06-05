@@ -31,4 +31,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/files', [App\Http\Controllers\Api\AdminApiController::class, 'editFiles']);
     Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
     Route::post('/register', [App\Http\Controllers\Auth\LoginController::class, 'register']);
+
+    Route::group(['prefix' => 'delete'], function () {
+        Route::post('/partner', [App\Http\Controllers\Api\AdminApiController::class, 'deletePartner']);
+    });
 });

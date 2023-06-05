@@ -17,6 +17,11 @@
                 <input type="hidden" :value="id">
                 <input type="submit">
             </form>
+
+            <form method="post" :action="delete_api" v-if="id !== -1">
+                <input type="hidden" :value="id">
+                <input type="submit" value="Удалить">
+            </form>
         </div>
     </div>
 </template>
@@ -32,6 +37,7 @@ export default {
             default: -1
         },
         api: String,
+        delete_api: String,
     },
     data() {
         return {

@@ -39,7 +39,13 @@ class AdminApiController extends Controller
                 'partner_logo' => $path,
             ]);
         }
-        return redirect('/admin/backgrounds');
+        return redirect('/admin/partners');
+    }
+
+    public function deletePartner(Request $request) {
+        $id = $request->id;
+        DB::table('partners')->delete($id);
+        return redirect('/admin/partners');
     }
 
     public function editDocument(Request $request) {
