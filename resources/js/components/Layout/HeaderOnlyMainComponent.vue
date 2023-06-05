@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="contacts-button mobile" ref="text-block">
-                    Заказать обратный звонок
+                    {{ translations.call[this.$store.state.lang] }}
                 </div>
 
                 <div class="lang-switch mobile" @click="switchLanguage">
