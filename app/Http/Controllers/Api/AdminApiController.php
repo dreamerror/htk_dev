@@ -24,7 +24,7 @@ class AdminApiController extends Controller
     }
 
     public function editPartner(Request $request) {
-        $id = $request->input()['id'];
+        $id = $request->id;
         $path = '';
         if (isset($request->all()['image'])) {
             $path = '/storage/' . $request->all()['image']->store('/partners', 'public');
@@ -35,7 +35,7 @@ class AdminApiController extends Controller
             ]);
         } elseif ($id < 0) {
             DB::table('partners')->insert([
-                'partner_name' => $request->input()['title'],
+                'partner_name' => $request->title,
                 'partner_logo' => $path,
             ]);
         }
