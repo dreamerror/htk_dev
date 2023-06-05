@@ -7,7 +7,8 @@
     :htk="{{ json_encode($htk) }}"
     :svh="{{ json_encode($svh) }}"
     :tp="{{ json_encode($tp) }}"
-    :additional="{{ json_encode($additional) }}">
+    :additional="{{ json_encode($additional) }}"
+    :auth="{{ $auth }}">
 
     </contacts-page>
 @endsection

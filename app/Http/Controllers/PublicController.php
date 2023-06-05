@@ -150,6 +150,7 @@ class PublicController extends Controller
         $htk = $this->getContacts('htk');
         $svh = $this->getContacts('svh');
         $tp = $this->getContacts('tp');
+        $auth = $this->getAuth();
         $additional = $this->getContacts('additional');
         return view('pages.contacts', [
             'bg' => $bg,
@@ -157,6 +158,7 @@ class PublicController extends Controller
             'svh' => $svh,
             'tp' => $tp,
             'additional' => $additional,
+            'auth' => $auth
         ]);
     }
 

@@ -1,8 +1,10 @@
 <template>
     <div class="contacts-item-wrapper">
-        <h3 v-html="title">
-            {{ title }}
-        </h3>
+        <div class="contacts-title" data-editable :data-name="`title_${position}`">
+            <h3 v-html="title">
+                {{ title }}
+            </h3>
+        </div>
         <div class="contacts-info">
             <div class="contacts-map"
             v-if="showMap">
@@ -10,7 +12,7 @@
 
                 </slot>
             </div>
-            <div class="contacts-text" v-html="text">
+            <div class="contacts-text" v-html="text" data-editable :data-name="`text_${position}`">
                 {{ text }}
             </div>
         </div>
@@ -33,6 +35,9 @@ export default {
         },
         title() {
             return this.content['title']
+        },
+        position() {
+            return this.content['position']
         }
     }
 }

@@ -10,6 +10,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/edit-content', [App\Http\Controllers\Api\PageContentController::class, 'editContent']);
 Route::post('/edit-files', [App\Http\Controllers\Api\PageContentController::class, 'pagesFiles']);
+Route::post('/contacts', [App\Http\Controllers\Api\PageContentController::class, 'editContacts']);
 
 Route::group(['prefix' => 'info'], function () {
     Route::post('/text', [App\Http\Controllers\Api\PageContentController::class, 'editInfo']);

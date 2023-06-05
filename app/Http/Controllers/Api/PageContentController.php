@@ -24,6 +24,31 @@ class PageContentController extends Controller
         return redirect('/info');
     }
 
+    public function editContacts(Request $request) {
+        $data = json_decode($request->getContent(), true);
+        $lang = $data['lang'];
+        $positions = ['htk', 'svh', 'tp', 'additional'];
+        foreach ($positions as $pos) {
+            if (isset($data["{$pos}_content"])) {
+                DB::table('contacts')
+                    ->where('position', '=', $pos)
+                    ->where('lang', '=', $lang)
+                    ->update([
+                        'content' => $data["{$pos}_text"]
+                    ]);
+            }
+            if (isset($data["{$pos}_title"])) {
+                DB::table('contacts')
+                    ->where('position', '=', $pos)
+                    ->where('lang', '=', $lang)
+                    ->update([
+                        'title' => $data["{$pos}_title"]
+                    ]);
+            }
+        };
+        return redirect('/contacts');
+    }
+
     public function editContent(Request $request) {
         $data = json_decode($request->getContent(), true);
 

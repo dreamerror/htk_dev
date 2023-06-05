@@ -47,12 +47,14 @@
 
 <script>
 import ContactsItemElement from "../Cards/ContactsItemElement.vue";
+import {initEditor} from "../../inc/ContentTools/editor";
 
 export default {
     name: "ContactsPageComponent",
     components: {ContactsItemElement},
     props: {
         url: String,
+        auth: Number,
         bg: Object,
         page_data: {
             type: Object,
@@ -66,6 +68,26 @@ export default {
         svh: Object,
         tp: Object,
         additional: Object,
+    },
+    mounted() {
+        if (this.auth) {
+            initEditor(`${this.url}/api/contacts`, this.setData)
+        }
+    },
+    methods: {
+        setData(payload) {
+            return {
+                htk_content: payload['text_htk'],
+                htk_title: payload['title_htk'],
+                svh_content: payload['text_svh'],
+                svh_title: payload['title_svh'],
+                tp_content: payload['text_tp'],
+                tp_title: payload['title_tp'],
+                additional_content: payload['text_additional'],
+                additional_title: payload['title_additional'],
+                lang: this.$store.state.lang
+            }
+        }
     },
     computed: {
         pageDescription() {
