@@ -348,11 +348,6 @@ export default {
         }
     }
 
-    @media (max-width: 900px) {
-        .nav-item {
-            padding: 0;
-        }
-    }
 
     .nav-item:first-child {
         //width: 100%;
@@ -438,6 +433,7 @@ export default {
             flex-direction: column;
             height: auto;
             flex-grow: 1;
+            font-size: .9em;
             width: 100%;
             align-items: center;
             z-index: 100;
@@ -472,6 +468,19 @@ export default {
         .nav-item:hover {
             .main-header-dropdown {
                 display: none;
+            }
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .nav-item {
+            font-size: .9em;
+            padding: 0;
+        }
+
+        .contact-elem {
+            span, a {
+                font-size: .9rem;
             }
         }
     }
