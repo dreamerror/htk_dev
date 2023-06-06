@@ -384,13 +384,13 @@ export default {
         }
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 951px) {
         .mobile {
             display: none;
         }
     }
 
-    @media (max-width: 899px) {
+    @media (max-width: 950px) {
         .desktop {
             display: none;
         }
@@ -423,6 +423,12 @@ export default {
             text-shadow: 0 0 10px #000000;
         }
 
+        .contact-elem {
+            span, a {
+                font-size: .9em;
+            }
+        }
+
         .header-image-wrapper img {
             width: 100%;
             aspect-ratio: 2;
@@ -433,7 +439,6 @@ export default {
             flex-direction: column;
             height: auto;
             flex-grow: 1;
-            font-size: .9em;
             width: 100%;
             align-items: center;
             z-index: 100;
@@ -454,6 +459,7 @@ export default {
         .nav-item {
             width: 100%;
             height: 100%;
+            font-size: .9em;
             background: #316851;
         }
 
