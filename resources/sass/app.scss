@@ -61,3 +61,15 @@ div.page-content {
     }
 }
 
+@media (max-width: 800px) {
+    body {
+        font-size:80%;
+    }
+}
+
+@media (max-width: 1000px) {
+    body {
+        font-size:90%;
+    }
+}
+
