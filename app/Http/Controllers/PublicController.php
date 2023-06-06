@@ -186,7 +186,6 @@ class PublicController extends Controller
             ->where('id', '=', $id)
             ->select(['page_title', 'page_content'])
             ->first();
-        return $data;
         $files = DB::table('information_files')
             ->where('page_id', '=', $id)
             ->select(['id', 'file', 'text'])
