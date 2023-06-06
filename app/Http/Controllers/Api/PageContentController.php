@@ -91,6 +91,7 @@ class PageContentController extends Controller
                 ->updateOrInsert(['id' => $id,],
                 [
                     'page_title' => $data['title'],
+                    'cn_page_title' => $data['title'],
                 ]);
         }
         if (isset($data['content'])) {
