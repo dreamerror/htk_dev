@@ -253,14 +253,14 @@ export default {
             span {
                 text-transform: uppercase;
                 margin-bottom: 0.25rem;
-                font-size: 1rem;
+                font-size: .8rem;
                 font-weight: 400;
             }
 
             a {
                 text-decoration: none;
                 color: #111111;
-                font-size: 1rem;
+                font-size: .8rem;
                 font-weight: 400;
                 //width: auto;
                 max-width: max-content;
@@ -312,7 +312,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 1.1em;
+        font-size: .9em;
         width: auto;
         //padding: 0 2.155vw;
         flex-grow: 1;
