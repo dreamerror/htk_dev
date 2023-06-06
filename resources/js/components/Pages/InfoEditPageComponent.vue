@@ -45,7 +45,7 @@ export default {
             default: () => {
                 return {
                     page_content: '<p>Тело новости</p>',
-                    page_title: '<p class="title">Заголовок</p>'
+                    page_title: '<h1>Заголовок</h1>'
                 }
             }
         },
