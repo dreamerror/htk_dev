@@ -185,7 +185,6 @@ class PublicController extends Controller
         $data = DB::table('information_pages')
             ->where('id', '=', $id)
             ->select(['page_title', 'page_content'])
-            ->get()
             ->first();
         $files = DB::table('information_files')
             ->where('page_id', '=', $id)
