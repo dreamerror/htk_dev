@@ -193,6 +193,7 @@ class PublicController extends Controller
             ->where('page_id', '=', $id)
             ->select(['id', 'file', DB::raw('coalesce(text, \'Скачать файл\') as text'),
                 DB::raw('coalesce(cn_text, \'Скачать файл\') as cn_text') ])
+            ->orderBy('id', 'desc')
             ->get();
         return view('pages.info.edit', [
             'data' => $data,
@@ -211,7 +212,7 @@ class PublicController extends Controller
         $bg = $this->getBackground('prices');
         $data = DB::table('prices_files')
             ->select(['text', 'cn_text', 'file_route as file', 'id'])
-            ->orderBy('id')
+            ->orderBy('id', 'desc')
             ->get();
         $auth = $this->getAuth();
         return view('pages.prices', [
