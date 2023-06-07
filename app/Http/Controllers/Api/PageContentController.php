@@ -191,7 +191,7 @@ class PageContentController extends Controller
                         ]);
                     }
                 } elseif ($fileID > 0) {
-                    DB::table('information_files')->where('id', '=', $fileID)
+                    DB::table('page_files')->where('id', '=', $fileID)
                         ->update([
                             "$column" => $text,
                         ]);
@@ -203,8 +203,12 @@ class PageContentController extends Controller
 
     public function priceFiles(Request $request) {
         $data = $request->input();
-        $page_name = $data['page'];
         $deleted = explode(',', $data["deleted"]);
+
+        $lang = $data['lang'];
+        $column = 'text';
+        if ($lang == 'cn') $column = 'cn_text';
+
         foreach ($deleted as $delID) {
             if (intval($delID) > 0) DB::table('prices_files')->delete($delID);
         }
@@ -222,14 +226,19 @@ class PageContentController extends Controller
                         DB::table('prices_files')->where('id', '=', $fileID)
                             ->update([
                                 'file_route' => $path,
-                                'text' => $text,
+                                "$column" => $text,
                             ]);
                     } else {
-                        DB::table('page_files')->insert([
+                        DB::table('prices_files')->insert([
                             'file_route' => $path,
-                            'text' => $text,
+                            "$column" => $text,
                         ]);
                     }
+                } elseif ($fileID > 0) {
+                    DB::table('prices_files')->where('id', '=', $fileID)
+                        ->update([
+                            "$column" => $text,
+                        ]);
                 }
             }
         }

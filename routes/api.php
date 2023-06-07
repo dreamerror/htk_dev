@@ -9,6 +9,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/edit-content', [App\Http\Controllers\Api\PageContentController::class, 'editContent']);
+Route::post('/edit-price-files', [App\Http\Controllers\Api\PageContentController::class, 'priceFiles']);
 Route::post('/edit-files', [App\Http\Controllers\Api\PageContentController::class, 'pagesFiles']);
 Route::post('/contacts', [App\Http\Controllers\Api\PageContentController::class, 'editContacts']);
 
