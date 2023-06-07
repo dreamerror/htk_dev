@@ -17,6 +17,10 @@ export default {
         filename: String,
         ext: String,
         text: String,
+        url: {
+            type: String,
+            default: '',
+        }
     },
     mounted() {
         this.adjustFontSize()
@@ -29,11 +33,9 @@ export default {
                 responseType: 'blob',
             }).then((res) => {
                 let FILE = window.URL.createObjectURL(new Blob([res.data]));
-
                 let docUrl = document.createElement('a');
-                docUrl.href = FILE;
+                docUrl.href = this.url + '/' + FILE;
                 docUrl.setAttribute('download', `${this.filename}.${this.ext}`);
-                console.log(docUrl)
                 document.body.appendChild(docUrl);
                 docUrl.click();
             });

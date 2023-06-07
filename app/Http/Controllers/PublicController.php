@@ -185,6 +185,7 @@ class PublicController extends Controller
         if (!DB::table('information_pages')->where('id', '=', $id)->exists()) {
             return redirect('/info');
         }
+        $lang = $this->getLang();
         $data = DB::table('information_pages')
             ->where('id', '=', $id)
             ->select(['page_title', 'page_content'])

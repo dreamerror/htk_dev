@@ -23,6 +23,7 @@
                     :filename="filename(file.file)"
                     :ext="ext(file.file)"
                     :text="file.text"
+                    :url="url"
                 >
 
                 </download-button>
