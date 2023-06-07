@@ -67,8 +67,10 @@ export default {
             return this.data["page_title"]
         }
     },
-    mounted() {
+    beforeMount() {
         console.log(this.data)
+    },
+    mounted() {
         if (this.auth) {
             initEditor(this.api_text, this.setData)
         }
