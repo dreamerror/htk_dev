@@ -117,6 +117,9 @@ class PageContentController extends Controller
                 $fileID = $data[$key];
                 $num = explode('_', $key)[1];
                 $text = $data["text_$num"];
+                if (!$text) {
+                    $text = 'Скачать файл';
+                }
                 $path = '';
                 if (isset($request->all()["file_$num"])) {
                     $path = 'storage/' . $request->all()["file_$num"]->store('/files', 'public');
