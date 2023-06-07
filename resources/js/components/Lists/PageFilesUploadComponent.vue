@@ -5,7 +5,7 @@
             <div class="file-input-wrapper"
                  v-for="(item, index) in filesArray"
                  :key="index">
-                <input type="text" :name="`text_${index}`" :value="item.text">
+                <input type="text" :name="`text_${index}`" v-model="item.text">
 
                 <input type="file" :name="`file_${index}`" :id="`file_${index}`">
 
