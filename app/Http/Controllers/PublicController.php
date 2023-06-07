@@ -188,7 +188,7 @@ class PublicController extends Controller
             ->first();
         $files = DB::table('information_files')
             ->where('page_id', '=', $id)
-            ->select(['id', 'file', 'text'])
+            ->select(['id', 'file', DB::raw('coalesce(text, \'Скачать файл\') as text')])
             ->get();
         return view('pages.info.edit', [
             'data' => $data,

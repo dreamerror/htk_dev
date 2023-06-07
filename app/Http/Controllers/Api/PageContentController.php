@@ -21,6 +21,7 @@ class PageContentController extends Controller
     public function deleteInfo(Request $request) {
         $id = $request->id;
         DB::table('information_pages')->where('id', '=', $id)->delete();
+        DB::table('information_files')->where('page_id', '=', $id)->delete();
         return redirect('/info');
     }
 
