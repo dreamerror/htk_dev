@@ -3,7 +3,7 @@
         <header-pages
             :bg_image="bg.src"
             :url="url"
-            :content="'hello'"
+            :content="data['page_title']"
             >
 
         </header-pages>
@@ -119,3 +119,4 @@ export default {
     }
 
 </style>
+
