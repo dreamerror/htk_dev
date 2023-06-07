@@ -68,6 +68,7 @@ export default {
         }
     },
     mounted() {
+        console.log(this.data)
         if (this.auth) {
             initEditor(this.api_text, this.setData)
         }
