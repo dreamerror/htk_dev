@@ -34,7 +34,7 @@ export default {
             }).then((res) => {
                 let FILE = window.URL.createObjectURL(new Blob([res.data]));
                 let docUrl = document.createElement('a');
-                // docUrl.href = this.url + '/' + FILE;
+                docUrl.href = FILE;
                 docUrl.setAttribute('download', `${this.filename}.${this.ext}`);
                 document.body.appendChild(docUrl);
                 docUrl.click();
