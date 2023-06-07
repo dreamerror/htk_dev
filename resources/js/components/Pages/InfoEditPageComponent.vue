@@ -8,6 +8,23 @@
 
         </header-pages>
 
+        <div class="page-content">
+            <div class="page-text" data-editable data-name="page-text" v-html="pageContent">
+                {{pageContent}}
+            </div>
+
+            <file-upload-inputs
+                v-if="auth"
+                :api_files="api_files"
+                :files="files"
+                type="info"
+                :id="id" />
+
+            <form method="post" :action="`${url}/api/info/delete`" v-if="auth">
+                <input type="hidden" name="id" :value="id">
+                <input type="submit" value="Удалить">
+            </form>
+        </div>
 
 
     </div>
