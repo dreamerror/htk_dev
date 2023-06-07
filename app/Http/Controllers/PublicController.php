@@ -182,6 +182,9 @@ class PublicController extends Controller
     public function infoPage(int $id) {
         $bg = $this->getBackground('info');
         $auth = $this->getAuth();
+        if (!DB::table('information_pages')->where('id', '=', $id)->exists()) {
+            return redirect('/info');
+        }
         $data = DB::table('information_pages')
             ->where('id', '=', $id)
             ->select(['page_title', 'page_content'])
