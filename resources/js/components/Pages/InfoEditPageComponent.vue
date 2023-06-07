@@ -3,8 +3,8 @@
         <header-pages
             :bg_image="bg.src"
             :url="url"
-            :content="pageTitle"
-            :files="files">
+            :content="'hello'"
+            >
 
         </header-pages>
 
