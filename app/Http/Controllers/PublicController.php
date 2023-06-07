@@ -44,12 +44,11 @@ class PublicController extends Controller
     }
 
     public function getPageFiles(string $pageName) {
-        $column = 'text';
-        if ($this->getLang() != 'ru') $column = 'cn_text as text';
         if ($pageName == 'tp') $column = 'text';
         return DB::table('page_files')
             ->where('page', '=', $pageName)
-            ->select('id', $column, 'file')
+            ->select('id', DB::raw('coalesce(text, \'Скачать файл\') as text'),
+                DB::raw('coalesce(cn_text, \'Скачать файл\') as cn_text'), 'file')
             ->orderBy('id', 'desc')
             ->get();
     }
@@ -192,7 +191,8 @@ class PublicController extends Controller
             ->first();
         $files = DB::table('information_files')
             ->where('page_id', '=', $id)
-            ->select(['id', 'file', DB::raw('coalesce(text, \'Скачать файл\') as text')])
+            ->select(['id', 'file', DB::raw('coalesce(text, \'Скачать файл\') as text'),
+                DB::raw('coalesce(cn_text, \'Скачать файл\') as cn_text') ])
             ->get();
         return view('pages.info.edit', [
             'data' => $data,

@@ -109,9 +109,7 @@ class PageContentController extends Controller
         $data = $request->input();
         $page_id = $data['page_id'];
         $deleted = explode(',', $data["deleted"]);
-        $lang = $data['lang'];
-        $column = 'text';
-        if ($lang == 'cn') $column = 'cn_text';
+
         foreach ($deleted as $delID) {
             if (intval($delID) > 0) DB::table('information_files')->delete($delID);
         }
@@ -120,6 +118,7 @@ class PageContentController extends Controller
                 $fileID = $data[$key];
                 $num = explode('_', $key)[1];
                 $text = $data["text_$num"];
+                $cn_text = $data["cntext_$num"];
                 if (!$text) {
                     $text = 'Скачать файл';
                 }
@@ -133,19 +132,22 @@ class PageContentController extends Controller
                             ->update([
                             'page_id' => $page_id,
                             'file' => $path,
-                            "$column" => $text,
+                            'text' => $text,
+                            'cn_text' => $cn_text,
                         ]);
                     } else {
                         DB::table('information_files')->insert([
                             'page_id' => $page_id,
                             'file' => $path,
-                            "$column" => $text,
+                            'text' => $text,
+                            'cn_text' => $cn_text,
                         ]);
                     }
                 } elseif ($fileID > 0) {
                     DB::table('information_files')->where('id', '=', $fileID)
                         ->update([
-                            "$column" => $text,
+                            'text' => $text,
+                            'cn_text' => $cn_text,
                         ]);
                 }
             }
@@ -159,10 +161,6 @@ class PageContentController extends Controller
         $page_name = $data['page'];
         $deleted = explode(',', $data["deleted"]);
 
-        $lang = $data['lang'];
-        $column = 'text';
-        if ($lang == 'cn') $column = 'cn_text';
-
         foreach ($deleted as $delID) {
             if (intval($delID) > 0) DB::table('page_files')->delete($delID);
         }
@@ -171,6 +169,7 @@ class PageContentController extends Controller
                 $fileID = $data[$key];
                 $num = explode('_', $key)[1];
                 $text = $data["text_$num"];
+                $cn_text = $data["cntext_$num"];
                 $path = '';
                 if (isset($request->all()["file_$num"])) {
                     $path = 'storage/' . $request->all()["file_$num"]->store('/files', 'public');
@@ -181,19 +180,22 @@ class PageContentController extends Controller
                             ->update([
                                 'page' => $page_name,
                                 'file' => $path,
-                                "$column" => $text,
+                                'text' => $text,
+                                'cn_text' => $cn_text,
                             ]);
                     } else {
                         DB::table('page_files')->insert([
                             'page' => $page_name,
                             'file' => $path,
-                            "$column" => $text,
+                            'text' => $text,
+                            'cn_text' => $cn_text,
                         ]);
                     }
                 } elseif ($fileID > 0) {
                     DB::table('page_files')->where('id', '=', $fileID)
                         ->update([
-                            "$column" => $text,
+                            'text' => $text,
+                            'cn_text' => $cn_text,
                         ]);
                 }
             }
@@ -205,10 +207,6 @@ class PageContentController extends Controller
         $data = $request->input();
         $deleted = explode(',', $data["deleted"]);
 
-        $lang = $data['lang'];
-        $column = 'text';
-        if ($lang == 'cn') $column = 'cn_text';
-
         foreach ($deleted as $delID) {
             if (intval($delID) > 0) DB::table('prices_files')->delete($delID);
         }
@@ -217,6 +215,7 @@ class PageContentController extends Controller
                 $fileID = $data[$key];
                 $num = explode('_', $key)[1];
                 $text = $data["text_$num"];
+                $cn_text = $data["cntext_$num"];
                 $path = '';
                 if (isset($request->all()["file_$num"])) {
                     $path = 'storage/' . $request->all()["file_$num"]->store('/files', 'public');
@@ -226,18 +225,21 @@ class PageContentController extends Controller
                         DB::table('prices_files')->where('id', '=', $fileID)
                             ->update([
                                 'file_route' => $path,
-                                "$column" => $text,
+                                'text' => $text,
+                                'cn_text' => $cn_text,
                             ]);
                     } else {
                         DB::table('prices_files')->insert([
                             'file_route' => $path,
-                            "$column" => $text,
+                            'text' => $text,
+                            'cn_text' => $cn_text,
                         ]);
                     }
                 } elseif ($fileID > 0) {
                     DB::table('prices_files')->where('id', '=', $fileID)
                         ->update([
-                            "$column" => $text,
+                            'text' => $text,
+                            'cn_text' => $cn_text,
                         ]);
                 }
             }

@@ -22,7 +22,7 @@
                     :file="file.file"
                     :filename="filename(file.file)"
                     :ext="ext(file.file)"
-                    :text="file.text"
+                    :text="$store.state.lang === 'ru' ? file.text : file.cn_text"
                     :url="url"
                 >
 
