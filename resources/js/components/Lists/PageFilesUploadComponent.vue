@@ -60,7 +60,7 @@ export default {
             e.preventDefault();
             this.elementsAdded++;
             const newItem = {text: '', file: '', id: 0 - this.elementsAdded};
-            this.filesArray.push(newItem);
+            this.filesArray.unshift(newItem);
         },
         deleteHandler(e, id) {
             e.preventDefault();
