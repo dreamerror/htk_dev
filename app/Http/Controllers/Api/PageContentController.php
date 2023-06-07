@@ -109,6 +109,9 @@ class PageContentController extends Controller
         $data = $request->input();
         $page_id = $data['page_id'];
         $deleted = explode(',', $data["deleted"]);
+        $lang = $data['lang'];
+        $column = 'text';
+        if ($lang == 'cn') $column = 'cn_text';
         foreach ($deleted as $delID) {
             if (intval($delID) > 0) DB::table('information_files')->delete($delID);
         }
@@ -130,26 +133,36 @@ class PageContentController extends Controller
                             ->update([
                             'page_id' => $page_id,
                             'file' => $path,
-                            'text' => $text,
+                            "$column" => $text,
                         ]);
                     } else {
                         DB::table('information_files')->insert([
                             'page_id' => $page_id,
                             'file' => $path,
-                            'text' => $text,
+                            "$column" => $text,
                         ]);
                     }
+                } elseif ($fileID > 0) {
+                    DB::table('information_files')->where('id', '=', $fileID)
+                        ->update([
+                            "$column" => $text,
+                        ]);
                 }
             }
         }
 
-        return redirect()->back();
+        return redirect("/info/show/$page_id");
     }
 
     public function pagesFiles(Request $request) {
         $data = $request->input();
         $page_name = $data['page'];
         $deleted = explode(',', $data["deleted"]);
+
+        $lang = $data['lang'];
+        $column = 'text';
+        if ($lang == 'cn') $column = 'cn_text';
+
         foreach ($deleted as $delID) {
             if (intval($delID) > 0) DB::table('page_files')->delete($delID);
         }
@@ -168,15 +181,20 @@ class PageContentController extends Controller
                             ->update([
                                 'page' => $page_name,
                                 'file' => $path,
-                                'text' => $text,
+                                "$column" => $text,
                             ]);
                     } else {
                         DB::table('page_files')->insert([
                             'page' => $page_name,
                             'file' => $path,
-                            'text' => $text,
+                            "$column" => $text,
                         ]);
                     }
+                } elseif ($fileID > 0) {
+                    DB::table('information_files')->where('id', '=', $fileID)
+                        ->update([
+                            "$column" => $text,
+                        ]);
                 }
             }
         }

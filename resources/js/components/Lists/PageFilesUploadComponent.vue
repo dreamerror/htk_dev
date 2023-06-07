@@ -6,7 +6,6 @@
                  v-for="(item, index) in filesArray"
                  :key="index">
                 <input type="text" :name="`text_${index}`" :value="item.text">
-                <input type="text" :name="`cntext_${index}`" placeholder="Текст на китайском">
 
                 <input type="file" :name="`file_${index}`" :id="`file_${index}`">
 
@@ -20,6 +19,7 @@
 
             <input type="hidden" name="page_id" :value="id" v-if="type === 'info'">
             <input type="hidden" name="page" :value="page_name" v-if="type !== 'info'">
+            <input type="hidden" name="lang" :value="$store.state.lang">
             <input type="hidden" name="deleted" :value="deletedItems" multiple>
 
             <button @click.stop="addHandler($event)">Добавить элемент</button>
