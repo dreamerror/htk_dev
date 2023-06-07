@@ -209,10 +209,8 @@ class PublicController extends Controller
 
     public function prices() {
         $bg = $this->getBackground('prices');
-        $column = 'text';
-        if ($this->getLang() != 'ru') $column = 'cn_text as text';
         $data = DB::table('prices_files')
-            ->select([$column, 'file_route as file', 'id'])
+            ->select(['text', 'cn_text', 'file_route as file', 'id'])
             ->orderBy('id')
             ->get();
         $auth = $this->getAuth();
