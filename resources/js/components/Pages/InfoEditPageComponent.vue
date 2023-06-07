@@ -4,6 +4,7 @@
             :bg_image="bg.src"
             :url="url"
             :content="data['page_title']"
+            :files="files"
             >
 
         </header-pages>
