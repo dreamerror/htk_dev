@@ -69,6 +69,10 @@ export default {
     },
     beforeMount() {
         console.log(this.data)
+        console.log(this.id)
+        console.log(this.files)
+        console.log(this.bg)
+        console.log(this.api_text)
     },
     mounted() {
         if (this.auth) {
