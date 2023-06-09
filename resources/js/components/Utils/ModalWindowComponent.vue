@@ -58,13 +58,12 @@ export default {
         align-items: center;
         background-color: #000000da;
         z-index: 200;
+        padding: 0 3vw;
     }
 
     .modal-wrapper {
         text-align: center;
         background-color: white;
-        height: 50%;
-        width: 50%;
         padding: 2rem 2rem;
         border-radius: 20px;
         z-index: 300;
