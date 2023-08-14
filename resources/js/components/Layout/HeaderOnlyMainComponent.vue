@@ -1,9 +1,6 @@
 <template>
     <div class="main-header-wrapper">
 
-        <img src="/storage/berkut-logo.svg" alt="" class="desktop berkut-logo"
-             @click="redirect('')">
-
         <div class="main-menu-container">
 
             <div class="main-menu-wrapper">
@@ -11,13 +8,6 @@
                     <div class="mobile berkut-logo">
                         <img src="/storage/berkut-logo.svg" alt=""
                              @click="redirect('')">
-                    </div>
-                    <div class="contact-elem">
-                        <span>{{ translations.berkut[this.$store.state.lang] }}</span>
-                        <a href="tel:+74233130950">
-                            <i class="fa fa-phone" aria-hidden="true"></i>
-                            +7 42331 309-50
-                        </a>
                     </div>
 
                     <div class="contact-elem contact-elem-last">
@@ -123,10 +113,6 @@ export default {
             return [
                 {title: this.translations.svh[this.$store.state.lang], route: "/temp-storage"},
                 {title: this.translations.tp[this.$store.state.lang], route: "/customs"},
-                {title: this.translations.transport[this.$store.state.lang], route: "/transportation", child: [
-                        {title: this.translations.cargo[this.$store.state.lang], route: "/cargo"},
-                        {title: this.translations.passengers[this.$store.state.lang], route: "/passengers"}
-                    ]},
                 {title: this.translations.info[this.$store.state.lang], route: "/info"},
                 {title: this.translations.partners[this.$store.state.lang], route: "/partners"},
                 {title: this.translations.contacts[this.$store.state.lang], route: "/contacts"},
@@ -209,7 +195,7 @@ export default {
         align-items: flex-end;
         width: 100%;
         //margin-bottom: 2vh;
-        padding: 3vh 13vw 0 3.5vw;
+        padding: 3vh 13vw 0 13vw;
         gap: 2.5vw;
         //gap: 7vw;
     }
