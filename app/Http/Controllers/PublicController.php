@@ -57,6 +57,7 @@ class PublicController extends Controller
         $bg = $this->getBackground('main');
         $data = DB::table('main_cards_content')
             ->where('lang', '=', $this->getLang())
+            ->whereNotIn('id', [3, 7])
             ->select(['title', 'img_src as src', 'description', 'route'])
             ->orderBy('id')
             ->get();
