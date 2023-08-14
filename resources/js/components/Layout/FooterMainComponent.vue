@@ -44,24 +44,6 @@
 
             <div class="footer-contacts">
                 <span class="title">
-                    {{ translations.berkut[this.$store.state.lang] }}:
-                </span>
-                <span v-for="item in berkutElements"
-                      :key="item.text"
-                      @click="callbacks[item.type](item.text)">
-
-                    <i class="fa fa-envelope" aria-hidden="true" v-if="item.type === 'email'"></i>
-                    <i class="fa fa-map-marker" aria-hidden="true" v-if="item.type === 'address'"></i>
-                    <i class="fa fa-phone" aria-hidden="true" v-if="item.type === 'phone'"></i>
-
-                    {{item.text}}
-
-                </span>
-
-            </div>
-
-            <div class="footer-contacts">
-                <span class="title">
                     {{ translations.tp[this.$store.state.lang] }}:
                 </span>
                 <span v-for="item in tpElements"
@@ -137,7 +119,7 @@ export default {
         width: 100%;
         background: #316851;
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         padding: 1vh 1vw;
         grid-gap: 2vw;
     }
