@@ -1,7 +1,6 @@
 <template>
     <div class="main-footer-wrapper">
         <div class="footer-logos">
-            <img src="/storage/berkut-footer.svg" class="footer-berkut" alt="Berkut">
             <img src="/storage/htk-footer.svg" class="footer-htk" alt="HTK">
         </div>
 
