@@ -35,7 +35,7 @@ class PageContentController extends Controller
                     ->where('position', '=', $pos)
                     ->where('lang', '=', $lang)
                     ->update([
-                        'content' => $data["{$pos}_text"]
+                        'content' => $data["{$pos}_content"]
                     ]);
             }
             if (isset($data["{$pos}_title"])) {
