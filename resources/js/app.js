@@ -71,6 +71,7 @@ Vue.component('info-edit-page', require('./components/Pages/InfoEditPageComponen
 Vue.component('info-list-page', require('./components/Pages/InfoAllPageComponent.vue').default);
 Vue.component('transportation-page', require('./components/Pages/TransportationPageComponent.vue').default);
 Vue.component('partners-page', require('./components/Pages/PartnersPageComponent.vue').default);
+Vue.component('check-page', require('./components/Pages/CheckPageComponent.vue').default);
 Vue.component('test-page', require('./components/Pages/TestPageComponent.vue').default);
 
 // Inputs
