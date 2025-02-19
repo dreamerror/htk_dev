@@ -26,6 +26,10 @@
                         {{ translations.call[this.$store.state.lang] }}
                     </div>
 
+                    <div class="contacts-button" ref="text-block" @click="redirect('/check')">
+                        Отследить груз
+                    </div>
+
                     <div class="lang-switch" @click="switchLanguage">
                         <img src="/storage/flags/cn.png" alt="" v-if="this.$store.state.lang === 'ru'">
                         <img src="/storage/flags/ru.png" alt="" v-if="this.$store.state.lang === 'cn'">
@@ -39,6 +43,10 @@
 
                 <div class="contacts-button mobile" ref="text-block" @click="showModal = true">
                     {{ translations.call[this.$store.state.lang] }}
+                </div>
+
+                <div class="contacts-button mobile" ref="text-block" @click="redirect('/check')">
+                    Отследить груз
                 </div>
 
                 <div class="lang-switch mobile" @click="switchLanguage">
@@ -83,7 +91,6 @@
 </template>
 
 <script>
-// TODO: придумать как пересылать сообщения из формы "Заказать звонок"
 export default {
     name: "HeaderOnlyMainComponent",
     props: {
