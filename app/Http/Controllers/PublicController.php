@@ -136,6 +136,13 @@ class PublicController extends Controller
         ]);
     }
 
+    public function check() {
+        $bg = $this->getBackground('contacts');
+        return view('pages.check', [
+            'bg' => $bg
+        ]);
+    }
+
     public function transit() {
         $auth = $this->getAuth();
         $data = $this->getPageContent('transit_trans');

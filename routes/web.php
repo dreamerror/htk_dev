@@ -9,6 +9,7 @@ Route::get('/customs', [App\Http\Controllers\PublicController::class, 'customs']
 Route::get('/contacts', [App\Http\Controllers\PublicController::class, 'contacts']);
 Route::get('/prices', [App\Http\Controllers\PublicController::class, 'prices']);
 Route::get('/partners', [App\Http\Controllers\PublicController::class, 'partners']);
+Route::get('/check', [App\Http\Controllers\PublicController::class, 'check']);
 //Route::get('/test', [App\Http\Controllers\PublicController::class, 'test']);
 
 Route::group(['middleware' => ['web'], 'prefix' => 'login'], function () {

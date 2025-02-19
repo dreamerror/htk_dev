@@ -14,7 +14,6 @@
                         label="Проверить статус отправления"
                         placeholder="Введите трек-номер"
                         name="cargonum"
-                        v-model="trackNumber"
                         :required="true">
                 </text-input>
 
@@ -42,14 +41,14 @@ export default {
     },
     data() {
         return {
-            trackNumber: "",
             isLoading: false,
             errorMessage: ""
         }
     },
     methods: {
         handleSubmit() {
-            if (!this.trackNumber) {
+            let trackNumber = document.getElementById("cargonum").value;
+            if (!trackNumber) {
                 return;
             }
 
