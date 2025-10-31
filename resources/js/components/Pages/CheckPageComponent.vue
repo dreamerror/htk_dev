@@ -42,11 +42,13 @@ export default {
     data() {
         return {
             isLoading: false,
-            errorMessage: ""
+            errorMessage: "",
+            internalStatus: "",
+            externalStatus: "",
         }
     },
     methods: {
-        handleSubmit() {
+        async handleSubmit() {
             let trackNumber = document.getElementById("cargonum").value;
             if (!trackNumber) {
                 return;
@@ -54,11 +56,30 @@ export default {
 
             this.isLoading = true;
             this.errorMessage = "";
-            
-            setTimeout(() => {
+
+            try {
+                const response = await fetch(`https://htk.deklarant.ru/api/external/parcel-status/${trackNumber}`, {
+                    method: "GET",
+                    headers: {
+                        "api-token": "40e2f498-450c-4b9f-a509-7f4c8877a6ff"
+                    }
+                });
+                if (!response.ok) {
+                    this.isLoading = false;
+                    this.errorMessage = "При получении данных произошла ошибка, пожалуйста, попробуйте позже";
+                }
+                if (response.status == 204) {
+                    this.isLoading = false;
+                    this.errorMessage = "Отправление с этим номером не найдено";
+                } else {
+                    const result = await response.json();
+                    this.internalStatus = result.internalStatus;
+                    this.externalStatus = result.externalStatus;
+                }
+            } catch (error) {
                 this.isLoading = false;
-                this.errorMessage = "Отправления по данному трек-номеру не существует. Проверьте правильность введенной информации.";
-            }, 1000)
+                this.errorMessage = "При получении данных произошла ошибка, пожалуйста, попробуйте позже";
+            }
         }
     }
 }
