@@ -24,6 +24,15 @@
             <div v-if="isLoading" class="spinner">
                 Загрузка...
             </div>
+            <div v-if="internalStatus" class="internal-message">
+                {{ internalStatus }}
+            </div>
+            <div v-if="externalStatus" class="external-message">
+                {{ externalStatus }}
+            </div>
+            <div v-if="reasonMessage" class="reason-message">
+                {{ reasonMessage }}
+            </div>
             <div v-if="errorMessage" class="error-message">
                 {{ errorMessage }}
             </div>
@@ -45,6 +54,25 @@ export default {
             errorMessage: "",
             internalStatus: "",
             externalStatus: "",
+            reasonMessage: "",
+            statusCodes: {
+                "new": "Загружена, ожидает таможенного оформления",
+                "uploaded_to_registration": "Отправлена в таможню",
+                "decision_was_made": "Принято решение",
+                "exds10": "Выпуск товаров без уплаты таможенных платежей",
+                "exds30": "Выпуск возвращаемых товаров разрешен",
+                "exds31": "Требуется уплата таможенных платежей",
+                "exds32": "Выпуск товаров разрешен, таможенные платежи уплачены",
+                "exds40": "Разрешение на отзыв",
+                "exds50": "Предварительное решение. Выпуск разрешен без уплаты таможенных платежей",
+                "exds51": "Предварительное решение. Выпуск с уплатой таможенных платежей",
+                "exds60": "Срок выпуска товаров приостановлен",
+                "exds61": "Срок приостановления срока выпуска товаров продлен",
+                "exds62": "Приостановление срока выпуска товаров отменено",
+                "exds70": "Продление срока выпуска",
+                "exds90": "Отказ в выпуске товаров",
+                "exds92": "Требуется таможенный контроль",
+            }
         }
     },
     methods: {
@@ -73,8 +101,15 @@ export default {
                     this.errorMessage = "Отправление с этим номером не найдено";
                 } else {
                     const result = await response.json();
-                    this.internalStatus = result.internalStatus;
-                    this.externalStatus = result.externalStatus;
+                    this.internalStatus = this.statusCodes[result.internalStatus];
+                    if (result.internalStatus == "decision_was_made") {
+                        this.externalStatus = this.statusCodes[result.externalStatus];
+
+                        if (result.externalStatus == "exds90") {
+                            this.reasonMessage = result.reasonMessage
+                        }
+                    }
+                    
                 }
             } catch (error) {
                 this.isLoading = false;
@@ -136,6 +171,11 @@ export default {
         margin-top: 1rem;
         font-size: 1rem;
         color: red;
+    }
+
+    .internal-message, .external-message, .reason-message {
+        margin-top: 1rem;
+        font-size: 1rem;
     }
 
 </style>
